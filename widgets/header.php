@@ -19,11 +19,11 @@
     $start_date = date('Y-m-d', $start);
     $end_date = date('Y-m-d', strtotime('next saturday', $start)); 
 	
-	$link = mysqli_connect("localhost", "u256530890_tlog", "Eti&Shelly=2013", "u256530890_tlog") or die("Could not connect");
+	$link = mysqli_connect("localhost", "u574399506_tlog", "LongMayURun20@#", "u574399506_tlog") or die("Could not connect");
 
-//	$link = mysqli_connect("mysql.hostinger.co.il", "u256530890_tlog", "Eti&Shelly=2013", "u256530890_tlog" ) or die("Could not connect");
+//	$link = mysqli_connect("localhost", "u574399506_tlog", "LongMayURun20@#", "u574399506_tlog" ) or die("Could not connect");
 	mysqli_set_charset($link, "utf8");
-    mysqli_select_db($link, "u256530890_tlog") or die("Could not select database");
+    mysqli_select_db($link, "u574399506_tlog") or die("Could not select database");
  
     $query_d = "SELECT (SUM(run_distance) + SUM(warmup_distance) + SUM(cooldown_distance)) as daily from tl_events where date(run_date) = '" . date('Y-m-d') . "'" ;
 	$result_d = mysqli_query($link, $query_d) or die("Query failed");
