@@ -1,0 +1,50 @@
+:root{
+    --clr-dark: black;
+}
+
+::before,
+::after{
+    box-sizing: border-box;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    word-spacing: 1.4px;
+    font-family: 'Times New Roman', Times, serif;
+    color: var(--clr-dark);
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container{
+width: 80%;
+height: 700px;
+margin: 0 auto;
+border: 10px solid var(--clr-dark);
+display: flex;
+justify-content: space-between;
+flex-wrap: wrap;
+align-content: space-between;
+gap: 1em;
+}
+
+.item{
+    width: 150px;
+    height: 150px;
+    background-color: red;
+    padding: 1em;
+    font-weight: 700;
+    color: aliceblue;
+    text-align: center;
+    border: 10px solid cornsilk;
+    border-radius: 10px;
+}
+
+.item1{
+    flex-grow: 1;
+}
