@@ -1,6 +1,6 @@
 <?php
 require_once 'php/html_page_init.php';
-if ($memberId != '122' && $memberId != '18600106' && $memberId != '18600102'){
+if ($memberId != '18600094' && $memberId != '18600106' && $memberId != '18600102'){
 	die("You have no permission to view the page!");
 }
 ?>
