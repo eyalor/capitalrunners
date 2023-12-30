@@ -145,7 +145,7 @@
 					    <li><a id="admin" href="strava.php">Strava</a></li>
 					<?php } ?>
 					<?php
-					if ($runner_id == '122' || $runner_id == '18600106' || $runner_id == '18600102') {
+					if ($runner_id == '18600094' || $runner_id == '18600106' || $runner_id == '18600102') {
 					?>
 					
 					<li><a id="admin" href="races.php">מרוצים</a></li>
