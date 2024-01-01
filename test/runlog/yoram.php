@@ -25,6 +25,16 @@ if ($memberAuthentication->isCoach())
 echo "<br>";
 
 
+if ($_SESSION[MEMBER_ADMIN_SESSION_KEY_NAME])
+{
+    echo "True Admin Session Variable" ;
+}
+echo "<br>";
+
+
+
+
+
 
 //$dt = new DateTime("022-01-30T05:20:51Z", new DateTimeZone('Asia/Amman'));
 
