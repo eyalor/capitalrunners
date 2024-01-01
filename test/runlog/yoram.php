@@ -4,8 +4,7 @@ require_once 'php/html_page_init.php';
 
 echo $memberId;
 echo "<br>";
-$memberName = getMemberName();
-echo $memberName;
+echo $memberAuthentication->getMemberName();
 echo "<br>";
 
 //$dt = new DateTime("022-01-30T05:20:51Z", new DateTimeZone('Asia/Amman'));
