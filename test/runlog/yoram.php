@@ -11,6 +11,11 @@ echo "<br>";
 echo $memberAuthentication->isCoach();
 echo "<br>";
 
+if ($memberAuthentication->isAdmin())
+{
+    echo "True Admin";
+}
+
 //$dt = new DateTime("022-01-30T05:20:51Z", new DateTimeZone('Asia/Amman'));
 
 //echo $dt->format('Y-m-d h:i:s');
