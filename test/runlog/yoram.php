@@ -3,8 +3,9 @@ header('Access-Control-Allow-Origin: *');
 require_once 'php/html_page_init.php';
 
 echo $memberId;
-echo 'AAA';
+echo "<br>";
 echo $memberName;
+echo "<br>";
 
 //$dt = new DateTime("022-01-30T05:20:51Z", new DateTimeZone('Asia/Amman'));
 
