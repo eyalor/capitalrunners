@@ -138,6 +138,7 @@
                     <li><a id="courses" href="courses.php">המסלולים שלי</a></li>
 					<li><a id="statistics" href="statistics.php">סטטיסטיקה</a></li>
 					<li><a id="results" href="results.php">תוצאות</a></li>
+					<li><a id="admin" href="users.php">משתמשים</a></li>
 					<?php 
 					$runner_id = $memberAuthentication->getMemberId();
 					$stravaId = $memberAuthentication->getStravaId();
@@ -145,11 +146,11 @@
 					    <li><a id="admin" href="strava.php">Strava</a></li>
 					<?php } ?>
 					<?php
-					if ($runner_id == '18600094' || $runner_id == '18600106' || $runner_id == '18600102') {
+					if ($_SESSION[MEMBER_ADMIN_SESSION_KEY_NAME]) {
 					?>
 					
 					<li><a id="admin" href="races.php">מרוצים</a></li>
-					<li><a id="admin" href="users.php">משתמשים</a></li>
+					
 					<?php } ?>
                 </ul>
             </div>

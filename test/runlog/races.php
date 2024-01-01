@@ -1,6 +1,6 @@
 <?php
 require_once 'php/html_page_init.php';
-if ($memberId != '18600094' && $memberId != '18600106' && $memberId != '18600102'){
+if (!$_SESSION[MEMBER_ADMIN_SESSION_KEY_NAME]){
 	die("You have no permission to view the page!");
 }
 ?>
