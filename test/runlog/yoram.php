@@ -4,6 +4,7 @@ require_once 'php/html_page_init.php';
 
 echo $memberId;
 echo "<br>";
+$memberName = getMemberName();
 echo $memberName;
 echo "<br>";
 
