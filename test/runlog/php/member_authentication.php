@@ -130,6 +130,34 @@ public function getStravaId()
         }
     }
 
+    public function isCoach()
+    {
+        session_start();
+        if (isset($_SESSION[MEMBER_COACH_SESSION_KEY_NAME]))
+        {
+            return $_SESSION[MEMBER_COACH_SESSION_KEY_NAME];
+        }
+        else
+        {
+            $conn = getConnection();
+            $sql = "SELECT m_is_coach FROM tl_runners WHERE tl_runners.id = ?";
+            //$sql = "SELECT member_name FROM tl_runners WHERE tl_runners.id = '{$this->getMemberId()}'";
+            $stmt = $conn->prepare($sql);
+            $stmt->execute(array($this->getMemberId()));
+            $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            if (empty($result))
+            {
+                // no member with such an id
+                return '';
+            }
+
+            $isAdmin = $result[0]['m_is_coach'];
+            $_SESSION[MEMBER_COACH_SESSION_KEY_NAME] = $isAdmin;
+
+            return $isCoach;
+        }
+    }
+
     public function redirectToLoginPage()
     {
         if (DBLogger::isDebugEnabled())

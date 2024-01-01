@@ -8,6 +8,8 @@ echo $memberAuthentication->getMemberName();
 echo "<br>";
 echo $memberAuthentication->isAdmin();
 echo "<br>";
+echo $memberAuthentication->isCoach();
+echo "<br>";
 
 //$dt = new DateTime("022-01-30T05:20:51Z", new DateTimeZone('Asia/Amman'));
 
