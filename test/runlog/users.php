@@ -220,11 +220,20 @@ $(document).ready(function() {
                     <span class="label">תאריך לידה:</span>
                     <input type="text" name="birthdate" id="datepicker">
                 </div>
-				
+
+
+                <?php
+					if ($_SESSION[MEMBER_ADMIN_SESSION_KEY_NAME]) {
+					?>
+
                 <div style="margin-top:5px;">
                     <span class="active_col">אקטיבי:</span>
                     <input type="checkbox" id="active_runner">
                 </div>
+
+		        <?php } ?>
+				
+                
 				<input type="hidden" id="user_id" name="user_id">
             </form>
         </div>
