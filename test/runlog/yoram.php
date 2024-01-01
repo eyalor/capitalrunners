@@ -6,6 +6,8 @@ echo $memberId;
 echo "<br>";
 echo $memberAuthentication->getMemberName();
 echo "<br>";
+echo $memberAuthentication->isAdmin();
+echo "<br>";
 
 //$dt = new DateTime("022-01-30T05:20:51Z", new DateTimeZone('Asia/Amman'));
 
