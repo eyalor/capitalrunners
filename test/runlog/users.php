@@ -22,6 +22,9 @@ require_once 'php/html_page_init.php';
 
 <script type='text/javascript'>
 
+$runner_id = $memberAuthentication->getMemberId();
+echo $runner_id;
+
 var users = new Array();
 function populateUsersRecords() {
     $.ajax({
