@@ -230,7 +230,13 @@ $(document).ready(function() {
         </div>
 
         <h2 class="page_header">ניהול משתמשים</h2>
-        <input type="button" onclick="openCreateUserDialog()" value="הוסף משתמש" style="margin-top:20px;">
+
+        <?php
+					if ($_SESSION[MEMBER_ADMIN_SESSION_KEY_NAME]) {
+					?>
+                    <input type="button" onclick="openCreateUserDialog()" value="הוסף משתמש" style="margin-top:20px;">					
+		<?php } ?>
+        
         <div id="data" style="margin-top:20px;">
             <table id="users_table" class="tablesorter">
                 <thead>
@@ -242,7 +248,6 @@ $(document).ready(function() {
                 <tbody id="records"></tbody>
             </table>
         </div>
-        <div><a href="http://swrunners.com/myangularapp/">CookBook<a></div>
 
     </div>
 </body>
