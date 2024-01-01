@@ -15,6 +15,16 @@ if ($memberAuthentication->isAdmin())
 {
     echo "True Admin";
 }
+echo "<br>";
+
+
+if ($memberAuthentication->isCoach())
+{
+    echo "True Coach";
+}
+echo "<br>";
+
+
 
 //$dt = new DateTime("022-01-30T05:20:51Z", new DateTimeZone('Asia/Amman'));
 
