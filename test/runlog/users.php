@@ -22,7 +22,6 @@ require_once 'php/html_page_init.php';
 
 <script type='text/javascript'>
 
-echo $memberId;
 var users = new Array();
 function populateUsersRecords() {
     $.ajax({
