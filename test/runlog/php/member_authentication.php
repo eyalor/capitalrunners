@@ -151,7 +151,7 @@ public function getStravaId()
                 return '';
             }
 
-            $isAdmin = $result[0]['m_is_coach'];
+            $isCoach = $result[0]['m_is_coach'];
             $_SESSION[MEMBER_COACH_SESSION_KEY_NAME] = $isAdmin;
 
             return $isCoach;
