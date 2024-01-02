@@ -1,5 +1,7 @@
 <?php
 require_once 'php/html_page_init.php';
+$admin = $memberAuthentication->isAdmin();
+$coach = $memberAuthentication->isCoach();
 ?>
 <!DOCTYPE HTML>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -223,7 +225,7 @@ $(document).ready(function() {
 
 
                 <?php
-					if ($_SESSION[MEMBER_ADMIN_SESSION_KEY_NAME]) {
+					if ($admin) {
 					?>
 
                 <div style="margin-top:5px;">
@@ -241,7 +243,7 @@ $(document).ready(function() {
         <h2 class="page_header">ניהול משתמשים</h2>
 
         <?php
-					if ($_SESSION[MEMBER_ADMIN_SESSION_KEY_NAME]) {
+					if ($admin) {
 					?>
                     <input type="button" onclick="openCreateUserDialog()" value="הוסף משתמש" style="margin-top:20px;">					
 		<?php } ?>

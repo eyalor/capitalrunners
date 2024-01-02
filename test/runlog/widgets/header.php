@@ -40,6 +40,8 @@
 	
 	$query_bd = "SELECT member_name AS runner_name FROM  tl_runners WHERE m_show_profile = true and DATE_FORMAT(birthday, '%d-%m') = DATE_FORMAT(CURDATE(), '%d-%m')";
 	$result_bd = mysqli_query($link, $query_bd) or die("Query failed");
+	$admin = $memberAuthentication->isAdmin();
+ 	$coach = $memberAuthentication->isCoach();
 	
 ?>
 
@@ -146,7 +148,7 @@
 					    <li><a id="admin" href="strava.php">Strava</a></li>
 					<?php } ?>
 					<?php
-					if ($_SESSION[MEMBER_ADMIN_SESSION_KEY_NAME]) {
+					if ($admin) {
 					?>
 					
 					<li><a id="admin" href="races.php">מרוצים</a></li>

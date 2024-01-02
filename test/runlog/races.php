@@ -1,6 +1,8 @@
 <?php
 require_once 'php/html_page_init.php';
-if (!$_SESSION[MEMBER_ADMIN_SESSION_KEY_NAME]){
+$admin = $memberAuthentication->isAdmin();
+$coach = $memberAuthentication->isCoach();
+if (!$admin){
 	die("You have no permission to view the page!");
 }
 ?>
