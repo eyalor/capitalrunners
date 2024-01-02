@@ -7,7 +7,7 @@ require_once 'php/html_page_init.php';
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>הרוח השניה - Strava</title>
-<link rel="stylesheet" type="text/css" href="https://yui-s.yahooapis.com/combo?2.6.0/build/yahoo-dom-event/yahoo-dom-event.js&2.6.0/build/animation/animation-min.js">
+<link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.18.1/build/cssreset-context/cssreset-context-min.css">
 <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="stylesheet" type="text/css"/>
 <link href='./css/runlog.css?v=<?php echo CSS_VERSION;?>' rel='stylesheet' type='text/css'/>
 
