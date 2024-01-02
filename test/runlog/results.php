@@ -51,6 +51,7 @@ function drawRunnerTable() {
 
 
 function drawRunnerTableCallback(jsonData) {
+    echo "Start";
     if (jsonData.data == "") {
         if (jsonData.status.ecode == STATUS_ERR) {
             $("#errMsg1").css("color", "red");
