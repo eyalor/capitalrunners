@@ -3,7 +3,10 @@ require_once 'ajax_page_init.php';
 
 $conn = getConnection();
 
-$member_id = $_GET['runner_id'];
+//$member_id = $_GET['runner_id'];
+$member_id = empty($_GET['runner_id'])? $memberAuthentication->getMemberId() : $_GET['runner_id'];
+//empty($_GET['runner_id'])? $memberAuthentication->getMemberId() : $_GET['runner_id'];
+
 //$validationResult = validatePositiveInt($runner_id);
 //if (!$validationResult->isValid()) {
 //    die(getErrorStatusWithDummyData("Invalid runner id: " . $validationResult->getMessage()));

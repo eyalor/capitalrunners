@@ -34,7 +34,6 @@ function drawRunnerCharts() {
 
 
 function drawRunnerTable() {
-    //empty($var1)? $var2 : $var1;
 	var runner_id = $('#users').val();
 	var jsonData = null;
     var jsonDataResult = $.ajax({
