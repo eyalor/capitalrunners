@@ -35,7 +35,10 @@ function drawRunnerCharts() {
 
 function drawRunnerTable() {
     //empty($var1)? $var2 : $var1;
-	var runner_id = empty($('#users').val())? $memberId : $('#users').val();
+	var runner_id = $('#users').val();
+    if empty($runner_id){
+        runner_id = $memberId;
+    }
 	var jsonData = null;
     var jsonDataResult = $.ajax({
         url:'./php/get_races_report.php',
