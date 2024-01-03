@@ -41,7 +41,8 @@ if (!$ok) {
 } else {
     foreach ($sth->fetchAll(PDO :: FETCH_ASSOC) as $row) {
 
-		 $data[] = array($row['race_id'], $row['runner_id'], date('Y', strtotime($row['race_date'])), $row['race_name'], $row['race_type'], substr(date("H:i:s", $row['result']),1,7), substr(date("i:s", $row['pacet']),1,4), $row['notes'] );    
+		 //$data[] = array($row['race_id'], $row['runner_id'], date('Y', strtotime($row['race_date'])), $row['race_name'], $row['race_type'], substr(date("H:i:s", $row['result']),1,7), substr(date("i:s", $row['pacet']),1,4), $row['notes'] );    
+         $data[] = array(strval($row['race_id']), $row['runner_id'], date('Y', strtotime($row['race_date'])), $row['race_name'], $row['race_type'], substr(date("H:i:s", $row['result']),1,7), substr(date("i:s", $row['pacet']),1,4), $row['notes'] );    
 	}
 }
 
