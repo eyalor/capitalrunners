@@ -51,7 +51,8 @@ if (!$ok) {
     die(getErrorStatusWithDummyData("Failed to execute prepared statment"));
 } else {
     foreach ($sth->fetchAll(PDO :: FETCH_ASSOC) as $row) {
-        $data[] = array(date('d.m.y', strtotime($row['run_date'])), $row['notes'], $row['type'], floatval($row['sumk']), date("H:i:s", $row['timet']), date("i:s", $row['pacet']), $row['pulse'], $row['max_pulse'], $row['elevation'], floatval($row['weight']) );    
+        //$data[] = array(date('d.m.y', strtotime($row['run_date'])), $row['notes'], $row['type'], floatval($row['sumk']), date("H:i:s", $row['timet']), date("i:s", $row['pacet']), $row['pulse'], $row['max_pulse'], $row['elevation'], floatval($row['weight']) );    
+        $data[] = array(date('d.m.y', strtotime($row['run_date'])), $row['notes'], $row['type'], floatval($row['sumk']), date("H:i:s", $row['timet']), date("i:s", $row['pacet']), strval($row['pulse']), strval($row['max_pulse']), strval($row['elevation']), floatval($row['weight']) );    
     }
 }
 
