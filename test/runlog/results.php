@@ -135,11 +135,7 @@ function drawRunnerTableCallback(jsonData) {
     });
 
 	var user_admin = '<?php echo $memberId; ?>';
-    var admin = '<?php echo $memberAuthentication->isAdmin(); ?>';
-
-
-
-    	
+        	
 	new google.visualization.events.addListener(table, 'ready', function () {
 	        google.visualization.events.addListener(table.getChart(), 'select', function () {
 			    var selection = table.getChart().getSelection();
@@ -158,7 +154,7 @@ function drawRunnerTableCallback(jsonData) {
 					'color': 'purple',
 					'font-weight': 'bold'
 				});
-				if ($admin){
+				if (user_admin == '122'){
 					var dialogTitle = 'עדכן תוצאה';
 					$("#runner_results_dialog").dialog({ title: dialogTitle });
 					$("#runner_results_dialog").dialog("open");
