@@ -3,7 +3,10 @@ require_once 'ajax_page_init.php';
 
 $conn = getConnection();
 
-$member_id = $_GET['runner_id'];
+$member_id = isset($_GET['runner_id']) ? $_GET['runner_id'] : 18600094;
+//$name = isset($_GET["name"]) ? $_GET["name"] : 0;
+//$_GET['runner_id'];
+
 
 $default_id = $memberAuthentication->getMemberId();
 
