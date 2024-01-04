@@ -1,6 +1,5 @@
 <?php
 require_once 'php/html_page_init.php';
-$admin = $memberAuthentication->isAdmin();
 ?>
 <!DOCTYPE HTML>
 <head>
@@ -136,6 +135,10 @@ function drawRunnerTableCallback(jsonData) {
     });
 
 	var user_admin = '<?php echo $memberId; ?>';
+    var admin = '<?php echo $memberAuthentication->isAdmin(); ?>';
+
+
+
     	
 	new google.visualization.events.addListener(table, 'ready', function () {
 	        google.visualization.events.addListener(table.getChart(), 'select', function () {
