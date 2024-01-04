@@ -135,7 +135,7 @@ function drawRunnerTableCallback(jsonData) {
     });
 
 	var user_admin = '<?php echo $memberId; ?>';
-    $admin = $memberAuthentication->isAdmin();
+    var admin = $memberAuthentication->isAdmin();
 	
 	new google.visualization.events.addListener(table, 'ready', function () {
 	        google.visualization.events.addListener(table.getChart(), 'select', function () {
