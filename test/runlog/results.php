@@ -154,7 +154,7 @@ function drawRunnerTableCallback(jsonData) {
 					'color': 'purple',
 					'font-weight': 'bold'
 				});
-				if (user_admin == '122'){
+				if (user_admin == '18600094'){
 					var dialogTitle = 'עדכן תוצאה';
 					$("#runner_results_dialog").dialog({ title: dialogTitle });
 					$("#runner_results_dialog").dialog("open");
