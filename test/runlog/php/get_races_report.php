@@ -2,13 +2,13 @@
 require_once 'ajax_page_init.php';
 
 $conn = getConnection();
-
-$member_id = empty($_GET['runner_id']) ? 18600094 : $_GET['runner_id'] ;
+$default_id = $memberAuthentication->getMemberId();
+$member_id = $default_id;
+//empty($_GET['runner_id']) ? 18600094 : $_GET['runner_id'] ;
 //$name = isset($_GET["name"]) ? $_GET["name"] : 0;
 //$_GET['runner_id'];
 
 
-$default_id = $memberAuthentication->getMemberId();
 
 //$validationResult = validatePositiveInt($runner_id);
 //if (!$validationResult->isValid()) {
