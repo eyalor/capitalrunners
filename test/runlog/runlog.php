@@ -128,7 +128,7 @@ require_once 'php/html_page_init.php';
 					</td>
 					<!--18600062 חגי-->
 					<?php
-					if ($runner_id == '18600069' || $runner_id == '18600062') {
+					if ($runner_id == '18600069' || $runner_id == '18600062' || $runner_id == '18600094'  ) {
 					?>
 					<td>
 						<div id="weight_c" style="margin-top:5px;">
