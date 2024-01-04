@@ -34,9 +34,8 @@ function drawRunnerCharts() {
 
 
 function drawRunnerTable() {
-	//var runner_id = $('#users').val();
-    var runner_id = 18600094;
-	var jsonData = null;
+	var runner_id = $('#users').val();
+    var jsonData = null;
     var jsonDataResult = $.ajax({
         url:'./php/get_races_report.php',
         dataType:"json",
