@@ -68,16 +68,16 @@ function populateUsersRecords() {
 }
 
 function openCreateUserDialog() {
-    openUserDialog('', '', '', '','');
+    openUserDialog('', '', '', '','','');
 }
 
 function openUpdateUserDialog(userId)
 {
     var user = users[userId];
-	openUserDialog(user.member_name, user.member_num, user.email, user.user_id, user.birthdate, user.active_runner);
+	openUserDialog(user.member_name, user.member_num, user.email, user.user_id, user.birthdate, user.active_runner, user.show_weight);
 }
 
-function openUserDialog(userName, userMemberNum, userEmail, userId, birthDate, activeRunner)
+function openUserDialog(userName, userMemberNum, userEmail, userId, birthDate, activeRunner,showWeight)
 {
 	
     if (isNaN(parseInt(userId)))
@@ -98,7 +98,7 @@ function openUserDialog(userName, userMemberNum, userEmail, userId, birthDate, a
 	else {
 		$('#active_runner').prop('checked', false);
 	}
-	
+	$('#show_weight').prop('checked', false);
     $('#user_id').val(userId);
     $('#create_user_dialog').css('background-color', '#feffe5');
     $("#create_user_dialog").dialog({ title: dialogTitle });
@@ -107,13 +107,15 @@ function openUserDialog(userName, userMemberNum, userEmail, userId, birthDate, a
 
 function getUser() {
 	var active = $('#active_runner').is(':checked') ? 1 : 0;
+    var sweight = $('#show_weight').is(':checked') ? 1 : 0;
 	var user = {
 	    user_name : $('#user_name').val(),
 		member_num : $('#password').val(),
         email : $('#email').val(),
 		user_id : $('#user_id').val(),
 		birthdate : Time.hebDateToSqlDate($('#datepicker').val()),
-		active_runner : active
+		active_runner : active,
+        show_weight : sweight
     };
 	return user;
 }
@@ -233,7 +235,11 @@ $(document).ready(function() {
 
 		        <?php } ?>
 				
-                
+                <div style="margin-top:5px;">
+                    <span class="weight_col">משקל:</span>
+                    <input type="checkbox" id="show_weight">
+                </div>
+
 				<input type="hidden" id="user_id" name="user_id">
             </form>
         </div>

@@ -28,10 +28,10 @@ try {
 function getUsersRecords($conn,$runner_id)  {
 
     if ($_SESSION[MEMBER_ADMIN_SESSION_KEY_NAME]){
-                $sql = "SELECT tl_runners.id as user_id, tl_runners.member_name as member_name,tl_runners.member_num as member_num, tl_runners.email as email, tl_runners.birthday as birthdate, tl_runners.m_show_profile as active_runner FROM  tl_runners order by tl_runners.m_show_profile DESC,tl_runners.member_name";
+                $sql = "SELECT tl_runners.id as user_id, tl_runners.member_name as member_name,tl_runners.member_num as member_num, tl_runners.email as email, tl_runners.birthday as birthdate, tl_runners.m_show_profile as active_runner,tl_runners.m_show_weight as show_weight  FROM  tl_runners order by tl_runners.m_show_profile DESC,tl_runners.member_name";
             }
     else {    
-                 $sql = "SELECT tl_runners.id as user_id, tl_runners.member_name as member_name,tl_runners.member_num as member_num, tl_runners.email as email, tl_runners.birthday as birthdate, tl_runners.m_show_profile as active_runner FROM tl_runners WHERE tl_runners.id = '" . $runner_id . "'";
+                 $sql = "SELECT tl_runners.id as user_id, tl_runners.member_name as member_name,tl_runners.member_num as member_num, tl_runners.email as email, tl_runners.birthday as birthdate, tl_runners.m_show_profile as active_runner,tl_runners.m_show_weight as show_weight FROM tl_runners WHERE tl_runners.id = '" . $runner_id . "'";
     }
     //$sql = "SELECT tl_runners.id as user_id, tl_runners.member_name as member_name,tl_runners.member_num as member_num, tl_runners.email as email, tl_runners.birthday as birthdate, tl_runners.m_show_profile as active_runner FROM  tl_runners order by tl_runners.m_show_profile DESC,tl_runners.member_name";
     //$sql = "SELECT tl_runners.id as user_id, tl_runners.member_name as member_name,tl_runners.member_num as member_num, tl_runners.email as email, tl_runners.birthday as birthdate, tl_runners.m_show_profile as active_runner FROM tl_runners WHERE tl_runners.id = '" . $runner_id . "'";
