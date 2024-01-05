@@ -77,7 +77,7 @@ function openUpdateUserDialog(userId)
 	openUserDialog(user.member_name, user.member_num, user.email, user.user_id, user.birthdate, user.active_runner, user.show_weight);
 }
 
-function openUserDialog(userName, userMemberNum, userEmail, userId, birthDate, activeRunner,showWeight)
+function openUserDialog(userName, userMemberNum, userEmail, userId, birthDate, activeRunner, showWeight)
 {
 	
     if (isNaN(parseInt(userId)))
@@ -107,7 +107,7 @@ function openUserDialog(userName, userMemberNum, userEmail, userId, birthDate, a
 
 function getUser() {
 	var active = $('#active_runner').is(':checked') ? 1 : 0;
-    var sweight = $('#show_weight').is(':checked') ? 1 : 0;
+    var sweight = $('#show_weight').is(':checked') ? 0 : 1;
 	var user = {
 	    user_name : $('#user_name').val(),
 		member_num : $('#password').val(),
