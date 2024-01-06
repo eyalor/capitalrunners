@@ -152,10 +152,31 @@ public function getStravaId()
             }
 
             $isCoach = $result[0]['m_is_coach'];
-            $_SESSION[MEMBER_COACH_SESSION_KEY_NAME] = $isAdmin;
+            $_SESSION[MEMBER_COACH_SESSION_KEY_NAME] = $isCoach;
 
             return $isCoach;
         }
+    }
+
+    public function showWeigth()
+    {
+        
+            $conn = getConnection();
+            $sql = "SELECT m_show_weight FROM tl_runners WHERE tl_runners.id = ?";
+            $stmt = $conn->prepare($sql);
+            $stmt->execute(array($this->getMemberId()));
+            $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            if (empty($result))
+            {
+                // no member with such an id
+                return '';
+            }
+
+            $showWeigth = $result[0]['m_show_weight'];
+            
+
+            return $showWeigth;
+        
     }
 
     public function redirectToLoginPage()

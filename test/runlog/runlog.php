@@ -128,7 +128,8 @@ require_once 'php/html_page_init.php';
 					</td>
 					<!--18600062 חגי-->
 					<?php
-					if ($runner_id == '18600069' || $runner_id == '18600062' || $runner_id == '18600094'  ) {
+                    $showWeigth = $memberAuthentication->showWeigth();
+					if ($showWeigth) {
 					?>
 					<td>
 						<div id="weight_c" style="margin-top:5px;">
