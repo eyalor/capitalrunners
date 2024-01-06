@@ -114,7 +114,7 @@ function getUser() {
         email : $('#email').val(),
 		user_id : $('#user_id').val(),
 		birthdate : Time.hebDateToSqlDate($('#datepicker').val()),
-		active_runner : active,
+		active_runner : active
         //show_weight : sweight
 	return user;
 }
