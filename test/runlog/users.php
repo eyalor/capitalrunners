@@ -121,10 +121,10 @@ function getUser() {
 		birthdate : Time.hebDateToSqlDate($('#datepicker').val()),
 		active_runner : active,
         if (is_null(sweight)){
-            show_weight : 1
+            show_weight : 1;
         }
         else {
-            show_weight : sweight
+            show_weight : sweight;
         }
 	};
         return user;
