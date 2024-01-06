@@ -15,6 +15,7 @@ try {
 	}
 	$sth = $conn->prepare($sql);
 	
+	if ($_SESSION[MEMBER_ADMIN_SESSION_KEY_NAME]){
 	$ok = $sth->execute(array (
 		':member_name' => $user->user_name,
 		':member_num' => $user->member_num,
@@ -25,6 +26,19 @@ try {
 		':id' => $user->user_id
 		
 	));
+	}
+	else {
+		$ok = $sth->execute(array (
+			':member_name' => $user->user_name,
+			':member_num' => $user->member_num,
+			':email' => $user->email,
+			':birthdate' => $user->birthdate,
+			//':active_runner' => $user->active_runner,
+			':show_weight' => $user->show_weight,
+			':id' => $user->user_id
+			
+		));
+		}
 	var_dump ($ok); 
 	if (!$ok) {
 		die(getErrorStatusWithDummyData("Failed to update user."));
