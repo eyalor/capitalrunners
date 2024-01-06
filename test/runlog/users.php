@@ -1,5 +1,7 @@
 <?php
 require_once 'php/html_page_init.php';
+$admin = $memberAuthentication->isAdmin();
+$coach = $memberAuthentication->isCoach();
 ?>
 <!DOCTYPE HTML>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -252,8 +254,7 @@ $(document).ready(function() {
         <h2 class="page_header">ניהול משתמשים</h2>
 
         <?php
-        $admin = $memberAuthentication->isAdmin();
-        $coach = $memberAuthentication->isCoach();
+        
 					if ($admin) {
 					?>
                     <input type="button" onclick="openCreateUserDialog()" value="הוסף משתמש" style="margin-top:20px;">					
