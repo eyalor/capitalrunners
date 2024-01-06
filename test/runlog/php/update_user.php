@@ -7,7 +7,7 @@ $user = getUser();
 
 try {
 	$conn = getConnection();
-	$sql = 'UPDATE tl_runners SET member_name=:member_name,member_num=:member_num,email=:email,birthday=:birthdate,m_show_profile=:active_runner,m_show_weight=:show_weight WHERE id=:id';
+	$sql = 'UPDATE tl_runners SET member_name=:member_name,member_num=:member_num,email=:email,birthday=:birthdate,m_show_profile=:active_runner,m_show_weightt=:show_weight WHERE id=:id';
 	$sth = $conn->prepare($sql);
 	
 	$ok = $sth->execute(array (
