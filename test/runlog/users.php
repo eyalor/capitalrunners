@@ -107,7 +107,7 @@ function openUserDialog(userName, userMemberNum, userEmail, userId, birthDate, a
 
 function getUser() {
 	var active = $('#active_runner').is(':checked') ? 1 : 0;
-    var sweight = $('#show_weight').is(':checked') ? 0 : 1;
+    var sweight = $('#show_weight').is(':checked') ? 1 : 0;
 	var user = {
 	    user_name : $('#user_name').val(),
 		member_num : $('#password').val(),
@@ -115,7 +115,7 @@ function getUser() {
 		user_id : $('#user_id').val(),
 		birthdate : Time.hebDateToSqlDate($('#datepicker').val()),
 		active_runner : active,
-        show_weight : sweight
+        show_weight : 1
     };
 	return user;
 }

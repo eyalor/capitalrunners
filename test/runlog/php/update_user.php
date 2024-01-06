@@ -16,7 +16,7 @@ try {
 		':email' => $user->email,
 		':birthdate' => $user->birthdate,
 		':active_runner' => $user->active_runner,
-		':show_weight' => 1,
+		':show_weight' => $user->show_weight,
 		':id' => $user->user_id
 		
 	));
