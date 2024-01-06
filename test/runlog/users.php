@@ -113,6 +113,9 @@ function openUserDialog(userName, userMemberNum, userEmail, userId, birthDate, a
 function getUser() {
 	var active = $('#active_runner').is(':checked') ? 1 : 0;
     var sweight = $('#show_weight').is(':checked') ? 1 : 0;
+    if (is_null(sweight)){
+        sweight = 1; 
+    }
 	var user = {
 	    user_name : $('#user_name').val(),
 		member_num : $('#password').val(),
