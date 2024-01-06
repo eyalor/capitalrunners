@@ -98,7 +98,12 @@ function openUserDialog(userName, userMemberNum, userEmail, userId, birthDate, a
 	else {
 		$('#active_runner').prop('checked', false);
 	}
-	$('#show_weight').prop('checked', false);
+    if (showWeight == 1){
+		$('#show_weight').prop('checked', true);
+	}
+	else {
+		$('#show_weight').prop('checked', false);
+	}
     $('#user_id').val(userId);
     $('#create_user_dialog').css('background-color', '#feffe5');
     $("#create_user_dialog").dialog({ title: dialogTitle });
