@@ -26,7 +26,7 @@ function getDayEventsAsJSON($conn,$date,$untilDate,$runnerId) {
     WHERE  tl_events.runner_id ='" . $runnerId . "'
 	and date(tl_events.run_date) > '" . $date . "'
 	and date(tl_events.run_date) <= '" . $untilDate . "'
-    and tl_events.id IN (select comments.event_id from tl_comments WHERE runner_id = (select id from tl_runners where m_is_coach=1)
+    and tl_events.id IN (select event_id from tl_comments WHERE runner_id = (select id from tl_runners where m_is_coach=1))
     ORDER BY tl_events.id DESC";
 
     $stmt = $conn->query($sql);
