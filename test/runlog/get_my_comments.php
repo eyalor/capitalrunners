@@ -37,6 +37,7 @@ function getDayEventsAsJSON($conn,$date) {
      JOIN tl_comments comments ON events.id = comments.event_id
      JOIN tl_runners runners ON comments.runner_id = runners.id
      WHERE events.run_date >= '" . $date . "'  and comments.runner_id IN (select id from tl_runners where m_is_coach=1 or id = '" . $runnerId . "')
+     AND events.id in (select comments.event_id from tl_comments WHERE comments.runner_id = (select id from tl_runners where m_is_coach=1))
      ORDER BY events.id DESC, comments.id ASC";
 
     $stmt = $conn->query($sql);
