@@ -207,7 +207,7 @@ $(document).ready(function() {
     <?php require 'widgets/header.php'; ?>
 
     <div class="RunLog" class="ui-widget" style="width:920px; margin-left:auto; margin-right:auto;">
-        <!--<iframe id="ifrm"  width=920px height=700px src="http://www.swrunners.com/strava/"></iframe>-->
+        <!--<iframe id="ifrm"  width=920px height=700px src="http://www.cp-runners.com/strava/"></iframe>-->
         <div id="create_user_dialog">
             <form>
                 <div style="margin-top:5px;">
