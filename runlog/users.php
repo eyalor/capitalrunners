@@ -242,7 +242,7 @@ $(document).ready(function() {
                 <tbody id="records"></tbody>
             </table>
         </div>
-        <div><a href="http://swrunners.com/myangularapp/">CookBook<a></div>
+        <div><a href="http://cp-runners.com/myangularapp/">CookBook<a></div>
 
     </div>
 </body>
