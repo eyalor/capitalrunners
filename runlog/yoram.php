@@ -1,9 +1,9 @@
 <?php
 header('Access-Control-Allow-Origin: *');
 require_once 'php/html_page_init.php';
-//require_once 'member_authentication.php';
-//require_once 'constants.php';
-//require_once 'utils.php';
+require_once 'php/member_authentication.php';
+require_once 'php/constants.php';
+require_once 'php/utils.php';
 
 echo $memberId;
 echo "<br>";
