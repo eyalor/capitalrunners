@@ -13,6 +13,16 @@ echo "<br>";
 echo $memberAuthentication->getStravaId();
 echo "<br>";
 
+$json = file_get_contents('php://input');
+$data = json_decode($json);
+$memberAuthentication = new memberAuthentication();
+if (!$memberAuthentication->isMemberAuthenticated())
+{
+    echo $data->email;
+    echo $data->password;
+    
+}
+
 if ($memberAuthentication->isAdmin())
 {
     echo "True Admin";
