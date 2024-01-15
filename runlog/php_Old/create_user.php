@@ -4,14 +4,13 @@
 	$user = getUser();
 try {
 	$conn = getConnection();
-	$sql = 'INSERT INTO tl_runners (member_name,email,member_num,m_show_profile,m_show_weight) VALUES (:user_name,:email,:password,:active_runner)';
+	$sql = 'INSERT INTO tl_runners (member_name,email,member_num,m_show_profile) VALUES (:user_name,:email,:password,:active_runner)';
 	$sth = $conn->prepare($sql);
 	$ok = $sth->execute(array (
 	':user_name'=> $user->user_name,
 	':email' => $user->email,
 	':password' => $user->member_num,
-	':active_runner' => $user->active_runner;
-	':show_weight' => $user->show_weight
+	':active_runner' => $user->active_runner
 	));
 	if (!$ok) {
 		die(getErrorStatusWithDummyData("Failed to Create a user."));

@@ -11,8 +11,6 @@ define('AUTH_COOKIE_NAME', 'swlog-number');
 define('AUTH_COOKIE_DURATION', 2592000); // 30 days in seconds
 
 define('MEMBER_NAME_SESSION_KEY_NAME', 'member_name');
-define('MEMBER_ADMIN_SESSION_KEY_NAME', 'm_is_admin');
-define('MEMBER_COACH_SESSION_KEY_NAME', 'm_is_coach');
 
 define('tl_members', 'members');
 define('tl_events', 'events');

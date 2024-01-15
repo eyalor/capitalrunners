@@ -2,20 +2,8 @@
 require_once 'ajax_page_init.php';
 
 $conn = getConnection();
-$default_id = $memberAuthentication->getMemberId();
 
-if (is_numeric($_GET['runner_id'])){
-    $member_id = $_GET['runner_id'];  
-}
-else {
-    $member_id = $default_id;
-}
-//empty($_GET['runner_id']) ? 18600094 : $_GET['runner_id'] ;
-//$name = isset($_GET["name"]) ? $_GET["name"] : 0;
-//$_GET['runner_id'];
-
-
-
+$member_id = $_GET['runner_id'];
 //$validationResult = validatePositiveInt($runner_id);
 //if (!$validationResult->isValid()) {
 //    die(getErrorStatusWithDummyData("Invalid runner id: " . $validationResult->getMessage()));
@@ -53,8 +41,7 @@ if (!$ok) {
 } else {
     foreach ($sth->fetchAll(PDO :: FETCH_ASSOC) as $row) {
 
-		 //$data[] = array($row['race_id'], $row['runner_id'], date('Y', strtotime($row['race_date'])), $row['race_name'], $row['race_type'], substr(date("H:i:s", $row['result']),1,7), substr(date("i:s", $row['pacet']),1,4), $row['notes'] );    
-         $data[] = array(strval($row['race_id']), strval($row['runner_id']), date('Y', strtotime($row['race_date'])), $row['race_name'], $row['race_type'], substr(date("H:i:s", $row['result']),1,7), substr(date("i:s", $row['pacet']),1,4), $row['notes'] );    
+		 $data[] = array($row['race_id'], $row['runner_id'], date('Y', strtotime($row['race_date'])), $row['race_name'], $row['race_type'], substr(date("H:i:s", $row['result']),1,7), substr(date("i:s", $row['pacet']),1,4), $row['notes'] );    
 	}
 }
 

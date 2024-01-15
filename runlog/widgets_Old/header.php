@@ -19,11 +19,11 @@
     $start_date = date('Y-m-d', $start);
     $end_date = date('Y-m-d', strtotime('next saturday', $start)); 
 	
-	$link = mysqli_connect("localhost", "u574399506_testlog", "Sandbox1PA$$", "u574399506_testlog") or die("Could not connect");
+	$link = mysqli_connect("localhost", "u574399506_tlog", "LongMayURun20@#", "u574399506_tlog") or die("Could not connect");
 
-//	$link = mysqli_connect("localhost", "u574399506_testlog", "Sandbox1PA$$", "u574399506_testlog" ) or die("Could not connect");
+//	$link = mysqli_connect("localhost", "u574399506_tlog", "LongMayURun20@#", "u574399506_tlog" ) or die("Could not connect");
 	mysqli_set_charset($link, "utf8");
-    mysqli_select_db($link, "u574399506_testlog") or die("Could not select database");
+    mysqli_select_db($link, "u574399506_tlog") or die("Could not select database");
  
     $query_d = "SELECT (SUM(run_distance) + SUM(warmup_distance) + SUM(cooldown_distance)) as daily from tl_events where date(run_date) = '" . date('Y-m-d') . "'" ;
 	$result_d = mysqli_query($link, $query_d) or die("Query failed");
@@ -40,8 +40,6 @@
 	
 	$query_bd = "SELECT member_name AS runner_name FROM  tl_runners WHERE m_show_profile = true and DATE_FORMAT(birthday, '%d-%m') = DATE_FORMAT(CURDATE(), '%d-%m')";
 	$result_bd = mysqli_query($link, $query_bd) or die("Query failed");
-	$admin = $memberAuthentication->isAdmin();
- 	$coach = $memberAuthentication->isCoach();
 	
 ?>
 
@@ -140,7 +138,6 @@
                     <li><a id="courses" href="courses.php">המסלולים שלי</a></li>
 					<li><a id="statistics" href="statistics.php">סטטיסטיקה</a></li>
 					<li><a id="results" href="results.php">תוצאות</a></li>
-					<li><a id="admin" href="users.php">משתמשים</a></li>
 					<?php 
 					$runner_id = $memberAuthentication->getMemberId();
 					$stravaId = $memberAuthentication->getStravaId();
@@ -148,11 +145,11 @@
 					    <li><a id="admin" href="strava.php">Strava</a></li>
 					<?php } ?>
 					<?php
-					if ($admin) {
+					if ($runner_id == '18600094' || $runner_id == '18600106' || $runner_id == '18600102') {
 					?>
 					
 					<li><a id="admin" href="races.php">מרוצים</a></li>
-					
+					<li><a id="admin" href="users.php">משתמשים</a></li>
 					<?php } ?>
                 </ul>
             </div>

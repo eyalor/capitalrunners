@@ -7,18 +7,38 @@ $user = getUser();
 
 try {
 	$conn = getConnection();
-	$sql = 'UPDATE tl_runners SET member_name=:member_name,member_num=:member_num,email=:email,birthday=:birthdate,m_show_profile=:active_runner WHERE id=:id';
+	if ($_SESSION[MEMBER_ADMIN_SESSION_KEY_NAME]){
+		$sql = 'UPDATE tl_runners SET member_name=:member_name,member_num=:member_num,email=:email,birthday=:birthdate,m_show_profile=:active_runner,m_show_weight=:show_weight WHERE id=:id';
+	}	
+	else {
+		$sql = 'UPDATE tl_runners SET member_name=:member_name,member_num=:member_num,email=:email,birthday=:birthdate,m_show_weight=:show_weight WHERE id=:id';
+	}
 	$sth = $conn->prepare($sql);
 	
+	if ($_SESSION[MEMBER_ADMIN_SESSION_KEY_NAME]){
 	$ok = $sth->execute(array (
 		':member_name' => $user->user_name,
 		':member_num' => $user->member_num,
 		':email' => $user->email,
 		':birthdate' => $user->birthdate,
 		':active_runner' => $user->active_runner,
+		':show_weight' => $user->show_weight,
 		':id' => $user->user_id
 		
 	));
+	}
+	else {
+		$ok = $sth->execute(array (
+			':member_name' => $user->user_name,
+			':member_num' => $user->member_num,
+			':email' => $user->email,
+			':birthdate' => $user->birthdate,
+			//':active_runner' => $user->active_runner,
+			':show_weight' => $user->show_weight,
+			':id' => $user->user_id
+			
+		));
+		}
 	var_dump ($ok); 
 	if (!$ok) {
 		die(getErrorStatusWithDummyData("Failed to update user."));
