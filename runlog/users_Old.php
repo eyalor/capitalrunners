@@ -1,7 +1,5 @@
 <?php
 require_once 'php/html_page_init.php';
-$admin = $memberAuthentication->isAdmin();
-$coach = $memberAuthentication->isCoach();
 ?>
 <!DOCTYPE HTML>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -9,7 +7,7 @@ $coach = $memberAuthentication->isCoach();
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>הרוח השניה - ניהול</title>
-<link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.18.1/build/cssreset-context/cssreset-context-min.css">
+<link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.5.1/build/cssreset/cssreset-min.css">
 <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="stylesheet" type="text/css"/>
 <link href='./css/runlog.css?v=<?php echo CSS_VERSION;?>' rel='stylesheet' type='text/css'/>
 
@@ -70,16 +68,16 @@ function populateUsersRecords() {
 }
 
 function openCreateUserDialog() {
-    openUserDialog('', '', '', '','','');
+    openUserDialog('', '', '', '','');
 }
 
 function openUpdateUserDialog(userId)
 {
     var user = users[userId];
-	openUserDialog(user.member_name, user.member_num, user.email, user.user_id, user.birthdate, user.active_runner, user.show_weight);
+	openUserDialog(user.member_name, user.member_num, user.email, user.user_id, user.birthdate, user.active_runner);
 }
 
-function openUserDialog(userName, userMemberNum, userEmail, userId, birthDate, activeRunner, showWeight)
+function openUserDialog(userName, userMemberNum, userEmail, userId, birthDate, activeRunner)
 {
 	
     if (isNaN(parseInt(userId)))
@@ -100,12 +98,7 @@ function openUserDialog(userName, userMemberNum, userEmail, userId, birthDate, a
 	else {
 		$('#active_runner').prop('checked', false);
 	}
-    if (showWeight == 1){
-		$('#show_weight').prop('checked', true);
-	}
-	else {
-		$('#show_weight').prop('checked', false);
-	}
+	
     $('#user_id').val(userId);
     $('#create_user_dialog').css('background-color', '#feffe5');
     $("#create_user_dialog").dialog({ title: dialogTitle });
@@ -114,17 +107,15 @@ function openUserDialog(userName, userMemberNum, userEmail, userId, birthDate, a
 
 function getUser() {
 	var active = $('#active_runner').is(':checked') ? 1 : 0;
-    var sweight = $('#show_weight').is(':checked') ? 1 : 0;
-    var user = {
+	var user = {
 	    user_name : $('#user_name').val(),
 		member_num : $('#password').val(),
         email : $('#email').val(),
 		user_id : $('#user_id').val(),
 		birthdate : Time.hebDateToSqlDate($('#datepicker').val()),
-		active_runner : active,
-        show_weight : sweight
-	};
-        return user;
+		active_runner : active
+    };
+	return user;
 }
 
 $(document).ready(function() {
@@ -207,7 +198,7 @@ $(document).ready(function() {
     <?php require 'widgets/header.php'; ?>
 
     <div class="RunLog" class="ui-widget" style="width:920px; margin-left:auto; margin-right:auto;">
-        <!--<iframe id="ifrm"  width=920px height=700px src="https://www.cp-runners.com/strava/"></iframe>-->
+        <!--<iframe id="ifrm"  width=920px height=700px src="http://www.swrunners.com/strava/"></iframe>-->
         <div id="create_user_dialog">
             <form>
                 <div style="margin-top:5px;">
@@ -229,37 +220,17 @@ $(document).ready(function() {
                     <span class="label">תאריך לידה:</span>
                     <input type="text" name="birthdate" id="datepicker">
                 </div>
-
-
-                <?php
-					if ($admin) {
-					?>
-
+				
                 <div style="margin-top:5px;">
                     <span class="active_col">אקטיבי:</span>
                     <input type="checkbox" id="active_runner">
                 </div>
-
-		        <?php } ?>
-				
-                <div style="margin-top:5px;">
-                    <span class="weight_col">משקל:</span>
-                    <input type="checkbox" id="show_weight">
-                </div>
-
 				<input type="hidden" id="user_id" name="user_id">
             </form>
         </div>
 
         <h2 class="page_header">ניהול משתמשים</h2>
-
-        <?php
-        
-					if ($admin) {
-					?>
-                    <input type="button" onclick="openCreateUserDialog()" value="הוסף משתמש" style="margin-top:20px;">					
-		<?php } ?>
-        
+        <input type="button" onclick="openCreateUserDialog()" value="הוסף משתמש" style="margin-top:20px;">
         <div id="data" style="margin-top:20px;">
             <table id="users_table" class="tablesorter">
                 <thead>
@@ -271,6 +242,7 @@ $(document).ready(function() {
                 <tbody id="records"></tbody>
             </table>
         </div>
+        <div><a href="http://cp-runners.com/myangularapp/">CookBook<a></div>
 
     </div>
 </body>
