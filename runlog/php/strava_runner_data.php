@@ -33,8 +33,8 @@ $data = json_decode($json);
 $memberAuthentication = new memberAuthentication();
 if (!$memberAuthentication->isMemberAuthenticated())
 {
-    echo $data->email;
-    echo $data->password;
+    //echo $data->email;
+    //echo $data->password;
     $memberAuthentication->login($data->email,$data->password,true);
     if (!$memberAuthentication->isMemberAuthenticated()){
         return;
