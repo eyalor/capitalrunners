@@ -18,10 +18,10 @@ echo "<br>";
 
 
 
-//$json = file_get_contents('php://input');
-//$data = json_decode($json);
-//echo $data->email;
-//echo $data->password;
+$json = file_get_contents('php://input');
+$data = json_decode($json);
+echo $data->email;
+echo $data->password;
 
 
 if ($memberAuthentication->isAdmin())
