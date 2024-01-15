@@ -6,6 +6,6 @@
 //$DBNAME 	= 'bc_tlog';
 
 $HOSTNAME 	= 'localhost';
-$USERNAME 	= 'u574399506_testlog';
-$PASSWORD 	= 'Sandbox1PA$$';
-$DBNAME 	= 'u574399506_testlog';
+$USERNAME 	= 'u574399506_tlog';
+$PASSWORD 	= 'LongMayURun20@#';
+$DBNAME 	= 'u574399506_tlog';
