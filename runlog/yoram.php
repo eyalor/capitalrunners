@@ -10,6 +10,8 @@ echo $memberAuthentication->isAdmin();
 echo "<br>";
 echo $memberAuthentication->isCoach();
 echo "<br>";
+echo $memberAuthentication->getStravaId();
+echo "<br>";
 
 if ($memberAuthentication->isAdmin())
 {
