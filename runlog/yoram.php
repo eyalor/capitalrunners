@@ -13,6 +13,10 @@ echo "<br>";
 echo $memberAuthentication->getStravaId();
 echo "<br>";
 
+require_once 'member_authentication.php';
+require_once 'constants.php';
+require_once 'utils.php';
+
 $json = file_get_contents('php://input');
 $data = json_decode($json);
 echo $data->email;
