@@ -1,6 +1,9 @@
 <?php
 header('Access-Control-Allow-Origin: *');
 require_once 'php/html_page_init.php';
+require_once 'member_authentication.php';
+require_once 'constants.php';
+require_once 'utils.php';
 
 echo $memberId;
 echo "<br>";
@@ -13,21 +16,13 @@ echo "<br>";
 echo $memberAuthentication->getStravaId();
 echo "<br>";
 
-require_once 'member_authentication.php';
-require_once 'constants.php';
-require_once 'utils.php';
+
 
 $json = file_get_contents('php://input');
 $data = json_decode($json);
 echo $data->email;
 echo $data->password;
-$memberAuthentication = new memberAuthentication();
-if (!$memberAuthentication->isMemberAuthenticated())
-{
-    echo $data->email;
-    echo $data->password;
-    
-}
+
 
 if ($memberAuthentication->isAdmin())
 {
