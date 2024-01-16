@@ -8,7 +8,7 @@ require_once 'php/html_page_init.php';
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>הרוח השנייה - מה עשו החבר'ה</title>
 <link rel="stylesheet" type="text/css" href="https://yui-s.yahooapis.com/3.18.1/build/cssreset-context/cssreset-context-min.css">
-<link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="stylesheet" type="text/css"/>
+<link href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="stylesheet" type="text/css"/>
 <link href='./css/runlog.css?v=<?php echo CSS_VERSION;?>' rel='stylesheet' type='text/css'/>
 
 <script src="./js/jquery.min.js" type="text/javascript"></script>
