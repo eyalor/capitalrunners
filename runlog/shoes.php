@@ -43,7 +43,7 @@ function populateUserShoesRecords() {
 	                html += '<td>' + item.name + '</td>';
                     html += '<td>' + item.type_name + '</td>';
 	                html += '<td>' + (item.start_using_date) + '</td>';
-	                html += '<td>' + item.distance + '</td>';
+	                html += '<td>' + round(item.distance,1) + '</td>';
 	                html += '</tr>';
 	            });
 	            $('#records').html(html);
