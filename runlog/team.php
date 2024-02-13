@@ -6,7 +6,7 @@ require_once 'php/html_page_init.php';
 <html dir="RTL">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>הרוח השניה - יומן קבוצתי</title>
+    <title>רצי הבירה - יומן קבוצתי</title>
     <link rel="stylesheet" type="text/css" href="https://yui-s.yahooapis.com/3.5.1/build/cssreset/cssreset-min.css">
     <link href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="stylesheet"
           type="text/css"/>

@@ -45,7 +45,7 @@ require_once 'php/html_page_init.php';
 <html dir="RTL">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>הרוח השניה - כניסה</title>
+<title>רצי הבירה - כניסה</title>
 <link rel="stylesheet" type="text/css" href="https://yui-s.yahooapis.com/3.5.1/build/cssreset/cssreset-min.css">
 <link href='./css/runlog.css?v=<?php echo CSS_VERSION;?>' rel='stylesheet' type='text/css'/>
 <script src="./js/jquery.min.js" type="text/javascript"></script>

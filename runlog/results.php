@@ -10,7 +10,7 @@ Pragma: no-cache
 Expires: 0>
 <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
 
-<title>הרוח השניה - תוצאות</title>
+<title>רצי הבירה - תוצאות</title>
 <link rel="stylesheet" type="text/css" href="https://yui-s.yahooapis.com/3.5.1/build/cssreset/cssreset-min.css">
 <link href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="stylesheet"
       type="text/css"/>

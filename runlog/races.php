@@ -9,7 +9,7 @@ if ($memberId != '18600094' && $memberId != '18600106' && $memberId != '18600102
 <html dir="RTL">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>הרוח השניה - מרוצים</title>
+<title>רצי הבירה - מרוצים</title>
 <link rel="stylesheet" type="text/css" href="https://yui-s.yahooapis.com/3.5.1/build/cssreset/cssreset-min.css">
 <link href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="stylesheet" type="text/css"/>
 <link href='./css/runlog.css?v=<?php echo CSS_VERSION;?>' rel='stylesheet' type='text/css'/>
