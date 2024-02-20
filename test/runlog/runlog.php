@@ -204,6 +204,11 @@ require_once 'php/html_page_init.php';
             <div id="notesContainer" style="float:right;"></div>
         </div>
 
+        <div style="margin-top:20px;">
+            <div class="label">פרטים</div>
+            <div id="notesContainer" style="float:right;"></div>
+        </div>
+
     </form>
 </div>
 </body>
