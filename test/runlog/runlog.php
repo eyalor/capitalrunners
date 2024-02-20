@@ -112,20 +112,7 @@ require_once 'php/html_page_init.php';
 							<label for="run_types" class="label">סוג אימון</label>
 							<select id="run_types" class="run_types"></select>
 						</div>
-					</td>
-					<td>
-						<div id="pulse_c" style="margin-top:5px;">
-							<label for="pulse" class="label">דופק</label>
-							<input type="text" id="pulse" class="pulse">
-						</div>
-					</td>
-					<td>
-						<div id="max_pulse_c" style="margin-top:5px;">
-							<label for="max_pulse" class="label">דופק מקס'</label>
-							<input type="text" id="max_pulse" class="max_pulse">
-						</div>
-					</td>
-					
+					</td>	
 				</tr>
 			</table>
 		</div>
