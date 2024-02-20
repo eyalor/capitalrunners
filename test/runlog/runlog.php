@@ -103,6 +103,32 @@ require_once 'php/html_page_init.php';
 				</tr>
 			</table>
 		</div>
+
+        <div id="type_pulse">
+			<table cellspacing="0" cellpadding="0" border="0" class="duration_distance_pace_table">
+				<tr>
+					<td>        
+						<div style="margin-top:5px;">
+							<label for="run_types" class="label">סוג אימון</label>
+							<select id="run_types" class="run_types"></select>
+						</div>
+					</td>
+					<td>
+						<div id="pulse_c" style="margin-top:5px;">
+							<label for="pulse" class="label">דופק</label>
+							<input type="text" id="pulse" class="pulse">
+						</div>
+					</td>
+					<td>
+						<div id="max_pulse_c" style="margin-top:5px;">
+							<label for="max_pulse" class="label">דופק מקס'</label>
+							<input type="text" id="max_pulse" class="max_pulse">
+						</div>
+					</td>
+					
+				</tr>
+			</table>
+		</div>
         
         <!-- Event types -->
         <!--<div style="margin-top:15px;">-->
@@ -204,11 +230,7 @@ require_once 'php/html_page_init.php';
             <div id="notesContainer" style="float:right;"></div>
         </div>
 
-        <div style="margin-top:20px;">
-            <div class="label">פרטים</div>
-            <div id="notesContainer" style="float:right;"></div>
-        </div>
-
+     
     </form>
 </div>
 </body>
