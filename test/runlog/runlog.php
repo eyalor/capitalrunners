@@ -109,8 +109,8 @@ require_once 'php/html_page_init.php';
 				<tr>
 					<td>        
 						<div style="margin-top:5px;">
-							<label for="run_types" class="label">סוג אימון</label>
-							<select id="run_types" class="run_types"></select>
+							<label for="rpe_c" class="label">מדד מאמץ RPE</label>
+							<select id="rpe_c" class="rpe_c"></select>
 						</div>
 					</td>	
 				</tr>
