@@ -511,7 +511,7 @@ var EventDialog = {
             }
     
             // handler for the run types combo box change
-            $('#rpe').change(this.RPEChanged);
+            $('#rpe').val();
         },
 
     // populate a <select> with values + a pre defined select prompt (applies for shoes and courses)
