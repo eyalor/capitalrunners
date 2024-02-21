@@ -439,6 +439,7 @@ var EventDialog = {
         this.initRunTypes();
         this.initRPE();
         this.initShoesAndCourses();
+        $('#rpe').val('1');
         $('#courseSelect').change(this.courseChanged);
         EventDialog.shoesDetached = false;
         $('#shoeSelect').change(this.shoeChanged);
