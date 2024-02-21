@@ -437,6 +437,7 @@ var EventDialog = {
     // with values appropriate to the current user
     init:function () {
         this.initRunTypes();
+        this.initRPE();
         this.initShoesAndCourses();
         $('#courseSelect').change(this.courseChanged);
         EventDialog.shoesDetached = false;
@@ -496,6 +497,20 @@ var EventDialog = {
         // handler for the run types combo box change
         $('#run_types').change(this.runTypeChanged);
     },
+
+        // populate the RPE <select>
+        initRPE:function () {
+            var select = document.getElementById("rpe");
+            for (var key in RPE) {
+                var value = RPE[key];
+                var label = RPE_ATTRIBUTES[value].getLabel();
+                var option = new Option(label, value);
+                select.options[select.options.length] = option;
+            }
+    
+            // handler for the run types combo box change
+            //$('#rpe').change(this.runTypeChanged);
+        },
 
     // populate a <select> with values + a pre defined select prompt (applies for shoes and courses)
     initSelect:function (controlId, data, selectPrompt, controlContainer, extraDataFieldName) {
