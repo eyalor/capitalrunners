@@ -104,7 +104,7 @@ require_once 'php/html_page_init.php';
 			</table>
 		</div>
 
-        <div id="type_pulse">
+        <div id="rpe">
 			<table cellspacing="0" cellpadding="0" border="0" class="duration_distance_pace_table">
 				<tr>
 					<td>        
