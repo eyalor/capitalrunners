@@ -108,7 +108,7 @@ require_once 'php/html_page_init.php';
 			<table cellspacing="0" cellpadding="0" border="0" class="duration_distance_pace_table">
 				<tr>
 					<td>        
-						<div id="rpe_c" style="margin-top:5px;">
+						<div style="margin-top:5px;">
 							<label for="rpe" class="label">מדד מאמץ RPE</label>
 							<select id="rpe" class="rpe"></select>
 						</div>

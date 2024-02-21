@@ -698,7 +698,7 @@ var EventDialog = {
 			$('#max_pulse_c').hide();
 			$('#course_elev').hide();
 			$('#weight_c').hide();
-            $('#rpe_c').hide();
+            $('#rpe').hide();
         }
         else {
             if ($('#user_courses option').length > 1) {
@@ -709,7 +709,7 @@ var EventDialog = {
 			$('#max_pulse_c').show();
 			$('#course_elev').show();
 			$('#weight_c').show();
-            $('#rpe_c').show();
+            $('#rpe').show();
 
             if (runType == EventTypes.RECOVERY_RUN) {
                 $('#extra_run').hide();
