@@ -439,7 +439,7 @@ var EventDialog = {
         this.initRunTypes();
         this.initRPE();
         this.initShoesAndCourses();
-        $('#rpe').val('1');
+        $('#rpe').change(this.RPEChanged);
         $('#courseSelect').change(this.courseChanged);
         EventDialog.shoesDetached = false;
         $('#shoeSelect').change(this.shoeChanged);
@@ -511,7 +511,7 @@ var EventDialog = {
             }
     
             // handler for the run types combo box change
-            //$('#rpe').change(this.runTypeChanged);
+            $('#rpe').change(this.RPEChanged);
         },
 
     // populate a <select> with values + a pre defined select prompt (applies for shoes and courses)
