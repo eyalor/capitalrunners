@@ -78,7 +78,7 @@ var RPE  = {
    EASY3 : 3,
    MEDIUM4 : 4,
    MEDIUM5 : 5,
-   MEDIUM6 : 8,
+   MEDIUM6 : 6,
    HARD7 : 7,
    HARD8 : 8,
    HARD9 : 9,
