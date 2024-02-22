@@ -46,7 +46,7 @@ $the_date = $eventFields-> {"date"};
 // OK - now we have a valid input - lets try to create the event from DB
 try {
     $conn = getConnection();
-    $sql = 'INSERT INTO tl_events (run_date,warmup_time,run_time,cooldown_time,warmup_distance,run_distance,cooldown_distance,notes,runner_id,shoe_id,extra_shoe_id,course_id,run_type_id,pulse,max_pulse,elevation,weight) VALUES (:run_date,:warmup_time,:run_time,:cooldown_time,:warmup_distance,:run_distance,:cooldown_distance,:notes,:runner_id,:shoe_id,:extra_shoe_id,:course_id,:run_type_id,:pulse,:max_pulse,:elevation,:weight)';
+    $sql = 'INSERT INTO tl_events (run_date,warmup_time,run_time,cooldown_time,warmup_distance,run_distance,cooldown_distance,notes,runner_id,shoe_id,extra_shoe_id,course_id,run_type_id,pulse,max_pulse,elevation,weight, rpe_id) VALUES (:run_date,:warmup_time,:run_time,:cooldown_time,:warmup_distance,:run_distance,:cooldown_distance,:notes,:runner_id,:shoe_id,:extra_shoe_id,:course_id,:run_type_id,:pulse,:max_pulse,:elevation,:weight,:rpe)';
     $sth = $conn->prepare($sql);
 
     $ok = $sth->execute(array (
@@ -67,6 +67,7 @@ try {
 		':max_pulse' => $eventFields->{"max_pulse"},
 		':elevation' => $eventFields->{"elevation"},
 		':weight' => $eventFields->{"weight"},
+        ':rpe' => $eventFields->{"rpe"},
     ));
 
     if (!$ok) {

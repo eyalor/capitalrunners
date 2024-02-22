@@ -659,6 +659,7 @@ var EventDialog = {
 		eventFields.max_pulse = $('#max_pulse').val();
 		eventFields.elevation = $('#elevation').val();
  		eventFields.weight = $('#weight').val();
+        eventFields.rpe = $('#rpe').val();
  		
         return eventFields;
     },
