@@ -62,12 +62,12 @@ function getRunTypeSelected($conn, $run_type_selected) {
  * Get RPE selected value
  */
 function getRPESelected($conn, $rpe_selected) {
-    $sql = "SELECT concat(description,' - ',id) FROM `tl_rpe` where id = '" . $rpe_selected . "'";
+    $sql = "SELECT concat(description,' - ',id), id FROM `tl_rpe` where id = '" . $rpe_selected . "'";
     $stmt = $conn->query($sql);
     $resultRPESelected = $stmt->fetchAll(PDO :: FETCH_ASSOC);
-    if ($resultRPESelected[0] == null ){
-        $resultRPESelected[0]= 1;
-    }
+    //if ($resultRPESelected[0] == null ){
+    //    $resultRPESelected[0]= 1;
+    //}
     return $resultRPESelected;
 }
 
