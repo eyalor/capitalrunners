@@ -66,7 +66,7 @@ function getRPESelected($conn, $rpe_selected) {
     $stmt = $conn->query($sql);
     $resultRPESelected = $stmt->fetchAll(PDO :: FETCH_ASSOC);
     if ($resultRPESelected[0] == null ){
-        $resultRPESelected[0]= 'לא נבחרה רמת מאמץ';
+        $resultRPESelected[0]= 1;
     }
     return $resultRPESelected;
 }
