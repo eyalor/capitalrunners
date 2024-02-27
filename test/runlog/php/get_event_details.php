@@ -109,14 +109,15 @@ function getShoeSelected($conn, $shoe_selected) {
     return $resultShoeSelected;
 }
 
-function returnEventDataJSONsuccess($result, $resultShoeSelected, $resultExtraShoeSelected, $resultRunTypeSelected, $resultCourseSelected, $resultRPESelected) {
+# , $resultRPESelected
+function returnEventDataJSONsuccess($result, $resultShoeSelected, $resultExtraShoeSelected, $resultRunTypeSelected, $resultCourseSelected) {
     $result = array (
         "event_fields" => $result[0],
         "selected_shoe" => $resultShoeSelected[0],
         "selected_extra_shoe" => $resultExtraShoeSelected[0],
         "selected_run_type" => $resultRunTypeSelected[0],
         "selected_course" => $resultCourseSelected[0]
-        "selected_rpe" => $resultRPESelected[0]
+        #"selected_rpe" => $resultRPESelected[0]
     );
 
     return returnJSONsuccess($result);
