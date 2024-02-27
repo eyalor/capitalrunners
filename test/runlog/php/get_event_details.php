@@ -65,9 +65,9 @@ function getRPESelected($conn, $rpe_selected) {
     $sql = "SELECT description, id FROM `tl_rpe` where id = '" . $rpe_selected . "'";
     $stmt = $conn->query($sql);
     $resultRPESelected = $stmt->fetchAll(PDO :: FETCH_ASSOC);
-    if ($resultRPESelected[0] == null ){
-        $resultRPESelected[0]= 1;
-    }
+    #if ($resultRPESelected[0] == null ){
+    #    $resultRPESelected[0]= 1;
+    #}
     return $resultRPESelected;
 }
 
@@ -110,14 +110,14 @@ function getShoeSelected($conn, $shoe_selected) {
 }
 
 # , $resultRPESelected
-function returnEventDataJSONsuccess($result, $resultShoeSelected, $resultExtraShoeSelected, $resultRunTypeSelected, $resultCourseSelected) {
+function returnEventDataJSONsuccess($result, $resultShoeSelected, $resultExtraShoeSelected, $resultRunTypeSelected, $resultCourseSelected, $resultRPESelected) {
     $result = array (
         "event_fields" => $result[0],
         "selected_shoe" => $resultShoeSelected[0],
         "selected_extra_shoe" => $resultExtraShoeSelected[0],
         "selected_run_type" => $resultRunTypeSelected[0],
         "selected_course" => $resultCourseSelected[0]
-        #"selected_rpe" => $resultRPESelected[0]
+        "selected_rpe" => $resultRPESelected[0]
     );
 
     return returnJSONsuccess($result);
