@@ -73,7 +73,7 @@ var  RPEAttributes = function(label) {
 };
 
 var RPE  = {
-   EMPTY : 0, 
+   EMPTY : 11, 
    EASY1 : 1,
    EASY2 : 2,
    EASY3 : 3,
