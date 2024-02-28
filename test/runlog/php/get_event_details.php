@@ -116,7 +116,7 @@ function returnEventDataJSONsuccess($result, $resultShoeSelected, $resultExtraSh
         "selected_shoe" => $resultShoeSelected[0],
         "selected_extra_shoe" => $resultExtraShoeSelected[0],
         "selected_run_type" => $resultRunTypeSelected[0],
-        "selected_course" => $resultCourseSelected[0]
+        "selected_course" => $resultCourseSelected[0],
         "selected_rpe" => $resultRPESelected[0]
     );
 
