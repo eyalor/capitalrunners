@@ -683,7 +683,7 @@ var EventDialog = {
                         doc.data.selected_course = 0;
                     }
                     SelectUtils.makeSelection('rpe', doc.data.selected_rpe.id);
-					//EventDialog.setSelectedItemOrShowLabel('rpe', doc.data.selected_rpe.id, doc.data.selected_rpe.description, 'inactive_rpe');
+					EventDialog.setSelectedItemOrShowLabel('rpe', doc.data.selected_rpe.id, doc.data.selected_rpe.description, 'inactive_rpe');
                     EventDialog.setSelectedItemOrShowLabel('courseSelect', doc.data.selected_course.id, doc.data.selected_course.course_name, 'inactive_course');
                     EventDialog.setSelectedItemOrShowLabel('shoeSelect', doc.data.selected_shoe.id, doc.data.selected_shoe.name, 'inactive_shoe');
                     EventDialog.setSelectedItemOrShowLabel('extraShoeSelect', doc.data.selected_extra_shoe.id, doc.data.selected_extra_shoe.name, 'inactive_extra_shoe');
