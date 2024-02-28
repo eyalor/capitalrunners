@@ -54,7 +54,7 @@ try {
         (int)$eventFields->{"extra_shoe_id"},
         (int)$eventFields->{"course_id"},
         (int)$eventFields->{"event_id"},
-        $eventFields->{"rpe"}
+        #$eventFields->{"rpe"}
 
     ));
     if (!$ok) {
