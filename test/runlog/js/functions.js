@@ -335,7 +335,7 @@ var Calendar = {
         {
             html += " - טיפוס: <span>"+ elevation+" מ'</span>  ";
         }
-        if (rpe == 0 && rpe != null)
+        if (rpe != null)
         {
             html += " - מאמץ: <span>"+ rpe+"</span>  ";
         }
