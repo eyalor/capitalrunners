@@ -468,7 +468,7 @@ var EventDialog = {
     reset:function () {
         SelectUtils.makeSelection('run_types', EventTypes.RECOVERY_RUN);
         $('#run_types').trigger('change');
-        SelectUtils.makeSelection('rpe', RPE.EASY1);
+        SelectUtils.makeSelection('rpe', RPE.EMPTY);
         SelectUtils.resetSelect('courseSelect');
         SelectUtils.resetSelect('shoeSelect');
         $('#shoeSelect').show();

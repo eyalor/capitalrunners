@@ -73,6 +73,7 @@ var  RPEAttributes = function(label) {
 };
 
 var RPE  = {
+   EMPTY : 0, 
    EASY1 : 1,
    EASY2 : 2,
    EASY3 : 3,
@@ -86,6 +87,7 @@ var RPE  = {
 }
 
 var RPE_ATTRIBUTES = new Array();
+RPE_ATTRIBUTES[RPE.EMPTY]        	= new RPEAttributes("ללא מאמץ - 0");
 RPE_ATTRIBUTES[RPE.EASY1]        	= new RPEAttributes("קל - 1");
 RPE_ATTRIBUTES[RPE.EASY2]        	= new RPEAttributes("קל - 2");
 RPE_ATTRIBUTES[RPE.EASY3]           = new RPEAttributes("קל  - 3");
