@@ -310,6 +310,7 @@ var Calendar = {
 		var pulse = event.pulse;
 		var max_pulse = event.max_pulse;
 		var elevation = event.elevation;
+        var rpe = event.rpe;
   		var weight = event.weight;
 		var run_time = event.HourAndMinutes;
         var eventTypeName = event.type;
@@ -333,6 +334,10 @@ var Calendar = {
         if (elevation != 0 && elevation != null)
         {
             html += " - טיפוס: <span>"+ elevation+" מ'</span>  ";
+        }
+        if (rpe != 0 && rpe != null)
+        {
+            html += " - מאמץ: <span>"+ rpe+" מ'</span>  ";
         }
         // if (weight != 0 && weight != null)
         // {
