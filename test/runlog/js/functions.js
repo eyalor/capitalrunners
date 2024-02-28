@@ -337,7 +337,7 @@ var Calendar = {
         }
         if (rpe != 0 && rpe != null)
         {
-            html += " - מאמץ: <span>"+ rpe+" מ'</span>  ";
+            html += " - מאמץ: <span>"+ rpe+"'</span>  ";
         }
         // if (weight != 0 && weight != null)
         // {
