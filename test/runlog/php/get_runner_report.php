@@ -27,7 +27,12 @@ catch (PDOException $e) {
 
 $sql =
 
-"SELECT notes, run_date, run_type_id, (SELECT tl_run_types.type FROM tl_run_types WHERE tl_run_types.id=tl_events.run_type_id) AS type, run_distance + warmup_distance + cooldown_distance AS sumk, warmup_time + run_time + cooldown_time AS timet, run_time/run_distance AS pacet, pulse AS pulse, max_pulse AS max_pulse, elevation AS elevation, weight AS weight
+"SELECT notes, run_date, run_type_id, (SELECT tl_run_types.type FROM tl_run_types WHERE tl_run_types.id=tl_events.run_type_id) AS type, run_distance + warmup_distance + cooldown_distance AS sumk, warmup_time + run_time + cooldown_time AS timet, run_time/run_distance AS pacet, pulse AS pulse, max_pulse AS max_pulse, elevation AS elevation, weight AS weight, 
+case 
+when rpe_id is null then 0 
+when rpe_id = 11 then 0
+else rpe_id end
+as rpe
     FROM tl_events
     WHERE (runner_id = '" . $runner_id . "'
         AND date(run_date) >= '" . $_GET['start_date'] . "'
@@ -52,7 +57,7 @@ if (!$ok) {
 } else {
     foreach ($sth->fetchAll(PDO :: FETCH_ASSOC) as $row) {
         //$data[] = array(date('d.m.y', strtotime($row['run_date'])), $row['notes'], $row['type'], floatval($row['sumk']), date("H:i:s", $row['timet']), date("i:s", $row['pacet']), $row['pulse'], $row['max_pulse'], $row['elevation'], floatval($row['weight']) );    
-        $data[] = array(date('d.m.y', strtotime($row['run_date'])), $row['notes'], $row['type'], floatval($row['sumk']), date("H:i:s", $row['timet']), date("i:s", $row['pacet']), strval($row['pulse']), strval($row['max_pulse']), strval($row['elevation']), floatval($row['weight']) );    
+        $data[] = array(date('d.m.y', strtotime($row['run_date'])), $row['notes'], $row['type'], floatval($row['sumk']), date("H:i:s", $row['timet']), date("i:s", $row['pacet']), strval($row['pulse']), strval($row['max_pulse']), strval($row['elevation']), floatval($row['weight']) , floatval($row['rpe']));    
     }
 }
 

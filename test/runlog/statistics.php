@@ -192,6 +192,7 @@ function drawRunnerTableCallback(jsonData) {
     data.addColumn('string', 'דופק מקס');
     data.addColumn('string', 'טיפוס');
     data.addColumn('number', 'משקל');
+    data.addColumn('number', 'מאמץ');
     data.addRows(jsonData.data);
     
     
