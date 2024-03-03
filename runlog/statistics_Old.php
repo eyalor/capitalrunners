@@ -10,9 +10,9 @@ Pragma: no-cache
 Expires: 0>
 <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
 
-<title>הרוח השניה - סטטיסטיקה</title>
-<link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.18.1/build/cssreset-context/cssreset-context-min.css">
-<link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="stylesheet"
+<title>רצי הבירה - סטטיסטיקה</title>
+<link rel="stylesheet" type="text/css" href="https://yui-s.yahooapis.com/3.5.1/build/cssreset/cssreset-min.css">
+<link href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="stylesheet"
       type="text/css"/>
 <link href='./css/runlog.css?v=<?php echo CSS_VERSION;?>' rel='stylesheet' type='text/css'/>
 
@@ -192,7 +192,6 @@ function drawRunnerTableCallback(jsonData) {
     data.addColumn('string', 'דופק מקס');
     data.addColumn('string', 'טיפוס');
     data.addColumn('number', 'משקל');
-    data.addColumn('number', 'מאמץ');
     data.addRows(jsonData.data);
     
     

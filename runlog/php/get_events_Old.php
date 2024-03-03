@@ -37,7 +37,7 @@ catch(PDOException $e) {
 function getEventsAsJSON($conn,$member_id, $start_date, $end_date) {
     $sql =
 
-"SELECT tl_events.id as id, tl_run_types.type, run_distance, run_time, warmup_distance, cooldown_distance, COALESCE(notes, '') AS notes, run_date AS start, runner_id, tl_run_types.id as run_type_id, tl_events.rpe_id as rpe_id
+"SELECT tl_events.id as id, tl_run_types.type, run_distance, run_time, warmup_distance, cooldown_distance, COALESCE(notes, '') AS notes, run_date AS start, runner_id, tl_run_types.id as run_type_id
     FROM tl_events, tl_run_types
     WHERE tl_run_types.id = tl_events.run_type_id
         AND runner_id = '" . $member_id . "'

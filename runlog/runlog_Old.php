@@ -7,8 +7,8 @@ require_once 'php/html_page_init.php';
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title>רצי הבירה - יומן ריצה</title>
-    <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.18.1/build/cssreset-context/cssreset-context-min.css">
-    <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="stylesheet"
+    <link rel="stylesheet" type="text/css" href="https://yui-s.yahooapis.com/3.5.1/build/cssreset/cssreset-min.css">
+    <link href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="stylesheet"
           type="text/css"/>
     <link href='./css/fullcalendar.css?v=<?php echo CSS_VERSION;?>' rel='stylesheet' type='text/css'/>
     <link href='./css/jquery.qtip.min.css' rel='stylesheet' type='text/css'/>
@@ -100,19 +100,6 @@ require_once 'php/html_page_init.php';
 						</div>
 					</td>
 					
-				</tr>
-			</table>
-		</div>
-
-        <div id="rpe_main">
-			<table cellspacing="0" cellpadding="0" border="0" class="duration_distance_pace_table">
-				<tr>
-					<td>        
-						<div style="margin-top:5px;">
-							<label for="rpe" class="label">מדד מאמץ RPE</label>
-							<select id="rpe" class="rpe"></select>
-						</div>
-					</td>	
 				</tr>
 			</table>
 		</div>
@@ -216,8 +203,6 @@ require_once 'php/html_page_init.php';
             <div class="label">פרטים</div>
             <div id="notesContainer" style="float:right;"></div>
         </div>
-
-     
     </form>
 </div>
 </body>

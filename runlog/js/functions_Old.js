@@ -310,7 +310,6 @@ var Calendar = {
 		var pulse = event.pulse;
 		var max_pulse = event.max_pulse;
 		var elevation = event.elevation;
-        var rpe = event.rpe;
   		var weight = event.weight;
 		var run_time = event.HourAndMinutes;
         var eventTypeName = event.type;
@@ -334,10 +333,6 @@ var Calendar = {
         if (elevation != 0 && elevation != null)
         {
             html += " - טיפוס: <span>"+ elevation+" מ'</span>  ";
-        }
-        if (rpe != '0 - ללא מאמץ' && rpe != null)
-        {
-            html += " - מאמץ: <span>"+ rpe+"</span>  ";
         }
         // if (weight != 0 && weight != null)
         // {
@@ -442,9 +437,7 @@ var EventDialog = {
     // with values appropriate to the current user
     init:function () {
         this.initRunTypes();
-        this.initRPE();
         this.initShoesAndCourses();
-        $('#rpe').change(this.RPEChanged);
         $('#courseSelect').change(this.courseChanged);
         EventDialog.shoesDetached = false;
         $('#shoeSelect').change(this.shoeChanged);
@@ -468,7 +461,6 @@ var EventDialog = {
     reset:function () {
         SelectUtils.makeSelection('run_types', EventTypes.RECOVERY_RUN);
         $('#run_types').trigger('change');
-        SelectUtils.makeSelection('rpe', RPE.EMPTY);
         SelectUtils.resetSelect('courseSelect');
         SelectUtils.resetSelect('shoeSelect');
         $('#shoeSelect').show();
@@ -504,20 +496,6 @@ var EventDialog = {
         // handler for the run types combo box change
         $('#run_types').change(this.runTypeChanged);
     },
-
-        // populate the RPE <select>
-        initRPE:function () {
-            var select = document.getElementById("rpe");
-            for (var key in RPE) {
-                var value = RPE[key];
-                var label = RPE_ATTRIBUTES[value].getLabel();
-                var option = new Option(label, value);
-                select.options[select.options.length] = option;
-            }
-    
-            // handler for the run types combo box change
-            $('#rpe').val();
-        },
 
     // populate a <select> with values + a pre defined select prompt (applies for shoes and courses)
     initSelect:function (controlId, data, selectPrompt, controlContainer, extraDataFieldName) {
@@ -664,7 +642,6 @@ var EventDialog = {
 		eventFields.max_pulse = $('#max_pulse').val();
 		eventFields.elevation = $('#elevation').val();
  		eventFields.weight = $('#weight').val();
-        eventFields.rpe = $('#rpe').val();
  		
         return eventFields;
     },
@@ -687,8 +664,6 @@ var EventDialog = {
                     if (doc.data.selected_course == null) {
                         doc.data.selected_course = 0;
                     }
-                    SelectUtils.makeSelection('rpe', doc.data.selected_rpe.id);
-					EventDialog.setSelectedItemOrShowLabel('rpe', doc.data.selected_rpe.id, doc.data.selected_rpe.description, 'inactive_rpe');
                     EventDialog.setSelectedItemOrShowLabel('courseSelect', doc.data.selected_course.id, doc.data.selected_course.course_name, 'inactive_course');
                     EventDialog.setSelectedItemOrShowLabel('shoeSelect', doc.data.selected_shoe.id, doc.data.selected_shoe.name, 'inactive_shoe');
                     EventDialog.setSelectedItemOrShowLabel('extraShoeSelect', doc.data.selected_extra_shoe.id, doc.data.selected_extra_shoe.name, 'inactive_extra_shoe');
@@ -723,7 +698,6 @@ var EventDialog = {
 			$('#max_pulse_c').hide();
 			$('#course_elev').hide();
 			$('#weight_c').hide();
-            $('#rpe_main').hide();
         }
         else {
             if ($('#user_courses option').length > 1) {
@@ -734,7 +708,6 @@ var EventDialog = {
 			$('#max_pulse_c').show();
 			$('#course_elev').show();
 			$('#weight_c').show();
-            $('#rpe_main').show();
 
             if (runType == EventTypes.RECOVERY_RUN) {
                 $('#extra_run').hide();

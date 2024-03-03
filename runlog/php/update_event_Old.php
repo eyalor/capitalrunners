@@ -32,7 +32,7 @@ if(!$validationResult->isValid()) {
 //
 try {
     $conn = getConnection();
-    $sql = "UPDATE  tl_events  SET run_type_id=?,pulse=?,max_pulse=?,elevation=?,weight=?,warmup_time=?,run_time=?,cooldown_time=?,warmup_distance=?,run_distance=?,cooldown_distance=?,notes=?,shoe_id=?,extra_shoe_id=?,course_id=?,rpe_id=? WHERE id=?";
+    $sql = "UPDATE  tl_events  SET run_type_id=?,pulse=?,max_pulse=?,elevation=?,weight=?,warmup_time=?,run_time=?,cooldown_time=?,warmup_distance=?,run_distance=?,cooldown_distance=?,notes=?,shoe_id=?,extra_shoe_id=?,course_id=? WHERE id=?";
     //$sql = "UPDATE tl_events  SET run_type_id=?,warmup_time=? WHERE id=?";
 
     $sth = $conn->prepare($sql);
@@ -53,10 +53,7 @@ try {
         (int)$eventFields->{"shoe_id"},
         (int)$eventFields->{"extra_shoe_id"},
         (int)$eventFields->{"course_id"},
-        (int)$eventFields->{"rpe"},
         (int)$eventFields->{"event_id"}
-        
-
 
     ));
     if (!$ok) {

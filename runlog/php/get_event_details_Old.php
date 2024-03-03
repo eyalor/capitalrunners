@@ -39,8 +39,7 @@ try {
     $resultExtraShoeSelected = getShoeSelected($conn, $eventDetails[0]['extra_shoe_id']);
     $resultCourseSelected = getCourseSelected($conn, $eventDetails[0]['course_id']);
     $resultRunTypeSelected = getRunTypeSelected($conn, $eventDetails[0]['run_type_id']);
-    $resultRPESelected = getRPESelected($conn, $eventDetails[0]['rpe_id']);
-    echo returnEventDataJSONsuccess($eventDetails, $resultShoeSelected, $resultExtraShoeSelected, $resultRunTypeSelected, $resultCourseSelected, $resultRPESelected);
+    echo returnEventDataJSONsuccess($eventDetails, $resultShoeSelected, $resultExtraShoeSelected, $resultRunTypeSelected, $resultCourseSelected);
     $conn = null;
 } catch (PDOException $e) {
     die(getErrorStatusWithDummyData($e->getMessage()));
@@ -56,19 +55,6 @@ function getRunTypeSelected($conn, $run_type_selected) {
         $resultRunTypeSelected[0]=0;
     }
     return $resultRunTypeSelected;
-}
-
-/**
- * Get RPE selected value
- */
-function getRPESelected($conn, $rpe_selected) {
-    $sql = "SELECT id,description FROM `tl_rpe` where id = '" . $rpe_selected . "'";
-    $stmt = $conn->query($sql);
-    $resultRPESelected = $stmt->fetchAll(PDO :: FETCH_ASSOC);
-    if ($resultRPESelected[0] == null ){
-        $resultRPESelected[0]= 1;
-    }
-    return $resultRPESelected;
 }
 
 /**
@@ -109,15 +95,13 @@ function getShoeSelected($conn, $shoe_selected) {
     return $resultShoeSelected;
 }
 
-# , $resultRPESelected
-function returnEventDataJSONsuccess($result, $resultShoeSelected, $resultExtraShoeSelected, $resultRunTypeSelected, $resultCourseSelected, $resultRPESelected) {
+function returnEventDataJSONsuccess($result, $resultShoeSelected, $resultExtraShoeSelected, $resultRunTypeSelected, $resultCourseSelected) {
     $result = array (
         "event_fields" => $result[0],
         "selected_shoe" => $resultShoeSelected[0],
         "selected_extra_shoe" => $resultExtraShoeSelected[0],
         "selected_run_type" => $resultRunTypeSelected[0],
-        "selected_course" => $resultCourseSelected[0],
-        "selected_rpe" => $resultRPESelected[0]
+        "selected_course" => $resultCourseSelected[0]
     );
 
     return returnJSONsuccess($result);
