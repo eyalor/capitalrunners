@@ -113,6 +113,12 @@ require_once 'php/html_page_init.php';
 							<select id="rpe" class="rpe"></select>
 						</div>
 					</td>	
+                    <td>        
+						<div style="margin-top:5px;">
+							<label for="race" class="label">מירוץ</label>
+							<select id="race" class="race"></select>
+						</div>
+					</td>
 				</tr>
 			</table>
 		</div>
