@@ -51,6 +51,22 @@
 	width: 60px;
 }
 
+#rpe_main {
+    margin-top: 0px;
+    padding: 10px 10px 15px;
+}
+
+
+.rpe_main td {
+    width: 49px;
+    
+    padding-top: 5px;
+}
+
+#rpe_main input[type="text"] {
+	width: 60px;
+}
+
 #course_elev {
     margin-top: 0px;
     padding: 10px 10px 15px;
