@@ -6,7 +6,7 @@ session_start();
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js" type="text/javascript"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js" type="text/javascript"></script>
 	<script type='text/javascript'>
 	
 	function get_session_via_ajax()
