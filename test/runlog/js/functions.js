@@ -741,6 +741,11 @@ var EventDialog = {
             } else {
                 $('#extra_run').show();
             }
+            if (runType == EventTypes.RACE_RUN) {
+                $('#race_main').show();
+            } else {
+                $('#race_main').hide();
+            }
         }
     },
 
