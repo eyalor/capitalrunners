@@ -21,7 +21,7 @@ function getDayEventsAsJSON($conn, $date) {
     FROM tl_events
     JOIN tl_runners ON tl_events.runner_id = tl_runners.id
     JOIN tl_run_types ON tl_events.run_type_id = tl_run_types.id
-    JOIN tl_rpe ON COALESCE(tl_events.rpe_id, 11) = tl_rpe.id
+    LEFT JOIN tl_rpe ON COALESCE(tl_events.rpe_id, 11) = tl_rpe.id
     WHERE date(tl_events.run_date) = '" . $date . "'
     ORDER BY tl_events.id DESC";
 
