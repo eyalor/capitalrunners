@@ -22,16 +22,18 @@ if (!$validationResult->isValid()) {
 $conn = getConnection();
 try {
 	$shoes =  getUserShoes($conn,$member_id);
-	$courses = getUserCourses($conn,$member_id);	
-	echo returnEventDataJSONsuccess($shoes,$courses);	
+	$courses = getUserCourses($conn,$member_id);
+	$races = getLastRaces($conn);	
+	echo returnEventDataJSONsuccess($shoes,$courses,$races);	
 } catch (PDOException $e) {
 	die(getErrorStatusWithDummyData($e->getMessage()));
 }
 
-function returnEventDataJSONsuccess($shoes,$courses) {
+function returnEventDataJSONsuccess($shoes,$courses,$races) {
     $result = array (
 			"shoes" => $shoes,
-			"courses" => $courses
+			"courses" => $courses,
+			"races" => $races
 	    );
 
     return returnJSONsuccess($result);
