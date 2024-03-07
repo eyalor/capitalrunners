@@ -335,7 +335,7 @@ var Calendar = {
         {
             html += " - טיפוס: <span>"+ elevation+" מ'</span>  ";
         }
-        if (rpe != '0 - ללא מאמץ' && rpe != null)
+        if (rpe != null)
         {
             html += " - מאמץ: <span>"+ rpe+"</span>  ";
         }
@@ -468,7 +468,7 @@ var EventDialog = {
     reset:function () {
         SelectUtils.makeSelection('run_types', EventTypes.RECOVERY_RUN);
         $('#run_types').trigger('change');
-        SelectUtils.makeSelection('rpe', RPE.EMPTY);
+        SelectUtils.makeSelection('rpe', RPE.EASY1);
         SelectUtils.resetSelect('courseSelect');
         SelectUtils.resetSelect('shoeSelect');
         $('#shoeSelect').show();
