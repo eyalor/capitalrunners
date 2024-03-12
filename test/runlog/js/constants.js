@@ -12,6 +12,8 @@ var MAX_EXTRA_DISTANCE = 99.9;
 var NOT_SELECTED = 0;
 var SELECT_SHOE_PROMPT = '-- בחר נעל --';
 var SELECT_COURSE_PROMPT = '-- בחר מסלול --';
+var SELECT_RACE_PROMPT = '-- בחר תחרות --';
+
 
 /**
  * A simple object to hold run type attributes
