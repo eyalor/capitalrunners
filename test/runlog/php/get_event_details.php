@@ -40,7 +40,7 @@ try {
     $resultCourseSelected = getCourseSelected($conn, $eventDetails[0]['course_id']);
     $resultRunTypeSelected = getRunTypeSelected($conn, $eventDetails[0]['run_type_id']);
     $resultRPESelected = getRPESelected($conn, $eventDetails[0]['rpe_id']);
-    $resultRaceSelected = getRPESelected($conn, $eventDetails[0]['race_id']);
+    $resultRaceSelected = getRaceSelected($conn, $eventDetails[0]['race_id']);
     echo returnEventDataJSONsuccess($eventDetails, $resultShoeSelected, $resultExtraShoeSelected, $resultRunTypeSelected, $resultCourseSelected, $resultRPESelected, $resultRaceSelected);
     $conn = null;
 } catch (PDOException $e) {
