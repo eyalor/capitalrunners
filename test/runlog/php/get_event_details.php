@@ -40,7 +40,8 @@ try {
     $resultCourseSelected = getCourseSelected($conn, $eventDetails[0]['course_id']);
     $resultRunTypeSelected = getRunTypeSelected($conn, $eventDetails[0]['run_type_id']);
     $resultRPESelected = getRPESelected($conn, $eventDetails[0]['rpe_id']);
-    echo returnEventDataJSONsuccess($eventDetails, $resultShoeSelected, $resultExtraShoeSelected, $resultRunTypeSelected, $resultCourseSelected, $resultRPESelected);
+    $resultRaceSelected = getRPESelected($conn, $eventDetails[0]['race_id']);
+    echo returnEventDataJSONsuccess($eventDetails, $resultShoeSelected, $resultExtraShoeSelected, $resultRunTypeSelected, $resultCourseSelected, $resultRPESelected, $resultRaceSelected);
     $conn = null;
 } catch (PDOException $e) {
     die(getErrorStatusWithDummyData($e->getMessage()));
@@ -69,6 +70,21 @@ function getRPESelected($conn, $rpe_selected) {
         $resultRPESelected[0]= 1;
     }
     return $resultRPESelected;
+}
+
+/**
+ * Get Race selected value
+ */
+function getRaceSelected($conn, $race_selected) {
+    $sql = "SELECT tl_races.id, concat(tl_races.race_name,' - ',tl_race_type.type) FROM `tl_races` 
+    left outer join tl_race_type on tl_races.type_id=tl_race_type.id
+    where tl_races.id = '" . $race_selected . "'";
+    $stmt = $conn->query($sql);
+    $resultRPESelected = $stmt->fetchAll(PDO :: FETCH_ASSOC);
+    if ($resultRPESelected[0] == null ){
+        $resultRPESelected[0]= 1;
+    }
+    return $resultRaceSelected;
 }
 
 /**
