@@ -76,14 +76,14 @@ function getRPESelected($conn, $rpe_selected) {
  * Get Race selected value
  */
 function getRaceSelected($conn, $race_selected) {
-    $sql = "SELECT tl_races.id, concat(tl_races.race_name,' - ',tl_race_type.type) as race_name FROM `tl_races` 
+    $sql = "SELECT tl_races.id as id, concat(tl_races.race_name,' - ',tl_race_type.type) as race_name FROM `tl_races` 
     left outer join tl_race_type on tl_races.type_id=tl_race_type.id
     where tl_races.id = '" . $race_selected . "'";
     $stmt = $conn->query($sql);
-    $resultRPESelected = $stmt->fetchAll(PDO :: FETCH_ASSOC);
-    if ($resultRPESelected[0] == null ){
-        $resultRPESelected[0]= 1;
-    }
+    $resultRaceSelected = $stmt->fetchAll(PDO :: FETCH_ASSOC);
+    //if ($resultRPESelected[0] == null ){
+    //    $resultRPESelected[0]= 1;
+    //}
     return $resultRaceSelected;
 }
 
