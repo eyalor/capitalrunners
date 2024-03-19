@@ -88,7 +88,7 @@ function getUserCourses($conn,$member_id) {
  * Get latest races
  */
 function getLastRaces($conn) {
-    $sql = "SELECT concat(tl_races.race_name,' - ',tl_race_type.type) as label, tl_races.id   FROM `tl_races` 
+    $sql = "SELECT concat(tl_races.race_name,' - ',tl_race_type.type) as label, tl_races.id as value  FROM `tl_races` 
     left outer join tl_race_type on tl_races.type_id=tl_race_type.id
     where tl_races.race_date > DATE_SUB(CURDATE(),INTERVAL 365 DAY) 
     order by tl_races.race_date desc";
