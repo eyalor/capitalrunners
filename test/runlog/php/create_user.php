@@ -10,7 +10,7 @@ try {
 	':user_name'=> $user->user_name,
 	':email' => $user->email,
 	':password' => $user->member_num,
-	':active_runner' => $user->active_runner;
+	':active_runner' => $user->active_runner,
 	':show_weight' => $user->show_weight
 	));
 	if (!$ok) {
