@@ -81,9 +81,9 @@ function getRaceSelected($conn, $race_selected) {
     where tl_races.id = '" . $race_selected . "'";
     $stmt = $conn->query($sql);
     $resultRaceSelected = $stmt->fetchAll(PDO :: FETCH_ASSOC);
-    //if ($resultRPESelected[0] == null ){
-    //    $resultRPESelected[0]= 1;
-    //}
+    if ($resultRaceSelected[0] == null ){
+        $resultRaceSelected[0]= 0;
+    }
     return $resultRaceSelected;
 }
 
