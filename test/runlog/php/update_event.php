@@ -59,21 +59,6 @@ try {
 
     ));
 
-
-
-    if (!$ok) {
-        die(getErrorStatusWithDummyData("Failed to update table."));
-    } else {
-        echo returnJSONsuccess("");
-    }
-    $conn = null;
-} catch (PDOException $e) {
-    die(getErrorStatusWithDummyData($e->getMessage()));
-}
-
-// OK - now we have a valid input - lets try to update the race data based on the event from DB
-try {
-    $conn = getConnection();
     $sql2 = 'INSERT INTO tl_races_data (race_id,runner_id,run_time) VALUES (:race_id,:runner_id,:run_time) ON DUPLICATE KEY UPDATE run_time=:run_time';
     $sth2 = $conn->prepare($sql2);
 
@@ -84,7 +69,7 @@ try {
     ));
 
     if (!$ok) {
-        die(getErrorStatusWithDummyData("Failed to Update Race based on Event."));
+        die(getErrorStatusWithDummyData("Failed to update table."));
     } else {
         echo returnJSONsuccess("");
     }
