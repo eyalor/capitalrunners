@@ -42,27 +42,6 @@ if (!$validationResult->isValid()) {
 }
 $the_date = $eventFields-> {"date"};
 
-// OK - now we have a valid input - lets try to update the race data based on the event from DB
-try {
-    $conn = getConnection();
-    $sql = 'INSERT INTO tl_races_data (race_id,runner_id,run_time) VALUES (:race_id,:runner_id,:run_time) ON DUPLICATE KEY UPDATE run_time=:run_time';
-    $sth = $conn->prepare($sql);
-
-    $ok = $sth->execute(array (
-        ':run_time' => $eventFields->{"run_time"},
-        ':runner_id' => $eventFields->{"runner_id"},
-        ':race_id' => $eventFields->{"race_id"},
-    ));
-
-    if (!$ok) {
-        die(getErrorStatusWithDummyData("Failed to Update Race based on Event."));
-    } else {
-        echo returnJSONsuccess("");
-    }
-    $conn = null;
-} catch (PDOException $e) {
-    die(getErrorStatusWithDummyData($e->getMessage()));
-}
 
 // OK - now we have a valid input - lets try to create the event from DB
 try {
