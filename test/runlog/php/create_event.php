@@ -71,7 +71,7 @@ try {
         ':race_id' => $eventFields->{"race_id"},
     ));
 
-    if ($eventFields->{"run_type_id"}==8){
+    if ($eventFields->{"run_type_id"}==8 && $eventFields->{"race_id"}!=0 && $eventFields->{"run_time"}!=0){
         $sql2 = 'INSERT INTO tl_races_data (race_id,runner_id,run_time) VALUES (:race_id,:runner_id,:run_time) ON DUPLICATE KEY UPDATE run_time=:run_time';
         $sth2 = $conn->prepare($sql2);
     
