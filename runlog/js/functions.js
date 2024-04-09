@@ -335,7 +335,7 @@ var Calendar = {
         {
             html += " - טיפוס: <span>"+ elevation+" מ'</span>  ";
         }
-        if (rpe != '0 - ללא מאמץ' && rpe != null)
+        if (rpe != null)
         {
             html += " - מאמץ: <span>"+ rpe+"</span>  ";
         }
@@ -446,6 +446,7 @@ var EventDialog = {
         this.initShoesAndCourses();
         $('#rpe').change(this.RPEChanged);
         $('#courseSelect').change(this.courseChanged);
+        $('#raceSelect').change(this.raceChanged);
         EventDialog.shoesDetached = false;
         $('#shoeSelect').change(this.shoeChanged);
         $('#extraShoeSelect').change(this.extraShoeChanged);
@@ -468,8 +469,9 @@ var EventDialog = {
     reset:function () {
         SelectUtils.makeSelection('run_types', EventTypes.RECOVERY_RUN);
         $('#run_types').trigger('change');
-        SelectUtils.makeSelection('rpe', RPE.EMPTY);
+        SelectUtils.makeSelection('rpe', RPE.EASY1);
         SelectUtils.resetSelect('courseSelect');
+        SelectUtils.resetSelect('raceSelect');
         SelectUtils.resetSelect('shoeSelect');
         $('#shoeSelect').show();
         $('#inactive_shoe').hide();
@@ -552,6 +554,7 @@ var EventDialog = {
                     EventDialog.initSelect('shoeSelect', doc.data.shoes, SELECT_SHOE_PROMPT, '.user_shoes');
                     EventDialog.initSelect('extraShoeSelect', doc.data.shoes, SELECT_SHOE_PROMPT, '.user_shoes');
                     EventDialog.initSelect('courseSelect', doc.data.courses, SELECT_COURSE_PROMPT, '#user_courses', 'length');
+                    EventDialog.initSelect('raceSelect', doc.data.races, SELECT_RACE_PROMPT, '#races');
                 }
             }
         });
@@ -665,6 +668,12 @@ var EventDialog = {
 		eventFields.elevation = $('#elevation').val();
  		eventFields.weight = $('#weight').val();
         eventFields.rpe = $('#rpe').val();
+        if (runType == EventTypes.RACE_RUN ){
+            eventFields.race_id = $('#raceSelect').val();        
+        }
+        else{
+            eventFields.race_id = NOT_SELECTED;
+        }
  		
         return eventFields;
     },
@@ -690,6 +699,7 @@ var EventDialog = {
                     SelectUtils.makeSelection('rpe', doc.data.selected_rpe.id);
 					EventDialog.setSelectedItemOrShowLabel('rpe', doc.data.selected_rpe.id, doc.data.selected_rpe.description, 'inactive_rpe');
                     EventDialog.setSelectedItemOrShowLabel('courseSelect', doc.data.selected_course.id, doc.data.selected_course.course_name, 'inactive_course');
+                    EventDialog.setSelectedItemOrShowLabel('raceSelect', doc.data.selected_race.id, doc.data.selected_race.race_name, 'inactive_race');
                     EventDialog.setSelectedItemOrShowLabel('shoeSelect', doc.data.selected_shoe.id, doc.data.selected_shoe.name, 'inactive_shoe');
                     EventDialog.setSelectedItemOrShowLabel('extraShoeSelect', doc.data.selected_extra_shoe.id, doc.data.selected_extra_shoe.name, 'inactive_extra_shoe');
                     EventDialog.shoesDetached = ($('#shoeSelect').val() != $('#extraShoeSelect').val());
@@ -740,6 +750,11 @@ var EventDialog = {
                 $('#extra_run').hide();
             } else {
                 $('#extra_run').show();
+            }
+            if (runType == EventTypes.RACE_RUN) {
+                $('#race_main').show();
+            } else {
+                $('#race_main').hide();
             }
         }
     },

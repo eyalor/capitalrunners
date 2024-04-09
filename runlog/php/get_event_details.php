@@ -40,7 +40,8 @@ try {
     $resultCourseSelected = getCourseSelected($conn, $eventDetails[0]['course_id']);
     $resultRunTypeSelected = getRunTypeSelected($conn, $eventDetails[0]['run_type_id']);
     $resultRPESelected = getRPESelected($conn, $eventDetails[0]['rpe_id']);
-    echo returnEventDataJSONsuccess($eventDetails, $resultShoeSelected, $resultExtraShoeSelected, $resultRunTypeSelected, $resultCourseSelected, $resultRPESelected);
+    $resultRaceSelected = getRaceSelected($conn, $eventDetails[0]['race_id']);
+    echo returnEventDataJSONsuccess($eventDetails, $resultShoeSelected, $resultExtraShoeSelected, $resultRunTypeSelected, $resultCourseSelected, $resultRPESelected, $resultRaceSelected);
     $conn = null;
 } catch (PDOException $e) {
     die(getErrorStatusWithDummyData($e->getMessage()));
@@ -69,6 +70,21 @@ function getRPESelected($conn, $rpe_selected) {
         $resultRPESelected[0]= 1;
     }
     return $resultRPESelected;
+}
+
+/**
+ * Get Race selected value
+ */
+function getRaceSelected($conn, $race_selected) {
+    $sql = "SELECT tl_races.id as id, concat(tl_races.race_name,' - ',tl_race_type.type) as race_name FROM `tl_races` 
+    left outer join tl_race_type on tl_races.type_id=tl_race_type.id
+    where tl_races.id = '" . $race_selected . "'";
+    $stmt = $conn->query($sql);
+    $resultRaceSelected = $stmt->fetchAll(PDO :: FETCH_ASSOC);
+    if ($resultRaceSelected[0] == null ){
+        $resultRaceSelected[0]= 0;
+    }
+    return $resultRaceSelected;
 }
 
 /**
@@ -110,14 +126,15 @@ function getShoeSelected($conn, $shoe_selected) {
 }
 
 # , $resultRPESelected
-function returnEventDataJSONsuccess($result, $resultShoeSelected, $resultExtraShoeSelected, $resultRunTypeSelected, $resultCourseSelected, $resultRPESelected) {
+function returnEventDataJSONsuccess($result, $resultShoeSelected, $resultExtraShoeSelected, $resultRunTypeSelected, $resultCourseSelected, $resultRPESelected, $resultRaceSelected) {
     $result = array (
         "event_fields" => $result[0],
         "selected_shoe" => $resultShoeSelected[0],
         "selected_extra_shoe" => $resultExtraShoeSelected[0],
         "selected_run_type" => $resultRunTypeSelected[0],
         "selected_course" => $resultCourseSelected[0],
-        "selected_rpe" => $resultRPESelected[0]
+        "selected_rpe" => $resultRPESelected[0],
+        "selected_race" => $resultRaceSelected[0]
     );
 
     return returnJSONsuccess($result);

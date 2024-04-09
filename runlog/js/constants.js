@@ -12,6 +12,8 @@ var MAX_EXTRA_DISTANCE = 99.9;
 var NOT_SELECTED = 0;
 var SELECT_SHOE_PROMPT = '-- בחר נעל --';
 var SELECT_COURSE_PROMPT = '-- בחר מסלול --';
+var SELECT_RACE_PROMPT = '-- בחר תחרות --';
+
 
 /**
  * A simple object to hold run type attributes
@@ -73,7 +75,6 @@ var  RPEAttributes = function(label) {
 };
 
 var RPE  = {
-   EMPTY : 11, 
    EASY1 : 1,
    EASY2 : 2,
    EASY3 : 3,
@@ -87,7 +88,6 @@ var RPE  = {
 }
 
 var RPE_ATTRIBUTES = new Array();
-RPE_ATTRIBUTES[RPE.EMPTY]        	= new RPEAttributes("ללא מאמץ - 0");
 RPE_ATTRIBUTES[RPE.EASY1]        	= new RPEAttributes("קל - 1");
 RPE_ATTRIBUTES[RPE.EASY2]        	= new RPEAttributes("קל - 2");
 RPE_ATTRIBUTES[RPE.EASY3]           = new RPEAttributes("קל  - 3");

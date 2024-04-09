@@ -32,7 +32,7 @@ if(!$validationResult->isValid()) {
 //
 try {
     $conn = getConnection();
-    $sql = "UPDATE  tl_events  SET run_type_id=?,pulse=?,max_pulse=?,elevation=?,weight=?,warmup_time=?,run_time=?,cooldown_time=?,warmup_distance=?,run_distance=?,cooldown_distance=?,notes=?,shoe_id=?,extra_shoe_id=?,course_id=?,rpe_id=? WHERE id=?";
+    $sql = "UPDATE  tl_events  SET run_type_id=?,pulse=?,max_pulse=?,elevation=?,weight=?,warmup_time=?,run_time=?,cooldown_time=?,warmup_distance=?,run_distance=?,cooldown_distance=?,notes=?,shoe_id=?,extra_shoe_id=?,course_id=?,rpe_id=?, race_id=? WHERE id=?";
     //$sql = "UPDATE tl_events  SET run_type_id=?,warmup_time=? WHERE id=?";
 
     $sth = $conn->prepare($sql);
@@ -54,11 +54,24 @@ try {
         (int)$eventFields->{"extra_shoe_id"},
         (int)$eventFields->{"course_id"},
         (int)$eventFields->{"rpe"},
-        (int)$eventFields->{"event_id"}
-        
-
+        (int)$eventFields->{"race_id"},
+        (int)$eventFields->{"event_id"},    
 
     ));
+
+    if ($eventFields->{"run_type_id"}==8 && $eventFields->{"race_id"}!=0 && $eventFields->{"run_time"}!=0){
+        $sql2 = 'INSERT INTO tl_races_data (race_id,runner_id,run_time) VALUES (:race_id,:runner_id,:run_time) ON DUPLICATE KEY UPDATE run_time=:run_time';
+        $sth2 = $conn->prepare($sql2);
+    
+    
+        $ok = $sth2->execute(array (
+            ':run_time' => $eventFields->{"run_time"},
+            ':runner_id' => $eventFields->{"runner_id"},
+            ':race_id' => $eventFields->{"race_id"},
+        ));
+
+    }
+
     if (!$ok) {
         die(getErrorStatusWithDummyData("Failed to update table."));
     } else {
