@@ -17,7 +17,7 @@ catch(PDOException $e) {
 function getDayEventsAsJSON($conn, $date) {
     $sql =
 
-"SELECT tl_events.id, tl_runners.member_name AS 'name',case when tl_events.rpe_id < 11 then concat(tl_rpe.score,' - ',tl_rpe.description) else null end AS 'rpe', tl_run_types.type, run_distance, run_time, warmup_distance, cooldown_distance, COALESCE(tl_events.notes, '') AS 'notes', tl_events.run_type_id, pulse, elevation, weight, date_format(tl_events.run_date,'%H:%i') as HourAndMinutes
+"SELECT tl_events.id, tl_runners.member_name AS 'name',case when tl_events.rpe_id < 11 and tl_events.run_type_id < 9 then concat(tl_rpe.score,' - ',tl_rpe.description) else null end AS 'rpe', tl_run_types.type, run_distance, run_time, warmup_distance, cooldown_distance, COALESCE(tl_events.notes, '') AS 'notes', tl_events.run_type_id, pulse, elevation, weight, date_format(tl_events.run_date,'%H:%i') as HourAndMinutes
     FROM tl_events
     JOIN tl_runners ON tl_events.runner_id = tl_runners.id
     JOIN tl_run_types ON tl_events.run_type_id = tl_run_types.id
