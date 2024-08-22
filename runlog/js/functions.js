@@ -653,7 +653,7 @@ var EventDialog = {
             eventFields.course_id = $('#courseSelect').val();
             eventFields.shoe_id = $('#shoeSelect').val();
             eventFields.extra_shoe_id = $('#extraShoeSelect').val();
-            if (runType == EventTypes.RECOVERY_RUN ) {
+            if (runType == EventTypes.RECOVERY_RUN || runType == EventTypes.TRAIL_RUN) {
                 eventFields.extra_run_distance = 0;
             }
             if (eventFields.extra_run_distance == 0) {
@@ -746,7 +746,7 @@ var EventDialog = {
 			$('#weight_c').show();
             $('#rpe_main').show();
 
-            if (runType == EventTypes.RECOVERY_RUN) {
+            if (runType == EventTypes.RECOVERY_RUN || runType == EventTypes.TRAIL_RUN) {
                 $('#extra_run').hide();
             } else {
                 $('#extra_run').show();

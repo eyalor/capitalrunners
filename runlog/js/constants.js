@@ -49,7 +49,8 @@ var EventTypes  = {
     HILLS_RUN : 5,
     OTHER_SPORT : 9,
     EVENT_CANCELED : 10,
-    REST_DAY : 11
+    REST_DAY : 11,
+    TRAIL_RUN : 12
 }
 
 var EVENT_TYPES_ATTRIBUTES = new Array();
@@ -64,6 +65,7 @@ EVENT_TYPES_ATTRIBUTES[EventTypes.MEDUIM_PACE_RUN]     = new EventTypeAttributes
 EVENT_TYPES_ATTRIBUTES[EventTypes.OTHER_SPORT]         = new EventTypeAttributes("#ffffff","#e0e0e0","ספורט אחר");
 EVENT_TYPES_ATTRIBUTES[EventTypes.REST_DAY]            = new EventTypeAttributes("#ffffff","#e0e0e0","יום מנוחה");
 EVENT_TYPES_ATTRIBUTES[EventTypes.EVENT_CANCELED]      = new EventTypeAttributes("#ebebeb","#e0e0e0","אימון שבוטל");
+EVENT_TYPES_ATTRIBUTES[EventTypes.TRAIL_RUN]           = new EventTypeAttributes("#d0d3d4","#e0e0e0","ריצת שטח");
 
 var  RPEAttributes = function(label) {
     var _label = label;
