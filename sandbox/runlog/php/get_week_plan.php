@@ -26,7 +26,7 @@ JOIN tl_run_types ON tl_events.run_type_id = tl_run_types.id
 WHERE tl_events.runner_id =18600162 
 and year(tl_events.run_date) = year(CURRENT_DATE()) 
 and week(tl_events.run_date) = week(CURRENT_DATE()) 
-ORDER BY tl_events.id DESC";
+ORDER BY tl_events.id ASC";
 
     $stmt = $conn->query($sql);
     $events = $stmt->fetchAll(PDO::FETCH_ASSOC);
