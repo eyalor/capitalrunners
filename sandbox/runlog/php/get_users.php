@@ -1,9 +1,14 @@
 <?php
 require_once 'ajax_page_init.php';
+$runner_id = $_GET['runner_id'];
+echo $memberId;
+echo "<br>";
+echo $runner_id;
+echo "<br>";
 
 try {
 	$conn = getConnection();
-	$runner_id = $_GET['runner_id'];
+	
 	$the_date = strtotime('-1 month');
 	if(isset($_GET['search_term'])) {
 		$search_term = $_GET['search_term'];
