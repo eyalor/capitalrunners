@@ -440,7 +440,7 @@ require_once 'php/html_page_init.php';
     <h2 id="test" class="page_header">      </h2>
 	<a id="show_my_comments_action" href="#" onclick="showMyFeed(); return false;"  title="הצג אימונים שלי עם הערות מאמנים בלבד" >הצג רק אימונים שלי</a>
     <h2 id="test" class="page_header">      </h2>
-	<a id="show_my_week_plan" href="#" onclick="showWeekPlan(); return false;"  title="הצג תוכנית אימונים לשבוע זה" >הצג תוכנית אימונים לשבוע  זה</a>
+	<a id="show_week_plan" href="#" onclick="showWeekPlan(); return false;"  title="הצג תוכנית אימונים לשבוע זה" >הצג תוכנית אימונים לשבוע  זה</a>
 	<div id="comment_menu"></div>
     <div id="feed"></div>
     <div id="show_more">
