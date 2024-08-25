@@ -236,6 +236,27 @@ require_once 'php/html_page_init.php';
 		myFeedQueue.push(new Date(myDate));
         getMyDayEvents();
     }
+
+    function showWeekPlan(){	
+		
+        $('#show_new_comments_action').hide();
+		$('#show_my_comments_action').hide();  
+		$('#show_more').hide();
+		$('#show_more_my').show();
+		  $('#team_events_header').show();
+		
+        hideActionLink();
+
+        $('#new_comments_header').hide();
+        $('#show_all_events_label').show();
+		
+		feed.empty();
+        feedQueueLock = false;
+		myDate = new Date();
+        myDate.setDate(myDate.getDate() - 30);
+		myFeedQueue.push(new Date(myDate));
+        getWeekPlan();
+    }
 	
 	
 
@@ -292,6 +313,60 @@ require_once 'php/html_page_init.php';
         });
        
     }
+
+
+    function getWeekPlan(){
+      if (feedQueueLock) {
+            return;
+        }
+        feedQueueLock = true;
+  
+        var day =   myFeedQueue.shift();
+		untilDate = new Date(day);
+        untilDate.setDate(untilDate.getDate() + 30);
+        $.ajax({
+            url: 'php/get_week_plan.php',
+            dataType: 'text',
+            data: {
+                date: Time.hebDateToSqlDate(Time.jsDateToHebDate(day)),
+				untilDate: Time.hebDateToSqlDate(Time.jsDateToHebDate(untilDate)),
+				runnerId: runnerId
+            },
+            success: function (txt) {
+                var doc = Utils.parseJSON(txt);
+                if (doc.status.ecode == STATUS_ERR) {
+                    alert("Fetch events failed - " + doc.status.emessage);
+                }
+                else {
+					
+                  
+						var runDate = null;
+                       for (var i in doc.data['events']){
+                        var event = doc.data['events'][i];
+                        if (event['run_date'] != runDate){
+                            runDate = event['run_date'];
+                            feed.append('<div class="day_header">'+Time.jsDateToHebString(Time.sqlDateToJsDate(runDate))+'</div>');
+                            var $dayEvents = $('<div class="day_events"></div>');
+                            feed.append($dayEvents);
+                        }
+                            Comments.appendEvent($dayEvents, event);
+                        }
+
+                        for (var i in doc.data['comments']){
+                            var comment = doc.data['comments'][i];
+                            Comments.appendComment(comment);
+                        }
+                    
+                }
+
+                feedQueueLock = true;
+				
+                
+            }
+        });
+       
+    }
+
    
 
     function init()
@@ -363,7 +438,7 @@ require_once 'php/html_page_init.php';
     <h2 id="test" class="page_header">      </h2>
 	<a id="show_my_comments_action" href="#" onclick="showMyFeed(); return false;"  title="הצג אימונים שלי עם הערות מאמנים בלבד" >הצג רק אימונים שלי</a>
     <h2 id="test" class="page_header">      </h2>
-	<a id="show_my_comments_action" href="#" onclick="showMWeekPlan(); return false;"  title="הצג אימונים שלי עם הערות מאמנים בלבד" >הצג תוכנית אימונים לשבוע  זה</a>
+	<a id="show_my_comments_action" href="#" onclick="showWeekPlan(); return false;"  title="הצג אימונים שלי עם הערות מאמנים בלבד" >הצג תוכנית אימונים לשבוע  זה</a>
 	<div id="comment_menu"></div>
     <div id="feed"></div>
     <div id="show_more">
