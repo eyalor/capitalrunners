@@ -359,11 +359,11 @@ require_once 'php/html_page_init.php';
     <h2 id="new_comments_header" class="page_header" style="display:none;">פירגונים חדשים</h2>
     <a id="show_all_events_label" href="#" onclick="showAllComments(); return false;" style="display:none;">הצג את כל האימונים</a>
 	<h2 id="test" class="page_header">      </h2>
-	<a id="show_my_comments_action" href="#" onclick="showMyComments(); return false;"  title="הצג אימונים שלי עם הערות מאמנים בלבד" >הצג הערות מאמנים    </a>
+	<a id="show_my_comments_action" href="#" onclick="showMyComments(); return false;"  title="הצג אימונים שלי עם הערות מאמנים בלבד" >הצג הערות מאמנים</a>
     <h2 id="test" class="page_header">      </h2>
-	<a id="show_my_comments_action" href="#" onclick="showMyComments(); return false;"  title="הצג אימונים שלי עם הערות מאמנים בלבד" >הצג רק אימונים שלי    </a>
+	<a id="show_my_comments_action" href="#" onclick="showMyFeed(); return false;"  title="הצג אימונים שלי עם הערות מאמנים בלבד" >הצג רק אימונים שלי</a>
     <h2 id="test" class="page_header">      </h2>
-	<a id="show_my_comments_action" href="#" onclick="showMyComments(); return false;"  title="הצג אימונים שלי עם הערות מאמנים בלבד" >הצג תוכנית אימונים לשבוע  זה     </a>
+	<a id="show_my_comments_action" href="#" onclick="showMWeekPlan(); return false;"  title="הצג אימונים שלי עם הערות מאמנים בלבד" >הצג תוכנית אימונים לשבוע  זה</a>
 	<div id="comment_menu"></div>
     <div id="feed"></div>
     <div id="show_more">
