@@ -1,10 +1,6 @@
 <?php
 require_once 'ajax_page_init.php';
-$runner_id = $_GET['runner_id'];
-echo $memberId;
-echo "<br>";
-echo $runner_id;
-echo "<br>";
+
 
 try {
 	$conn = getConnection();

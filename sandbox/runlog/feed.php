@@ -1,5 +1,10 @@
 <?php
 require_once 'php/html_page_init.php';
+$runner_id = $_GET['runner_id'];
+echo $memberId;
+echo "<br>";
+echo $runner_id;
+echo "<br>";
 ?>
 <!DOCTYPE HTML>
 <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
