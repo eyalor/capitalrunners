@@ -10,7 +10,7 @@ try {
 		$sqlPhrase = "SELECT id AS value ,member_name AS label FROM  tl_runners WHERE member_name like '%" . $search_term  . "%' ORDER BY member_name";
 	} else {
 		$sqlPhrase = "SELECT distinct tl_runners.id,tl_runners.member_name FROM tl_runners WHERE (tl_runners.m_show_profile = '1' ) 
-		order by FIELD(tl_runners.id,18600162, . $runner_id . ) desc,
+		order by FIELD(tl_runners.id,18600162,18600094) desc,
 		 tl_runners.member_name"; 
 		//$sqlPhrase = "SELECT distinct tl_runners.id,tl_runners.member_name FROM tl_runners,tl_events WHERE ((run_date > '" . date('Y-m-d', $the_date) . "' and tl_runners.id=tl_events.runner_id) or tl_runners.id = '" . $memberAuthentication->getMemberId() . "') order by tl_runners.member_name"; 
 	}
