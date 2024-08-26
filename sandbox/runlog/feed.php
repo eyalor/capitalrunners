@@ -240,6 +240,28 @@ require_once 'php/html_page_init.php';
         getMyDayEvents();
     }
 
+    function showJustMyComments(){	
+		
+        $('#show_new_comments_action').hide();
+		$('#show_my_comments_action').hide();  
+		$('#show_week_plan').hide();
+        $('#show_more').hide();
+		$('#show_more_my').show();
+		  $('#team_events_header').show();
+		
+        hideActionLink();
+
+        $('#new_comments_header').hide();
+        $('#show_all_events_label').show();
+		
+		feed.empty();
+        feedQueueLock = false;
+		myDate = new Date();
+        myDate.setDate(myDate.getDate() - 30);
+		myFeedQueue.push(new Date(myDate));
+        getJustMyDayEvents();
+    }
+
     function showWeekPlan(){	
 		
         $('#show_new_comments_action').hide();
@@ -275,6 +297,61 @@ require_once 'php/html_page_init.php';
         untilDate.setDate(untilDate.getDate() + 30);
         $.ajax({
             url: 'php/get_my_comments.php',
+            dataType: 'text',
+            data: {
+                date: Time.hebDateToSqlDate(Time.jsDateToHebDate(day)),
+				untilDate: Time.hebDateToSqlDate(Time.jsDateToHebDate(untilDate)),
+				runnerId: runnerId
+            },
+            success: function (txt) {
+                var doc = Utils.parseJSON(txt);
+                if (doc.status.ecode == STATUS_ERR) {
+                    alert("Fetch events failed - " + doc.status.emessage);
+                }
+                else {
+					
+                  
+						var runDate = null;
+                       for (var i in doc.data['events']){
+                        var event = doc.data['events'][i];
+                        if (event['run_date'] != runDate){
+                            runDate = event['run_date'];
+                            feed.append('<div class="day_header">'+Time.jsDateToHebString(Time.sqlDateToJsDate(runDate))+'</div>');
+                            var $dayEvents = $('<div class="day_events"></div>');
+                            feed.append($dayEvents);
+                        }
+                            Comments.appendEvent($dayEvents, event);
+                        }
+
+                        for (var i in doc.data['comments']){
+                            var comment = doc.data['comments'][i];
+                            Comments.appendComment(comment);
+                        }
+                    
+                }
+
+                feedQueueLock = true;
+				if (feedQueue.length > 0) {
+                    getMyNextDayEvents();
+                }
+                
+            }
+        });
+       
+    }
+
+
+	function getJustMyDayEvents(){
+      if (feedQueueLock) {
+            return;
+        }
+        feedQueueLock = true;
+  
+        var day =   myFeedQueue.shift();
+		untilDate = new Date(day);
+        untilDate.setDate(untilDate.getDate() + 30);
+        $.ajax({
+            url: 'php/get_just_my_comments.php',
             dataType: 'text',
             data: {
                 date: Time.hebDateToSqlDate(Time.jsDateToHebDate(day)),
@@ -440,7 +517,7 @@ require_once 'php/html_page_init.php';
 	<h2 id="test" class="page_header">      </h2>
 	<a id="show_my_comments_action" href="#" onclick="showMyComments(); return false;"  title="הצג אימונים שלי עם הערות מאמנים בלבד" >הצג הערות מאמנים</a>
     <h2 id="test" class="page_header">      </h2>
-	<a id="show_my_comments_action" href="#" onclick="showMyFeed(); return false;"  title="הצג אימונים שלי עם הערות מאמנים בלבד" >הצג רק אימונים שלי</a>
+	<a id="show_just_my_comments_action" href="#" onclick="showJustMyComments(); return false;"  title="הצג רק אימונים שלי עם הערות" >הצג רק אימונים שלי</a>
     <h2 id="test" class="page_header">      </h2>
 	<a id="show_week_plan" href="#" onclick="showWeekPlan(); return false;"  title="הצג תוכנית אימונים לשבוע זה" >הצג תוכנית אימונים לשבוע  זה</a>
 	<div id="comment_menu"></div>
