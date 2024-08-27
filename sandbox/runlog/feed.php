@@ -244,6 +244,7 @@ require_once 'php/html_page_init.php';
 		
         $('#show_new_comments_action').hide();
 		$('#show_my_comments_action').hide();  
+        $('#show_just_my_comments_action').hide(); 
 		$('#show_week_plan').hide();
         $('#show_more').hide();
 		$('#show_more_my').show();
@@ -265,7 +266,8 @@ require_once 'php/html_page_init.php';
     function showWeekPlan(){	
 		
         $('#show_new_comments_action').hide();
-		$('#show_my_comments_action').hide();  
+		$('#show_my_comments_action').hide(); 
+        $('#show_just_my_comments_action').hide(); 
 		$('#show_more').hide();
         $('#show_week_plan').hide();
 		$('#show_more_my').show();
