@@ -198,6 +198,7 @@ require_once 'php/html_page_init.php';
         $('#team_events_header').show();
         $('#show_new_comments_action').hide();
 		$('#show_my_comments_action').show();
+        $('#show_just_my_comments_action').show(); 
         $('#show_week_plan').show();
 		$('#show_more_my').hide();
 		$('#no_new_comments_action').hide();
