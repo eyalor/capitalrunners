@@ -272,7 +272,7 @@ require_once 'php/html_page_init.php';
         $('#show_just_my_comments_action').hide(); 
 		$('#show_more').hide();
         $('#show_week_plan').hide();
-		$('#show_more_my').show();
+		$('#show_more_my').hide();
 		  $('#team_events_header').show();
 		
         hideActionLink();
