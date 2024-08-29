@@ -259,7 +259,7 @@ require_once 'php/html_page_init.php';
         $('#show_just_my_comments_action').hide(); 
 		$('#show_week_plan').hide();
         $('#show_more').hide();
-		$('#show_more_my').show();
+		$('#show_more_my').hide();
 		$('#team_events_header').show();
         $('#show_more_just_my').show();
 		
@@ -532,7 +532,7 @@ require_once 'php/html_page_init.php';
     <h2 id="new_comments_header" class="page_header" style="display:none;">פירגונים חדשים</h2>
     <a id="show_all_events_label" href="#" onclick="showAllComments(); return false;" style="display:none;">הצג את כל האימונים</a>
 	<h2 id="test" class="page_header">      </h2>
-	<a id="show_my_comments_action" href="#" onclick="showMyComments(); return false;"  title="הצג אימונים שלי עם הערות מאמנים בלבד" >הצג הערות מאמנים</a>
+	<a id="show_my_comments_action" href="#" onclick="showMyComments(); return false;"  title="הצג אימונים שלי עם הערות מאמנים בלבד" >הצג אימונים שלי עם הערות מאמנים</a>
     <h2 id="test" class="page_header">      </h2>
 	<a id="show_just_my_comments_action" href="#" onclick="showJustMyComments(); return false;"  title="הצג רק אימונים שלי עם הערות" >הצג רק אימונים שלי</a>
     <h2 id="test" class="page_header">      </h2>
@@ -543,7 +543,7 @@ require_once 'php/html_page_init.php';
         <a href="#" onclick="getNextDayEvents(); return false;">הצג עוד</a>
     </div>
 	<div id="show_more_my">
-        <a href="#" onclick="getMyNextDayEvents(); return false;"> הצג עוד אימונים שלי</a>
+        <a href="#" onclick="getMyNextDayEvents(); return false;"> הצג עוד אימונים שלי עם הערות מאמנים</a>
     </div>
     <div id="show_more_just_my">
         <a href="#" onclick="getJustMyNextDayEvents(); return false;"> הצג עוד אימונים רק שלי</a>
