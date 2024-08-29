@@ -209,6 +209,7 @@ require_once 'php/html_page_init.php';
         $('#show_just_my_comments_action').show(); 
         $('#show_week_plan').show();
 		$('#show_more_my').hide();
+        $('#show_more_just_my').hide();
 		$('#no_new_comments_action').hide();
 	
         showActionLink();
@@ -235,7 +236,8 @@ require_once 'php/html_page_init.php';
 		$('#show_week_plan').hide();
         $('#show_more').hide();
 		$('#show_more_my').show();
-		  $('#team_events_header').show();
+        $('#show_more_just_my').hide();
+		$('#team_events_header').show();
 		
         hideActionLink();
 
@@ -258,7 +260,8 @@ require_once 'php/html_page_init.php';
 		$('#show_week_plan').hide();
         $('#show_more').hide();
 		$('#show_more_my').show();
-		  $('#team_events_header').show();
+		$('#team_events_header').show();
+        $('#show_more_just_my').show();
 		
         hideActionLink();
 
@@ -281,7 +284,8 @@ require_once 'php/html_page_init.php';
 		$('#show_more').hide();
         $('#show_week_plan').hide();
 		$('#show_more_my').hide();
-		  $('#team_events_header').show();
+        $('#show_more_just_my').hide();
+		$('#team_events_header').show();
 		
         hideActionLink();
 
@@ -470,6 +474,7 @@ require_once 'php/html_page_init.php';
         feedQueueLock = false;
         feed = $('#feed');
 		$('#show_more_my').hide();
+        $('#show_more_just_my').hide();
         date = new Date();
 		
         feedQueue.push(new Date(date));
