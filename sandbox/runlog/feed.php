@@ -110,6 +110,14 @@ require_once 'php/html_page_init.php';
         getMyDayEvents();
     }
 
+    function getJustMyNextDayEvents()
+    {
+        myDate.setDate(myDate.getDate() - 30);
+        myFeedQueue.push(new Date(myDate));
+		feedQueueLock = false;
+        getJustMyDayEvents();
+    }
+
    
 
     function getTeamCommentsStatus(){
@@ -391,7 +399,7 @@ require_once 'php/html_page_init.php';
 
                 feedQueueLock = true;
 				if (feedQueue.length > 0) {
-                    getMyNextDayEvents();
+                    getJustMyNextDayEvents();
                 }
                 
             }
@@ -531,6 +539,9 @@ require_once 'php/html_page_init.php';
     </div>
 	<div id="show_more_my">
         <a href="#" onclick="getMyNextDayEvents(); return false;"> הצג עוד אימונים שלי</a>
+    </div>
+    <div id="show_more_just_my">
+        <a href="#" onclick="getJustMyNextDayEvents(); return false;"> הצג עוד אימונים רק שלי</a>
     </div>
 </div>
 </body>
