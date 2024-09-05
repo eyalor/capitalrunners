@@ -126,13 +126,13 @@
 				</td>
 				<td width="30%" align="left">
 					
-					<div align="left" id='remh'>
+					<div align="left" id='remd'>
 					
 					<?php
-					$counter = 0;
+					$counter_reminder = 0;
 					while ($row_reminder = mysqli_fetch_array($result_reminder, MYSQLI_NUM)) {
 						printf("<span style='color:yellow'><b> %s </b></span> <br>", $row_reminder[0]);
-						$counter++;						
+						$counter_reminder++;						
 					}
 					?>
 					</div>
@@ -182,6 +182,11 @@ $(document).ready(function () {
 	if (counter == 0){
 	  $('#swbdh').hide();
 	  $('#swbd').hide();
+	}
+	var counter_reminder = '<?php echo $counter_reminder; ?>';
+	if (counter_reminder == 0){
+	  $('#remh').hide();
+	  $('#remd').hide();
 	}
 });	
 $(function(){
