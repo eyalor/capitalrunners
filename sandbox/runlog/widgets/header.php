@@ -119,9 +119,9 @@
 				<td>
 					<div align="center" id='chart_div_w'></div>
 				</td></font>
-				<td width="30%" align="right">
+				<td width="30%" align="left">
 					
-					<div align="right" id='remh'>
+					<div align="left" id='remh'>
 					
 					<?php
 					$counter = 0;
