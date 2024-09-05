@@ -95,7 +95,7 @@
 				<td align="center"><b><font color="white">קילומטרז' כללי היום</font></b></td>
 				<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
 				<td align="center"><b><font color="white">קילומטרז' כללי שבועי</font></b></td>
-				<td width="70%"><span id="swbdh" style="color:#839192"><b>תזכורות<b></td>
+				<td width="70%"><span id="remh" style="color:#839192"><b>תזכורות<b></td>
 			  </tr> 
 				<td width="30%" align="right">
 					
