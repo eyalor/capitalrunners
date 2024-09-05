@@ -119,7 +119,21 @@
 				<td>
 					<div align="center" id='chart_div_w'></div>
 				</td></font>
-				
+				<td width="30%" align="right">
+					
+					<div align="right" id='remh'>
+					
+					<?php
+					$counter = 0;
+					while ($row_bd = mysqli_fetch_array($result_bd, MYSQLI_NUM)) {
+						printf("<span style='color:yellow'><b> %s </b></span> <br>", $row_bd[0]);
+						$counter++;						
+					}
+					?>
+					<!--<iframe src="https://giphy.com/embed/AwcmOV28QPnck" width="120" height="140" frameBorder="0" class="giphy-embed" ></iframe>
+					--><br><image src="./widgets/bd.gif" width="100" height="80">
+					</div>
+				</td>
 				
 			  </tr>
 		</table>
