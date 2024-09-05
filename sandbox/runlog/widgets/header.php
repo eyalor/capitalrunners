@@ -118,7 +118,7 @@
 				<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
 				<td>
 					<div align="center" id='chart_div_w'></div>
-				</td></font>
+				</td>
 				<td width="30%" align="left">
 					
 					<div align="left" id='remh'>
@@ -133,7 +133,7 @@
 					<!--<iframe src="https://giphy.com/embed/AwcmOV28QPnck" width="120" height="140" frameBorder="0" class="giphy-embed" ></iframe>
 					--><br><image src="./widgets/bd.gif" width="100" height="80">
 					</div>
-				</td>
+				</td></font>
 				
 			  </tr>
 		</table>
