@@ -40,6 +40,10 @@
 	
 	$query_bd = "SELECT member_name AS runner_name FROM  tl_runners WHERE m_show_profile = true and DATE_FORMAT(birthday, '%d-%m') = DATE_FORMAT(CURDATE(), '%d-%m')";
 	$result_bd = mysqli_query($link, $query_bd) or die("Query failed");
+
+	$query_reminder = "SELECT member_name AS runner_name FROM  tl_runners WHERE id=18600094";
+	$result_reminder = mysqli_query($link, $query_reminder) or die("Query failed");
+
 	$admin = $memberAuthentication->isAdmin();
  	$coach = $memberAuthentication->isCoach();
 	
@@ -125,13 +129,11 @@
 					
 					<?php
 					$counter = 0;
-					while ($row_bd = mysqli_fetch_array($result_bd, MYSQLI_NUM)) {
-						printf("<span style='color:yellow'><b> %s </b></span> <br>", $row_bd[0]);
+					while ($row_reminder = mysqli_fetch_array($result_reminder, MYSQLI_NUM)) {
+						printf("<span style='color:yellow'><b> %s </b></span> <br>", $row_reminder[0]);
 						$counter++;						
 					}
 					?>
-					<!--<iframe src="https://giphy.com/embed/AwcmOV28QPnck" width="120" height="140" frameBorder="0" class="giphy-embed" ></iframe>
-					--><br><image src="./widgets/bd.gif" width="100" height="80">
 					</div>
 				</td></font>
 				
