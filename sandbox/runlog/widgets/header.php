@@ -41,7 +41,7 @@
 	$query_bd = "SELECT member_name AS runner_name FROM  tl_runners WHERE m_show_profile = true and DATE_FORMAT(birthday, '%d-%m') = DATE_FORMAT(CURDATE(), '%d-%m')";
 	$result_bd = mysqli_query($link, $query_bd) or die("Query failed");
 
-	$query_reminder = "SELECT member_name AS runner_name FROM  tl_runners WHERE id=18600094";
+	$query_reminder = "SELECT member_name AS runner_name FROM  tl_runners WHERE id in (18600094,18600141)";
 	$result_reminder = mysqli_query($link, $query_reminder) or die("Query failed");
 
 	$admin = $memberAuthentication->isAdmin();
