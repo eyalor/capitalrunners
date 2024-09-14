@@ -104,6 +104,9 @@
 		]);
 
         var options_r_w = {
+			backgroundColor: 'transparent',
+			width: 200, 
+			height: 150,
 			title: 'My Week',
 			is3D: true,
         };
