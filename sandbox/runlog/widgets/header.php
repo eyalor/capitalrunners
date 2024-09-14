@@ -42,8 +42,8 @@
 	$query_bd = "SELECT member_name AS runner_name FROM  tl_runners WHERE m_show_profile = true and DATE_FORMAT(birthday, '%d-%m') = DATE_FORMAT(CURDATE(), '%d-%m')";
 	$result_bd = mysqli_query($link, $query_bd) or die("Query failed");
 
-	$query_r_w = "SELECT (SUM(run_distance) + SUM(warmup_distance) + SUM(cooldown_distance)) as runner_weekly from tl_events where date(run_date) >= '" . $start_date . "' and date(run_date) <= '" . $end_date . "' and tl_runners.id = '" . $runner_id . "'";
-	//$query_r_w = "SELECT (SUM(run_distance) + SUM(warmup_distance) + SUM(cooldown_distance)) as weekly from tl_events where date(run_date) >= '" . $start_date . "' and date(run_date) <= '" . $end_date . "'";
+	//$query_r_w = "SELECT (SUM(run_distance) + SUM(warmup_distance) + SUM(cooldown_distance)) as runner_weekly from tl_events where date(run_date) >= '" . $start_date . "' and date(run_date) <= '" . $end_date . "' and tl_runners.id = '" . $runner_id . "'";
+	$query_r_w = "SELECT (SUM(run_distance) + SUM(warmup_distance) + SUM(cooldown_distance)) as weekly from tl_events where date(run_date) >= '" . $start_date . "' and date(run_date) <= '" . $end_date . "'";
 	$result_r_w = mysqli_query($link, $query_r_w) or die("Query failed");
 	$row_r_w = mysqli_fetch_array($result_r_w, MYSQLI_ASSOC);
 	
