@@ -42,9 +42,9 @@
 	$query_bd = "SELECT member_name AS runner_name FROM  tl_runners WHERE m_show_profile = true and DATE_FORMAT(birthday, '%d-%m') = DATE_FORMAT(CURDATE(), '%d-%m')";
 	$result_bd = mysqli_query($link, $query_bd) or die("Query failed");
 
-	$query_r_w = "SELECT tl_run_types.type as run_type, cast((SUM(run_distance) + SUM(warmup_distance) + SUM(cooldown_distance)) as CHAR)as runner_weekly from tl_events left join tl_run_types on tl_events.run_type_id=tl_run_types.id where date(run_date) >= '" . $start_date . "' and date(run_date) <= '" . $end_date . "' and tl_events.runner_id = '" . $runner_id . "' group by tl_events.run_type_id";
+	//$query_r_w = "SELECT tl_run_types.type as run_type, cast((SUM(run_distance) + SUM(warmup_distance) + SUM(cooldown_distance)) as CHAR)as runner_weekly from tl_events left join tl_run_types on tl_events.run_type_id=tl_run_types.id where date(run_date) >= '" . $start_date . "' and date(run_date) <= '" . $end_date . "' and tl_events.runner_id = '" . $runner_id . "' group by tl_events.run_type_id";
 	// SELECT tl_run_types.type as run_type,(SUM(run_distance) + SUM(warmup_distance) + SUM(cooldown_distance)) as runner_weekly from tl_events left join tl_run_types on tl_events.run_type_id=tl_run_types.id
-	//$query_r_w = "SELECT (SUM(run_distance) + SUM(warmup_distance) + SUM(cooldown_distance)) as runner_weekly from tl_events where date(run_date) >= '" . $start_date . "' and date(run_date) <= '" . $end_date . "' and tl_events.runner_id = '" . $runner_id . "'";
+	$query_r_w = "SELECT (SUM(run_distance) + SUM(warmup_distance) + SUM(cooldown_distance)) as runner_weekly from tl_events where date(run_date) >= '" . $start_date . "' and date(run_date) <= '" . $end_date . "' and tl_events.runner_id = '" . $runner_id . "'";
 	//$query_r_w = "SELECT (SUM(run_distance) + SUM(warmup_distance) + SUM(cooldown_distance)) as weekly from tl_events where date(run_date) >= '" . $start_date . "' and date(run_date) <= '" . $end_date . "'";
 	$result_r_w = mysqli_query($link, $query_r_w) or die("Query failed");
 	$row_r_w = mysqli_fetch_array($result_r_w, MYSQLI_ASSOC);
@@ -95,25 +95,21 @@
         };
 
 		var data_r_w = google.visualization.arrayToDataTable([
-			['Task', 'Hours per Day'],
-          ['Work',     11],
-          ['Eat',      2],
-          ['Commute',  2],
-          ['Watch TV', 2],
-          ['Sleep',    7]
+			['Label', 'Value'],
+		  ['MY WEEK', k_r_w]
 		]);
 
         var options_r_w = {
-			backgroundColor: 'transparent',
-			width: 200, 
-			height: 150,
-			title: 'My Week',
-			is3D: true,
+		  width: 200, height: 150,
+          max: 180,
+          redFrom: 150, redTo: 180,
+          yellowFrom: 120, yellowTo: 150,
+          minorTicks: 10
         };
 
         var chart = new google.visualization.Gauge(document.getElementById('chart_div_d'));
         chart.draw(data_d, options_d);
-		var chart = new google.visualization.PieChart(document.getElementById('chart_div_r_w'));
+		var chart = new google.visualization.Gauge(document.getElementById('chart_div_r_w'));
 		chart.draw(data_r_w, options_r_w);
 		var chart = new google.visualization.Gauge(document.getElementById('chart_div_w'));
 		chart.draw(data_w, options_w);
