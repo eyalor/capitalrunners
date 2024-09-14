@@ -103,7 +103,7 @@
 
         var chart = new google.visualization.Gauge(document.getElementById('chart_div_d'));
         chart.draw(data_d, options_d);
-		var chart = new google.visualization.Gauge(document.getElementById('chart_div_r_w'));
+		var chart = new google.visualization.PieChart(document.getElementById('chart_div_r_w'));
 		chart.draw(data_r_w, options_r_w);
 		var chart = new google.visualization.Gauge(document.getElementById('chart_div_w'));
 		chart.draw(data_w, options_w);
