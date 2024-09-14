@@ -26,7 +26,7 @@
 	mysqli_set_charset($link, "utf8");
     mysqli_select_db($link, "u574399506_testlog") or die("Could not select database");
  
-	$query_d = "SELECT (SUM(run_distance) + SUM(warmup_distance) + SUM(cooldown_distance)) as daily from tl_events where date(run_date) = '" . date('Y-m-d') . "'" ;
+    $query_d = "SELECT (SUM(run_distance) + SUM(warmup_distance) + SUM(cooldown_distance)) as daily from tl_events where date(run_date) = '" . date('Y-m-d') . "'" ;
 	$result_d = mysqli_query($link, $query_d) or die("Query failed");
 	$row_d = mysqli_fetch_array($result_d, MYSQLI_ASSOC);
 	if ($row_d['daily'] == "" or $row_d['daily'] == null)
@@ -41,6 +41,10 @@
 	
 	$query_bd = "SELECT member_name AS runner_name FROM  tl_runners WHERE m_show_profile = true and DATE_FORMAT(birthday, '%d-%m') = DATE_FORMAT(CURDATE(), '%d-%m')";
 	$result_bd = mysqli_query($link, $query_bd) or die("Query failed");
+
+	$query_reminder = "SELECT tl_reminders.message FROM `tl_reminders` where start_date<CURRENT_DATE and end_date>CURRENT_DATE";
+	$result_reminder = mysqli_query($link, $query_reminder) or die("Query failed");
+
 	$admin = $memberAuthentication->isAdmin();
  	$coach = $memberAuthentication->isCoach();
 	
@@ -96,7 +100,7 @@
 				<td align="center"><b><font color="white">קילומטרז' כללי היום</font></b></td>
 				<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
 				<td align="center"><b><font color="white">קילומטרז' כללי שבועי</font></b></td>
-				
+				<td align="left" width="30%"><span id="remh" style="color:#FFEFD5"><b>תזכורות והודעות<b></td>
 			  </tr> 
 				<td width="30%" align="right">
 					
@@ -119,8 +123,20 @@
 				<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
 				<td>
 					<div align="center" id='chart_div_w'></div>
+				</td>
+				<td width="30%" align="left">
+					
+					<div align="left" id='remd'>
+					
+					<?php
+					$counter_reminder = 0;
+					while ($row_reminder = mysqli_fetch_array($result_reminder, MYSQLI_NUM)) {
+						printf("<span style='color:yellow'><b> %s </b></span> <br>", $row_reminder[0]);
+						$counter_reminder++;						
+					}
+					?>
+					</div>
 				</td></font>
-				
 				
 			  </tr>
 		</table>
@@ -166,6 +182,11 @@ $(document).ready(function () {
 	if (counter == 0){
 	  $('#swbdh').hide();
 	  $('#swbd').hide();
+	}
+	var counter_reminder = '<?php echo $counter_reminder; ?>';
+	if (counter_reminder == 0){
+	  $('#remh').hide();
+	  $('#remd').hide();
 	}
 });	
 $(function(){
