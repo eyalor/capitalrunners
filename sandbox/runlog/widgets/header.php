@@ -63,7 +63,7 @@
       function drawChart() {
 		var k_d = <?php echo $row_d['daily']; ?>;
         var k_w = <?php echo $row_w['weekly']; ?>;
-		var k_r_w = <?php echo $row_w['runner_weekly']; ?>;
+		var k_r_w = <?php echo $row_r_w['runner_weekly']; ?>;
         var data_d = google.visualization.arrayToDataTable([
           ['Label', 'Value'],
           ['TODAY', k_d]
@@ -92,7 +92,7 @@
 
 		var data_r_w = google.visualization.arrayToDataTable([
           ['Label', 'Value'],
-		  ['WEEK', k_r_w]
+		  ['MY WEEK', k_r_w]
         ]);
 
         var options_r_w = {
