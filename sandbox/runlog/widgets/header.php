@@ -102,8 +102,8 @@
         var options_r_w = {
 		  width: 200, height: 150,
           max: 180,
-          redFrom: 150, redTo: 180,
-          yellowFrom: 120, yellowTo: 150,
+          redFrom: 140, redTo: 180,
+          yellowFrom: 100, yellowTo: 140,
           minorTicks: 10
         };
 
