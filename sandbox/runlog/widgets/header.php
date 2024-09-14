@@ -152,7 +152,7 @@
 				</td>
 				<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
 				<td>
-					<div align="center" id='chart_div_r_w' style="width: 200px; height: 150px;"></div>
+					<div align="center" id='chart_div_r_w'></div>
 				</td>
 				<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
 				<td>
