@@ -93,7 +93,7 @@
           minorTicks: 10
         };
 
-		var data_r_w = google.visualization.arrayToDataTable([[k_r_w]]);
+		var data_r_w = google.visualization.arrayToDataTable([k_r_w]);
 
         var options_r_w = {
 			title: 'My Week',
