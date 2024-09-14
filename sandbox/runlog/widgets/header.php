@@ -42,7 +42,9 @@
 	$query_bd = "SELECT member_name AS runner_name FROM  tl_runners WHERE m_show_profile = true and DATE_FORMAT(birthday, '%d-%m') = DATE_FORMAT(CURDATE(), '%d-%m')";
 	$result_bd = mysqli_query($link, $query_bd) or die("Query failed");
 
-	$query_r_w = "SELECT (SUM(run_distance) + SUM(warmup_distance) + SUM(cooldown_distance)) as runner_weekly from tl_events where date(run_date) >= '" . $start_date . "' and date(run_date) <= '" . $end_date . "' and tl_events.runner_id = '" . $runner_id . "'";
+	$query_r_w = "SELECT tl_run_types.type as run_type,(SUM(run_distance) + SUM(warmup_distance) + SUM(cooldown_distance)) as runner_weekly from tl_events left join tl_run_types on tl_events.run_type_id=tl_run_types.id where date(run_date) >= '" . $start_date . "' and date(run_date) <= '" . $end_date . "' and tl_events.runner_id = '" . $runner_id . "' group by tl_events.run_type_id";
+	// SELECT tl_run_types.type as run_type,(SUM(run_distance) + SUM(warmup_distance) + SUM(cooldown_distance)) as runner_weekly from tl_events left join tl_run_types on tl_events.run_type_id=tl_run_types.id
+	//$query_r_w = "SELECT (SUM(run_distance) + SUM(warmup_distance) + SUM(cooldown_distance)) as runner_weekly from tl_events where date(run_date) >= '" . $start_date . "' and date(run_date) <= '" . $end_date . "' and tl_events.runner_id = '" . $runner_id . "'";
 	//$query_r_w = "SELECT (SUM(run_distance) + SUM(warmup_distance) + SUM(cooldown_distance)) as weekly from tl_events where date(run_date) >= '" . $start_date . "' and date(run_date) <= '" . $end_date . "'";
 	$result_r_w = mysqli_query($link, $query_r_w) or die("Query failed");
 	$row_r_w = mysqli_fetch_array($result_r_w, MYSQLI_ASSOC);
@@ -91,17 +93,12 @@
           minorTicks: 10
         };
 
-		var data_r_w = google.visualization.arrayToDataTable([
-          ['Label', 'Value'],
-		  ['MY WEEK', k_r_w]
+		var data_r_w = google.visualization.arrayToDataTable([k_r_w]
         ]);
 
         var options_r_w = {
-          width: 200, height: 150,
-          max: 180,
-          redFrom: 150, redTo: 180,
-          yellowFrom: 100, yellowTo: 150,
-          minorTicks: 10
+			title: 'My Week',
+			is3D: true,
         };
 
         var chart = new google.visualization.Gauge(document.getElementById('chart_div_d'));
@@ -145,7 +142,7 @@
 				</td>
 				<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
 				<td>
-					<div align="center" id='chart_div_r_w'></div>
+					<div align="center" id='chart_div_r_w' style="width: 200; height: 150px;"></div>
 				</td>
 				<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
 				<td>
