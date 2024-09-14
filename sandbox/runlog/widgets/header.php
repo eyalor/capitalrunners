@@ -62,6 +62,7 @@
     <script type='text/javascript'>
 	  
       google.load('visualization', '1', {packages:['gauge']});
+	  google.charts.load("current", {packages:["corechart"]});
       google.setOnLoadCallback(drawChart);
       function drawChart() {
 		var k_d = <?php echo $row_d['daily']; ?>;
