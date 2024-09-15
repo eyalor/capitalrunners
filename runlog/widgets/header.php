@@ -18,11 +18,11 @@
     $start = (date('w', $ts) == 0) ? $ts : strtotime('last sunday', $ts);
     $start_date = date('Y-m-d', $start);
     $end_date = date('Y-m-d', strtotime('next saturday', $start)); 
-	
+	$runner_id = $memberAuthentication->getMemberId();
 	$link = mysqli_connect("localhost", "u574399506_tlog", "LongMayURun20@#", "u574399506_tlog") or die("Could not connect");
 
 //	$link = mysqli_connect("localhost", "u574399506_tlog", "LongMayURun20@#", "u574399506_tlog" ) or die("Could not connect");
-mysqli_set_charset($link, "utf8");
+	mysqli_set_charset($link, "utf8");
     mysqli_select_db($link, "u574399506_testlog") or die("Could not select database");
  
 	$query_d = "SELECT (SUM(run_distance) + SUM(warmup_distance) + SUM(cooldown_distance)) as daily from tl_events where date(run_date) = '" . date('Y-m-d') . "'" ;
