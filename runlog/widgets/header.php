@@ -22,10 +22,10 @@
 	$link = mysqli_connect("localhost", "u574399506_tlog", "LongMayURun20@#", "u574399506_tlog") or die("Could not connect");
 
 //	$link = mysqli_connect("localhost", "u574399506_tlog", "LongMayURun20@#", "u574399506_tlog" ) or die("Could not connect");
-	mysqli_set_charset($link, "utf8");
-    mysqli_select_db($link, "u574399506_tlog") or die("Could not select database");
+mysqli_set_charset($link, "utf8");
+    mysqli_select_db($link, "u574399506_testlog") or die("Could not select database");
  
-    $query_d = "SELECT (SUM(run_distance) + SUM(warmup_distance) + SUM(cooldown_distance)) as daily from tl_events where date(run_date) = '" . date('Y-m-d') . "'" ;
+	$query_d = "SELECT (SUM(run_distance) + SUM(warmup_distance) + SUM(cooldown_distance)) as daily from tl_events where date(run_date) = '" . date('Y-m-d') . "'" ;
 	$result_d = mysqli_query($link, $query_d) or die("Query failed");
 	$row_d = mysqli_fetch_array($result_d, MYSQLI_ASSOC);
 	if ($row_d['daily'] == "" or $row_d['daily'] == null)
@@ -40,6 +40,14 @@
 	
 	$query_bd = "SELECT member_name AS runner_name FROM  tl_runners WHERE m_show_profile = true and DATE_FORMAT(birthday, '%d-%m') = DATE_FORMAT(CURDATE(), '%d-%m')";
 	$result_bd = mysqli_query($link, $query_bd) or die("Query failed");
+
+	$query_r_w = "SELECT (SUM(run_distance) + SUM(warmup_distance) + SUM(cooldown_distance)) as runner_weekly from tl_events where date(run_date) >= '" . $start_date . "' and date(run_date) <= '" . $end_date . "' and tl_events.runner_id = '" . $runner_id . "'";
+	$result_r_w = mysqli_query($link, $query_r_w) or die("Query failed");
+	$row_r_w = mysqli_fetch_array($result_r_w, MYSQLI_ASSOC);
+	
+	if ($row_r_w['runner_weekly'] == "" or $row_r_w['runner_weekly'] == null)
+		$row_r_w['runner_weekly'] = 0;
+
 	$admin = $memberAuthentication->isAdmin();
  	$coach = $memberAuthentication->isCoach();
 	
@@ -50,10 +58,12 @@
     <script type='text/javascript'>
 	  
       google.load('visualization', '1', {packages:['gauge']});
+	  google.charts.load("current", {packages:["corechart"]});
       google.setOnLoadCallback(drawChart);
       function drawChart() {
 		var k_d = <?php echo $row_d['daily']; ?>;
         var k_w = <?php echo $row_w['weekly']; ?>;
+		var k_r_w = <?php echo $row_r_w['runner_weekly']; ?>;
         var data_d = google.visualization.arrayToDataTable([
           ['Label', 'Value'],
           ['TODAY', k_d]
@@ -80,8 +90,23 @@
           minorTicks: 10
         };
 
+		var data_r_w = google.visualization.arrayToDataTable([
+			['Label', 'Value'],
+		  ['MY WEEK', k_r_w]
+		]);
+
+        var options_r_w = {
+		  width: 200, height: 150,
+          max: 180,
+          redFrom: 140, redTo: 180,
+          yellowFrom: 100, yellowTo: 140,
+          minorTicks: 10
+        };
+
         var chart = new google.visualization.Gauge(document.getElementById('chart_div_d'));
         chart.draw(data_d, options_d);
+		var chart = new google.visualization.Gauge(document.getElementById('chart_div_r_w'));
+		chart.draw(data_r_w, options_r_w);
 		var chart = new google.visualization.Gauge(document.getElementById('chart_div_w'));
 		chart.draw(data_w, options_w);
       }
@@ -93,6 +118,8 @@
 			  <tr >
 			    <td width="30%"><span id="swbdh" style="color:#ffbb99"><b> מזל טוב ליום ההולדת<b></td>
 				<td align="center"><b><font color="white">קילומטרז' כללי היום</font></b></td>
+				<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+				<td align="center"><b><font color="white">קילומטרז' אישי שבועי</font></b></td>
 				<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
 				<td align="center"><b><font color="white">קילומטרז' כללי שבועי</font></b></td>
 				
@@ -114,6 +141,10 @@
 				</td>
 				<td>
 					<div align="center" id='chart_div_d'></div>
+				</td>
+				<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+				<td>
+					<div align="center" id='chart_div_r_w'></div>
 				</td>
 				<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
 				<td>
