@@ -35,8 +35,8 @@ try {
 	   $result1 = $stmt->fetchAll(PDO :: FETCH_ASSOC);
 	   foreach ($result1 as $row1)
 	   {	
-			$data[] = array ($row["name"], intval($row1['weekly'],$row1['distance']));
-			//$data[] = array ($row["name"], intval($row1['weekly']));
+			//$data[] = array ($row["name"], intval($row1['weekly'],$row1['distance']));
+			$data[] = array ($row["name"], intval($row1['weekly']));
 	   }
 	}
 }
