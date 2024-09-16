@@ -30,7 +30,7 @@ try {
 	}
 	foreach ($result as $row)
 	{
-	   $sql = "SELECT ( SUM(run_distance) + SUM(warmup_distance) + SUM(cooldown_distance)) as weekly, 10 as distance FROM tl_events,tl_runners WHERE (tl_runners.id = '" . $row["runner_id"] . "' AND tl_events.runner_id = '" . $row["runner_id"] . "' AND date(run_date) >= '" . $week_first_day . "' AND date(run_date) <= '" . $week_last_day ."')";	
+	   $sql = "SELECT ( SUM(run_distance) + SUM(warmup_distance) + SUM(cooldown_distance)) as weekly FROM tl_events,tl_runners WHERE (tl_runners.id = '" . $row["runner_id"] . "' AND tl_events.runner_id = '" . $row["runner_id"] . "' AND date(run_date) >= '" . $week_first_day . "' AND date(run_date) <= '" . $week_last_day ."')";	
 	   $stmt = $conn->query($sql);
 	   $result1 = $stmt->fetchAll(PDO :: FETCH_ASSOC);
 	   foreach ($result1 as $row1)
