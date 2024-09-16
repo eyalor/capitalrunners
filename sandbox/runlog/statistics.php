@@ -72,8 +72,8 @@ function drawRunnersWeekCallback(jsonData) {
             width:920, height:400,
             hAxis:{textStyle:{fontSize:8, color:'#45423c'}, showTextEvery:1, slantedTextAngle:45, direction:-1, slantedText:true},
             vAxis:{title:"'קילומטרז", viewWindow:{min:0, max:200}, minValue:0, maxValue:200, gridlines:{count:11}, minorGridlines:{count:1}, textStyle:{color:'#45423c'}},
-            seriesType:"bars",
-            isStacked: true
+            seriesType:"bars"//,
+            //isStacked: true
         }
     );
 }
