@@ -62,13 +62,7 @@ function drawRunnersWeekCallback(jsonData) {
     var data = new google.visualization.arrayToDataTable(jsonData.data, false);
 
     new google.visualization.ColumnChart(document.getElementById('runnersweek')).
-        draw([
-        ['Genre', 'Fantasy & Sci Fi', 'Romance', 'Mystery/Crime', 'General',
-         'Western', 'Literature', { role: 'annotation' } ],
-        ['2010', 10, 24, 20, 32, 18, 5, ''],
-        ['2020', 16, 22, 23, 30, 16, 9, ''],
-        ['2030', 28, 19, 29, 30, 12, 13, '']
-      ],
+        draw(data,
         {
             fontSize:12,
             fontName:'Tahoma',
@@ -329,11 +323,11 @@ $(document).ready(function () {
 <?php require 'widgets/header.php'; ?>
 
 <script type="text/javascript">
-    //google.charts.load('current', {packages: ['controls', 'corechart', 'table'], callback: drawRunnersWeek});
+    google.charts.load('current', {packages: ['controls', 'corechart', 'table'], callback: drawRunnersWeek});
     //google.load('visualization', '1.0', {packages:['corechart']});
     //google.load('visualization', '1.0', {packages:['controls']});
     //google.load('visualization', '1.0', {packages:['table']});
-    google.charts.load('current', { 'packages': ['corechart', 'table', 'gauge'] } );
+    //google.charts.load('current', { 'packages': ['corechart', 'table', 'gauge'] } );
 
 </script>
 
