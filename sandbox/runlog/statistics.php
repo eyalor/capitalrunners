@@ -329,10 +329,7 @@ $(document).ready(function () {
 <?php require 'widgets/header.php'; ?>
 
 <script type="text/javascript">
-      google.charts.load('current', {
-        packages: ['controls', 'corechart', 'table'],
-        callback: drawRunnersWeek
-	});
+    //google.charts.load('current', {packages: ['controls', 'corechart', 'table'], callback: drawRunnersWeek});
     //google.load('visualization', '1.0', {packages:['corechart']});
     //google.load('visualization', '1.0', {packages:['controls']});
     //google.load('visualization', '1.0', {packages:['table']});
