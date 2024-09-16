@@ -62,7 +62,13 @@ function drawRunnersWeekCallback(jsonData) {
     var data = new google.visualization.arrayToDataTable(jsonData.data, false);
 
     new google.visualization.ColumnChart(document.getElementById('runnersweek')).
-        draw(data,
+        draw([
+        ['Genre', 'Fantasy & Sci Fi', 'Romance', 'Mystery/Crime', 'General',
+         'Western', 'Literature', { role: 'annotation' } ],
+        ['2010', 10, 24, 20, 32, 18, 5, ''],
+        ['2020', 16, 22, 23, 30, 16, 9, ''],
+        ['2030', 28, 19, 29, 30, 12, 13, '']
+      ],
         {
             fontSize:12,
             fontName:'Tahoma',
@@ -72,8 +78,8 @@ function drawRunnersWeekCallback(jsonData) {
             width:920, height:400,
             hAxis:{textStyle:{fontSize:8, color:'#45423c'}, showTextEvery:1, slantedTextAngle:45, direction:-1, slantedText:true},
             vAxis:{title:"'קילומטרז", viewWindow:{min:0, max:200}, minValue:0, maxValue:200, gridlines:{count:11}, minorGridlines:{count:1}, textStyle:{color:'#45423c'}},
-            seriesType:"bars"//,
-            //isStacked: true
+            seriesType:"bars",
+            isStacked: true
         }
     );
 }
