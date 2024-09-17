@@ -63,3 +63,5 @@ curl_setopt($curl, CURLOPT_URL, "https://zenquotes.io/api/today");
 curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
 $output = curl_exec($curl);
 curl_close($curl);
+echo $output;
+
