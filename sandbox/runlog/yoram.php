@@ -57,3 +57,9 @@ $time = strtotime("022-01-30T05:20:51Z".' UTC');
 $dateInLocal = date("Y-m-d H:i:s", $time);
 
 echo $dateInLocal;
+
+$curl = curl_init();
+curl_setopt($curl, CURLOPT_URL, "https://zenquotes.io/api/today");
+curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+$output = curl_exec($curl);
+curl_close($curl);
