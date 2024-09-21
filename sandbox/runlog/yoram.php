@@ -49,13 +49,13 @@ $link = mysqli_connect("localhost", "u574399506_testlog", "Sandbox1PA$$", "u5743
 //	$link = mysqli_connect("localhost", "u574399506_testlog", "Sandbox1PA$$", "u574399506_testlog" ) or die("Could not connect");
 mysqli_set_charset($link, "utf8");
 mysqli_select_db($link, "u574399506_testlog") or die("Could not select database");
-$query_dq = "SELECT count(*) as quote from tl_quotes where tl_quotes.date=CURDATE()";
+$query_dq = "SELECT tl_quotes.date as date, tl_quotes.quote as quote, tl_quotes.author as author, tl_quotes.html as html from tl_quotes where tl_quotes.date=CURDATE()";
 $result_dq = mysqli_query($link, $query_dq) or die("Query failed");
 $row_dq = mysqli_fetch_array($result_dq, MYSQLI_ASSOC);
 echo "test daily quote";
 echo "<br>";
 
-echo $row_dq["quote"];
+echo count($row_dq);
 echo "<br>";
 
 echo "test daily quote";
