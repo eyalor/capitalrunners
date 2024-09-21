@@ -55,7 +55,7 @@
 	$row_dq = mysqli_fetch_array($result_dq, MYSQLI_ASSOC);
 		
 	if ($row_dq['quote'] == "" or $row_dq['quote'] == null or $row_dq['quote'] == 0)
-			echo "No Quote found for today";
+		$row_dq['quote'] = "No Quote for today";
 
 	$admin = $memberAuthentication->isAdmin();
  	$coach = $memberAuthentication->isCoach();
@@ -131,13 +131,16 @@
 				<td align="center"><b><font color="white">קילומטרז' אישי שבועי</font></b></td>
 				<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
 				<td align="center"><b><font color="white">קילומטרז' כללי שבועי</font></b></td>
-				
-			  </tr> 
+
+			</tr> 
 				<td width="30%" align="right">
 					
 					<div align="right" id='swbd'>
 					
 					<?php
+					if $row_dq['quote'] = "No Quote for today"{
+						printf("<span style='color:yellow'><b> %s </b></span> <br>", $row_dq['quote']);
+					}
 					$counter = 0;
 					while ($row_bd = mysqli_fetch_array($result_bd, MYSQLI_NUM)) {
 						printf("<span style='color:yellow'><b> %s </b></span> <br>", $row_bd[0]);
