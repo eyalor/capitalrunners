@@ -52,10 +52,11 @@ mysqli_select_db($link, "u574399506_testlog") or die("Could not select database"
 $query_dq = "SELECT tl_quotes.date as date, tl_quotes.quote as quote, tl_quotes.author as author, tl_quotes.html as html from tl_quotes where tl_quotes.date=CURDATE()";
 $result_dq = mysqli_query($link, $query_dq) or die("Query failed");
 $row_dq = mysqli_fetch_array($result_dq, MYSQLI_ASSOC);
+$dq_count = count($row_dq);
 echo "test daily quote";
 echo "<br>";
 
-echo count($row_dq);
+echo $dq_count;
 echo "<br>";
 
 echo "test daily quote";
