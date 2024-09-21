@@ -54,7 +54,7 @@
 	$result_dq = mysqli_query($link, $query_dq) or die("Query failed");
 	$row_dq = mysqli_fetch_array($result_dq, MYSQLI_ASSOC);
 		
-	if ($row_dq['quote'] == "" or $row_dq['quote'] == null or $row_dq['quote'] = 0)
+	if ($row_dq['quote'] == "" or $row_dq['quote'] == null or $row_dq['quote'] == 0)
 			echo "No Quote found for today";
 
 	$admin = $memberAuthentication->isAdmin();
