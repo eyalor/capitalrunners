@@ -55,10 +55,11 @@ $row_dq = mysqli_fetch_array($result_dq, MYSQLI_ASSOC);
 echo "test daily quote";
 echo "<br>";
 
-echo $row_dq[0];
+echo $row_dq["quote"];
 echo "<br>";
 
 echo "test daily quote";
+echo "<br>";
 
 
 
