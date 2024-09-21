@@ -50,12 +50,12 @@
 		$row_r_w['runner_weekly'] = 0;
 
 
-	$query_dq = "select count(*) as quote from tl_quotes where tl_quotes.date=CURDATE()";
+	$query_dq = "SELECT count(*) as quote from tl_quotes where tl_quotes.date=CURDATE()";
 	$result_dq = mysqli_query($link, $query_dq) or die("Query failed");
 	$row_dq = mysqli_fetch_array($result_dq, MYSQLI_ASSOC);
 		
-	if ($row_dq['quote'] == "" or $row_dq['quote'] == null or $row_dq['quote'] == 0)
-		$row_dq['quote'] = "No Quote for today";
+	//if ($row_dq['quote'] == "" or $row_dq['quote'] == null or $row_dq['quote'] == 0)
+	//	$row_dq['quote'] = "No Quote for today";
 
 	$admin = $memberAuthentication->isAdmin();
  	$coach = $memberAuthentication->isCoach();
@@ -138,9 +138,10 @@
 					<div align="right" id='swbd'>
 					
 					<?php
-					if $row_dq['quote'] = "No Quote for today"{
-						printf("<span style='color:yellow'><b> %s </b></span> <br>", $row_dq['quote']);
+					if $row_dq[0] = 0{
+						printf("<span style='color:yellow'><b> %s </b></span> <br>", "No Quotes");
 					}
+					 
 					$counter = 0;
 					while ($row_bd = mysqli_fetch_array($result_bd, MYSQLI_NUM)) {
 						printf("<span style='color:yellow'><b> %s </b></span> <br>", $row_bd[0]);
