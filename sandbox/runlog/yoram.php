@@ -53,7 +53,11 @@ $query_dq = "SELECT count(*) as quote from tl_quotes where tl_quotes.date=CURDAT
 $result_dq = mysqli_query($link, $query_dq) or die("Query failed");
 $row_dq = mysqli_fetch_array($result_dq, MYSQLI_ASSOC);
 echo "test daily quote";
-echo $row_dq;
+echo "<br>";
+
+echo $row_dq[0];
+echo "<br>";
+
 echo "test daily quote";
 
 
