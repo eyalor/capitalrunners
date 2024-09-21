@@ -137,11 +137,7 @@
 					
 					<div align="right" id='swbd'>
 					
-					<?php
-					if $row_dq[0] = 0{
-						printf("<span style='color:yellow'><b> %s </b></span> <br>", "No Quotes");
-					}
-					 
+					<?php		 
 					$counter = 0;
 					while ($row_bd = mysqli_fetch_array($result_bd, MYSQLI_NUM)) {
 						printf("<span style='color:yellow'><b> %s </b></span> <br>", $row_bd[0]);
