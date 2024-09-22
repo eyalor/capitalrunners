@@ -62,9 +62,10 @@ echo "<br>";
 echo "test daily quote";
 echo "<br>";
 
-if empty($row_dq){
+
 
     try {
+        if  empty($row_dq){
         $curl = curl_init();
         curl_setopt($curl, CURLOPT_URL, "https://zenquotes.io/api/today");
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
@@ -77,7 +78,7 @@ if empty($row_dq){
             ':quote' => $output["q"],
             ':author' => $output["a"],
             ':html' => $output["h"]
-        ));
+        ))};
         if (!$ok) {
             die(getErrorStatusWithDummyData("Failed to Create a result."));
         } else {
@@ -87,7 +88,7 @@ if empty($row_dq){
     } catch (PDOException $e) {
         die(getErrorStatusWithDummyData($e->getMessage()));
     }
-}
+
 
 
 //$dt = new DateTime("022-01-30T05:20:51Z", new DateTimeZone('Asia/Amman'));
