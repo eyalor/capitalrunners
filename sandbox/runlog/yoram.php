@@ -90,8 +90,6 @@ if empty($row_dq){
 }
 
 
-
-
 //$dt = new DateTime("022-01-30T05:20:51Z", new DateTimeZone('Asia/Amman'));
 
 //echo $dt->format('Y-m-d h:i:s');
