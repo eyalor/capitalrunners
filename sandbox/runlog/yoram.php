@@ -50,7 +50,6 @@ $link = mysqli_connect("localhost", "u574399506_testlog", "Sandbox1PA$$", "u5743
 mysqli_set_charset($link, "utf8");
 mysqli_select_db($link, "u574399506_testlog") or die("Could not select database");
 $query_dq = "SELECT tl_quotes.date as date, tl_quotes.quote as quote, tl_quotes.author as author, tl_quotes.html as html from tl_quotes where tl_quotes.date=CURDATE()";
-//$query_dq = "SELECT count(*) from tl_quotes where tl_quotes.date=CURDATE()";
 $result_dq = mysqli_query($link, $query_dq) or die("Query failed");
 $row_dq = mysqli_fetch_array($result_dq, MYSQLI_ASSOC);
 $dq_count = empty($row_dq);
@@ -62,6 +61,34 @@ echo "<br>";
 
 echo "test daily quote";
 echo "<br>";
+
+if empty($row_dq){
+
+    try {
+        $curl = curl_init();
+        curl_setopt($curl, CURLOPT_URL, "https://zenquotes.io/api/today");
+        curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+        $output = curl_exec($curl);
+        curl_close($curl);
+        $conn = getConnection();
+        $sql = 'INSERT INTO tl_quotes (date,quote,author,html) VALUES (CURDATE(), :quote, :author, :html)';
+        $sth = $conn->prepare($sql);
+        $ok = $sth->execute(array (
+            ':quote' => $output["q"],
+            ':author' => $output["a"],
+            ':html' => $output["h"]
+        ));
+        if (!$ok) {
+            die(getErrorStatusWithDummyData("Failed to Create a result."));
+        } else {
+            echo returnJSONsuccess("");
+        }
+        $conn = null;
+    } catch (PDOException $e) {
+        die(getErrorStatusWithDummyData($e->getMessage()));
+    }
+}
+
 
 
 
