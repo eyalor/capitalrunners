@@ -65,8 +65,8 @@ echo "<br>";
 
 
 
-    if (1==1){
-        echo "test if statement quote";
+    if (empty($row_dq)){
+        echo "test if row_dq is empty";
 
     };
     
