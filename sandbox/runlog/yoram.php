@@ -64,30 +64,7 @@ echo "<br>";
 
 
 
-    try {
-        if  empty($row_dq){
-        $curl = curl_init();
-        curl_setopt($curl, CURLOPT_URL, "https://zenquotes.io/api/today");
-        curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
-        $output = curl_exec($curl);
-        curl_close($curl);
-        $conn = getConnection();
-        $sql = 'INSERT INTO tl_quotes (date,quote,author,html) VALUES (CURDATE(), :quote, :author, :html)';
-        $sth = $conn->prepare($sql);
-        $ok = $sth->execute(array (
-            ':quote' => $output["q"],
-            ':author' => $output["a"],
-            ':html' => $output["h"]
-        ))};
-        if (!$ok) {
-            die(getErrorStatusWithDummyData("Failed to Create a result."));
-        } else {
-            echo returnJSONsuccess("");
-        }
-        $conn = null;
-    } catch (PDOException $e) {
-        die(getErrorStatusWithDummyData($e->getMessage()));
-    }
+
 
 
 
