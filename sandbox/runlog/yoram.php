@@ -65,7 +65,7 @@ echo "<br>";
 
 
 
-    if 1=1{
+    if (1=1){
         echo "test if statement quote";
 
     };
