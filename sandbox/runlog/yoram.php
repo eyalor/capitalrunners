@@ -64,7 +64,8 @@ echo "<br>";
 
 
 try {
-    if (empty($row_dq)){
+    //if (empty($row_dq)){
+        if (1==1){
     $curl = curl_init();
     curl_setopt($curl, CURLOPT_URL, "https://zenquotes.io/api/today");
     curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
