@@ -64,13 +64,13 @@ echo "<br>";
 
 
 
-try {
+
     if empty($row_dq){
         echo "test if statement quote";
 
     };
     
-} 
+
 
 
 
