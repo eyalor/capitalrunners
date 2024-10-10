@@ -390,3 +390,16 @@ table.tablesorter .active_col {
 #feed .day_events .event .comments .event_edit_comment {
     margin: -1px -5px -3px 0;
 }
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+}
+.item {
+    flex: 1 1 100%; /* Full width on mobile */
+}
+@media (min-width: 768px) {
+    .item {
+        flex: 1 1 48%; /* Half width on tablets and above */
+    }
+}
