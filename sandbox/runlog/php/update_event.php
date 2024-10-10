@@ -1,4 +1,5 @@
 <?php
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 /*
  * Created on Apr 4, 2012
