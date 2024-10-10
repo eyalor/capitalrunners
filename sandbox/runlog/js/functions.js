@@ -125,7 +125,7 @@ var Calendar = {
 
         EventDialog.reset();
         $('#create_update_event_dialog').dialog({
-            height:550,
+            height:700,
             width:500,
             show:{
                 effect:'drop',
@@ -214,7 +214,7 @@ var Calendar = {
         EventDialog.reset();
         $('#create_update_event_dialog').dialog(
             {
-                height:550,
+                height:700,
                 width:500,
                 show:{
                     effect:'drop',
