@@ -3,6 +3,7 @@ require_once 'php/html_page_init.php';
 ?>
 <!DOCTYPE HTML>
 <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <html dir="RTL">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -13,6 +14,7 @@ require_once 'php/html_page_init.php';
     <link href='./css/fullcalendar.css?v=<?php echo CSS_VERSION;?>' rel='stylesheet' type='text/css'/>
     <link href='./css/jquery.qtip.min.css' rel='stylesheet' type='text/css'/>
     <link href='./css/runlog.css?v=<?php echo CSS_VERSION;?>' rel='stylesheet' type='text/css'/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <script src="./js/jquery.min.js" type="text/javascript"></script>
     <script src="./js/jquery-ui.min.js" type="text/javascript"></script>
