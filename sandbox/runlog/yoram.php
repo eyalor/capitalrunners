@@ -22,7 +22,7 @@ $msg = "First line of text\nSecond line of text";
 $msg = wordwrap($msg,70);
 
 // send email
-mail("idosh74@gmail.com","My subject",$msg);
+//mail("idosh74@gmail.com","My subject",$msg);
 
 $json = file_get_contents('php://input');
 $data = json_decode($json);
