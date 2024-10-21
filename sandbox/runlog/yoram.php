@@ -16,7 +16,13 @@ echo "<br>";
 echo $memberAuthentication->getStravaId();
 echo "<br>";
 
+$msg = "First line of text\nSecond line of text";
 
+// use wordwrap() if lines are longer than 70 characters
+$msg = wordwrap($msg,70);
+
+// send email
+mail("idosh74@gmail.com","My subject",$msg);
 
 $json = file_get_contents('php://input');
 $data = json_decode($json);
@@ -79,4 +85,6 @@ $output = curl_exec($curl);
 curl_close($curl);
 echo $output;
 echo "test";
+
+
 
