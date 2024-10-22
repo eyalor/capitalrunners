@@ -16,13 +16,66 @@ echo "<br>";
 echo $memberAuthentication->getStravaId();
 echo "<br>";
 
-$msg = "First line of text\nSecond line of text";
+//$msg = "First line of text\nSecond line of text";
 
 // use wordwrap() if lines are longer than 70 characters
-$msg = wordwrap($msg,70);
+//$msg = wordwrap($msg,70);
 
 // send email
 //mail("idosh74@gmail.com","My subject",$msg);
+
+
+$host = 'localhost';
+$dbname = 'u574399506_testlog';
+$username = 'u574399506_testlog';
+$password = 'Sandbox1PA$$';
+
+try {
+    $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8", $username, $password);
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+} catch (PDOException $e) {
+    echo "Database connection failed: " . $e->getMessage();
+    exit();
+}
+
+
+
+$query = "SELECT tl_runners.member_name,DATEDIFF(CURDATE(), max(tl_events.run_date)) from tl_runners join tl_events on (tl_events.runner_id=tl_runners.id) where tl_runners.m_show_profile=1 group by tl_runners.member_name having DATEDIFF(CURDATE(), max(tl_events.run_date))>10 order by 2 desc";
+$stmt = $pdo->prepare($query);
+$stmt->execute();
+$results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+$htmlContent = '<html><body>';
+$htmlContent .= '<h1>Data Report</h1>';
+$htmlContent .= '<table border="1" cellpadding="5" cellspacing="0">';
+$htmlContent .= '<tr><th>ID</th><th>Name</th><th>Email</th></tr>';
+
+foreach ($results as $row) {
+    $htmlContent .= '<tr>';
+    $htmlContent .= '<td>' . $row['id'] . '</td>';
+    $htmlContent .= '<td>' . $row['name'] . '</td>';
+    $htmlContent .= '<td>' . $row['email'] . '</td>';
+    $htmlContent .= '</tr>';
+}
+
+$htmlContent .= '</table>';
+$htmlContent .= '</body></html>';
+
+
+
+$to = 'idosh74@gmail.com';
+$subject = 'HTML Report from SQL Data';
+$headers = "MIME-Version: 1.0" . "\r\n";
+$headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+$headers .= 'From: capitalrunners8@gmail.com' . "\r\n";
+
+// Use the PHP mail() function to send the email
+if (mail($to, $subject, $htmlContent, $headers)) {
+    echo "Email sent successfully!";
+} else {
+    echo "Failed to send email.";
+}
+
 
 $json = file_get_contents('php://input');
 $data = json_decode($json);
