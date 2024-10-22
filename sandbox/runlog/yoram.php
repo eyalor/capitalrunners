@@ -25,12 +25,15 @@ $msg = wordwrap($msg,70);
 //mail("idosh74@gmail.com","My subject",$msg);
 
 
-$host = 'localhost';
-$dbname = 'u574399506_testlog';
-$username = 'u574399506_testlog';
-$password = 'Sandbox1PA$$';
+
 
 try {
+
+    $host = 'localhost';
+    $dbname = 'u574399506_testlog';
+    $username = 'u574399506_testlog';
+    $password = 'Sandbox1PA$$';
+    
     // Create a new PDO instance and connect to the database
     $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8", $username, $password);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -66,25 +69,26 @@ try {
 
     // Output the HTML content (for testing purposes)
     echo $htmlContent;
+    $to = "idosh74@gmail.com";
+    $subject = "HTML Report from SQL Data";
+    $headers = "MIME-Version: 1.0" . "\r\n";
+    $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+    $headers .= "From: capitalrunners8@gmail.com" . "\r\n";
+    
+    // Use the PHP mail() function to send the email
+    if (mail($to, $subject, $htmlContent, $headers)) {
+    //if (mail($to, $subject, $msg, $headers)) {
+        echo "Email sent successfully!";
+    } else {
+        echo "Failed to send email.";
+    }
 
 } catch (PDOException $e) {
     // Handle connection errors
     echo "Database connection failed: " . $e->getMessage();
 }
 
-$to = "idosh74@gmail.com";
-$subject = "HTML Report from SQL Data";
-$headers = "MIME-Version: 1.0" . "\r\n";
-$headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
-$headers .= "From: capitalrunners8@gmail.com" . "\r\n";
 
-// Use the PHP mail() function to send the email
-//if (mail($to, $subject, $htmlContent, $headers)) {
-if (mail($to, $subject, $msg, $headers)) {
-    echo "Email sent successfully!";
-} else {
-    echo "Failed to send email.";
-}
 
 
 $json = file_get_contents('php://input');
