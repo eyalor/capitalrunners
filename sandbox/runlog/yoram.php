@@ -69,6 +69,7 @@ try {
 
     // Output the HTML content (for testing purposes)
     echo $htmlContent;
+
     $to = "idosh74@gmail.com";
     $subject = "HTML Report from SQL Data";
     $headers = "MIME-Version: 1.0" . "\r\n";
@@ -76,8 +77,8 @@ try {
     $headers .= "From: capitalrunners8@gmail.com" . "\r\n";
     
     // Use the PHP mail() function to send the email
-    if (mail($to, $subject, $htmlContent, $headers)) {
-    //if (mail($to, $subject, $msg, $headers)) {
+    //if (mail($to, $subject, $htmlContent, $headers)) {
+    if (mail($to, $subject, $msg, $headers)) {
         echo "Email sent successfully!";
     } else {
         echo "Failed to send email.";
