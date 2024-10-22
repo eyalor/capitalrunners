@@ -16,10 +16,10 @@ echo "<br>";
 echo $memberAuthentication->getStravaId();
 echo "<br>";
 
-//$msg = "First line of text\nSecond line of text";
+$msg = "First line of text\nSecond line of text";
 
 // use wordwrap() if lines are longer than 70 characters
-//$msg = wordwrap($msg,70);
+$msg = wordwrap($msg,70);
 
 // send email
 //mail("idosh74@gmail.com","My subject",$msg);
@@ -63,15 +63,15 @@ $htmlContent .= '</body></html>';
 
 
 
-$to = 'idosh74@gmail.com';
-$subject = 'HTML Report from SQL Data';
+$to = "idosh74@gmail.com";
+$subject = "HTML Report from SQL Data";
 $headers = "MIME-Version: 1.0" . "\r\n";
 $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
-$headers .= 'From: capitalrunners8@gmail.com' . "\r\n";
+$headers .= "From: capitalrunners8@gmail.com" . "\r\n";
 
 // Use the PHP mail() function to send the email
 //if (mail($to, $subject, $htmlContent, $headers)) {
-if (mail($to, $subject, $htmlContent)) {
+if (mail($to, $subject, $msg)) {
     echo "Email sent successfully!";
 } else {
     echo "Failed to send email.";
