@@ -55,8 +55,8 @@ try {
     // Loop through each row of the query results and add rows to the HTML table
     foreach ($results as $row) {
         $htmlContent .= '<tr>';
-        $htmlContent .= '<td>' . htmlspecialchars($row['Name']) . '</td>';
-        $htmlContent .= '<td>' . htmlspecialchars($row['Days']) . '</td>';
+        $htmlContent .= '<td>' . htmlspecialchars($row['id']) . '</td>';
+        $htmlContent .= '<td>' . htmlspecialchars($row['member_num']) . '</td>';
         $htmlContent .= '</tr>';
     }
 
