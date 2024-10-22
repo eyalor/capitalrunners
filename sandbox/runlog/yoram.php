@@ -50,7 +50,7 @@ try {
     $htmlContent = '<html><body>';
     $htmlContent .= '<h1>Users List</h1>';
     $htmlContent .= '<table border="1" cellpadding="5" cellspacing="0">';
-    $htmlContent .= '<tr><th>Name</th><th>Days</th></tr>';
+    $htmlContent .= '<tr><th>Name</th><th>Day''s since last update</th></tr>';
 
     // Loop through each row of the query results and add rows to the HTML table
     foreach ($results as $row) {
@@ -79,12 +79,12 @@ $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
 $headers .= "From: capitalrunners8@gmail.com" . "\r\n";
 
 // Use the PHP mail() function to send the email
-//if (mail($to, $subject, $htmlContent, $headers)) {
+if (mail($to, $subject, $htmlContent, $headers)) {
 //if (mail($to, $subject, $msg, $headers)) {
-//    echo "Email sent successfully!";
-//} else {
-//    echo "Failed to send email.";
-//}
+    echo "Email sent successfully!";
+} else {
+    echo "Failed to send email.";
+}
 
 
 $json = file_get_contents('php://input');
