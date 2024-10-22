@@ -36,8 +36,9 @@ try {
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
     // SQL query to fetch data from the 'users' table
-	$query = "SELECT tl_runners.member_name,DATEDIFF(CURDATE(), max(tl_events.run_date)) from tl_runners join tl_events on (tl_events.runner_id=tl_runners.id) where tl_runners.m_show_profile=1 group by tl_runners.member_name having DATEDIFF(CURDATE(), max(tl_events.run_date))>10 order by 2 desc";
+	//$query = "SELECT tl_runners.member_name,DATEDIFF(CURDATE(), max(tl_events.run_date)) from tl_runners join tl_events on (tl_events.runner_id=tl_runners.id) where tl_runners.m_show_profile=1 group by tl_runners.member_name having DATEDIFF(CURDATE(), max(tl_events.run_date))>10 order by 2 desc";
 
+    $query = "SELECT id, member_num FROM tl_runners";
     // Prepare and execute the query
     $stmt = $pdo->prepare($query);
     $stmt->execute();
