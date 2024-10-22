@@ -48,12 +48,12 @@ $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
 $htmlContent = '<html><body>';
 $htmlContent .= '<h1>Data Report</h1>';
 $htmlContent .= '<table border="1" cellpadding="5" cellspacing="0">';
-$htmlContent .= '<tr><th>Name</th><th>Day''s since last update</th></tr>';
+$htmlContent .= '<tr><th>Name</th><th>Days since last update</th></tr>';
 
 foreach ($results as $row) {
     $htmlContent .= '<tr>';
     $htmlContent .= '<td>' . $row['Name'] . '</td>';
-    $htmlContent .= '<td>' . $row['Day''s since last update'] . '</td>';
+    $htmlContent .= '<td>' . $row['Days since last update'] . '</td>';
     $htmlContent .= '</tr>';
 }
 
