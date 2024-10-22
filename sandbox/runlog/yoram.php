@@ -71,7 +71,7 @@ $headers .= "From: capitalrunners8@gmail.com" . "\r\n";
 
 // Use the PHP mail() function to send the email
 //if (mail($to, $subject, $htmlContent, $headers)) {
-if (mail($to, $subject, $msg)) {
+if (mail($to, $subject, $msg, $headers)) {
     echo "Email sent successfully!";
 } else {
     echo "Failed to send email.";
