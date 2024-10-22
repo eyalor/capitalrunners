@@ -48,13 +48,12 @@ $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
 $htmlContent = '<html><body>';
 $htmlContent .= '<h1>Data Report</h1>';
 $htmlContent .= '<table border="1" cellpadding="5" cellspacing="0">';
-$htmlContent .= '<tr><th>ID</th><th>Name</th><th>Email</th></tr>';
+$htmlContent .= '<tr><th>Name</th><th>Day''s since last update</th></tr>';
 
 foreach ($results as $row) {
     $htmlContent .= '<tr>';
-    $htmlContent .= '<td>' . $row['id'] . '</td>';
-    $htmlContent .= '<td>' . $row['name'] . '</td>';
-    $htmlContent .= '<td>' . $row['email'] . '</td>';
+    $htmlContent .= '<td>' . $row['Name'] . '</td>';
+    $htmlContent .= '<td>' . $row['Day''s since last update'] . '</td>';
     $htmlContent .= '</tr>';
 }
 
@@ -70,8 +69,8 @@ $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
 $headers .= "From: capitalrunners8@gmail.com" . "\r\n";
 
 // Use the PHP mail() function to send the email
-//if (mail($to, $subject, $htmlContent, $headers)) {
-if (mail($to, $subject, $msg, $headers)) {
+if (mail($to, $subject, $htmlContent, $headers)) {
+//if (mail($to, $subject, $msg, $headers)) {
     echo "Email sent successfully!";
 } else {
     echo "Failed to send email.";
