@@ -78,12 +78,12 @@ $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
 $headers .= "From: capitalrunners8@gmail.com" . "\r\n";
 
 // Use the PHP mail() function to send the email
-if (mail($to, $subject, $htmlContent, $headers)) {
+//if (mail($to, $subject, $htmlContent, $headers)) {
 //if (mail($to, $subject, $msg, $headers)) {
-    echo "Email sent successfully!";
-} else {
-    echo "Failed to send email.";
-}
+//    echo "Email sent successfully!";
+//} else {
+//    echo "Failed to send email.";
+//}
 
 
 $json = file_get_contents('php://input');
