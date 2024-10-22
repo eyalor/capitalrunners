@@ -31,36 +31,45 @@ $username = 'u574399506_testlog';
 $password = 'Sandbox1PA$$';
 
 try {
+    // Create a new PDO instance and connect to the database
     $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8", $username, $password);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+    // SQL query to fetch data from the 'users' table
+	$query = "SELECT tl_runners.member_name,DATEDIFF(CURDATE(), max(tl_events.run_date)) from tl_runners join tl_events on (tl_events.runner_id=tl_runners.id) where tl_runners.m_show_profile=1 group by tl_runners.member_name having DATEDIFF(CURDATE(), max(tl_events.run_date))>10 order by 2 desc";
+
+    // Prepare and execute the query
+    $stmt = $pdo->prepare($query);
+    $stmt->execute();
+
+    // Fetch all results as an associative array
+    $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+    // Begin building the HTML content
+    $htmlContent = '<html><body>';
+    $htmlContent .= '<h1>Users List</h1>';
+    $htmlContent .= '<table border="1" cellpadding="5" cellspacing="0">';
+    $htmlContent .= '<tr><th>Name</th><th>Days</th></tr>';
+
+    // Loop through each row of the query results and add rows to the HTML table
+    foreach ($results as $row) {
+        $htmlContent .= '<tr>';
+        $htmlContent .= '<td>' . htmlspecialchars($row['Name']) . '</td>';
+        $htmlContent .= '<td>' . htmlspecialchars($row['Days']) . '</td>';
+        $htmlContent .= '</tr>';
+    }
+
+    // End the HTML table and page
+    $htmlContent .= '</table>';
+    $htmlContent .= '</body></html>';
+
+    // Output the HTML content (for testing purposes)
+    echo $htmlContent;
+
 } catch (PDOException $e) {
+    // Handle connection errors
     echo "Database connection failed: " . $e->getMessage();
-    exit();
 }
-
-
-
-$query = "SELECT tl_runners.member_name,DATEDIFF(CURDATE(), max(tl_events.run_date)) from tl_runners join tl_events on (tl_events.runner_id=tl_runners.id) where tl_runners.m_show_profile=1 group by tl_runners.member_name having DATEDIFF(CURDATE(), max(tl_events.run_date))>10 order by 2 desc";
-$stmt = $pdo->prepare($query);
-$stmt->execute();
-$results = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-$htmlContent = '<html><body>';
-$htmlContent .= '<h1>Data Report</h1>';
-$htmlContent .= '<table border="1" cellpadding="5" cellspacing="0">';
-$htmlContent .= '<tr><th>Name</th><th>Days since last update</th></tr>';
-
-foreach ($results as $row) {
-    $htmlContent .= '<tr>';
-    $htmlContent .= '<td>' . $row['Name'] . '</td>';
-    $htmlContent .= '<td>' . $row['Days since last update'] . '</td>';
-    $htmlContent .= '</tr>';
-}
-
-$htmlContent .= '</table>';
-$htmlContent .= '</body></html>';
-
-
 
 $to = "idosh74@gmail.com";
 $subject = "HTML Report from SQL Data";
