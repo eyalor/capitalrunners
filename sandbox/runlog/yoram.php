@@ -16,10 +16,10 @@ echo "<br>";
 echo $memberAuthentication->getStravaId();
 echo "<br>";
 
-$msg = "First line of text\nSecond line of text";
+//$msg = "First line of text\nSecond line of text";
 
 // use wordwrap() if lines are longer than 70 characters
-$msg = wordwrap($msg,70);
+//$msg = wordwrap($msg,70);
 
 // send email
 //mail("idosh74@gmail.com","My subject",$msg);
@@ -69,6 +69,8 @@ try {
 
     // Output the HTML content (for testing purposes)
     echo $htmlContent;
+
+    $msg = wordwrap($htmlContent,70);
 
     $to = "idosh74@gmail.com";
     $subject = "HTML Report from SQL Data";
