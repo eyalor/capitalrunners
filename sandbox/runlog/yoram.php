@@ -50,7 +50,7 @@ try {
     $htmlContent = '<html><body>';
     $htmlContent .= '<h1>Users List</h1>';
     $htmlContent .= '<table border="1" cellpadding="5" cellspacing="0">';
-    $htmlContent .= '<tr><th>Name</th><th>Day''s since last update</th></tr>';
+    $htmlContent .= '<tr><th>Name</th><th>Days since last update</th></tr>';
 
     // Loop through each row of the query results and add rows to the HTML table
     foreach ($results as $row) {
