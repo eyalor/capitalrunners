@@ -29,74 +29,6 @@ function generateMessage() {
 }
 
 ?>
-<script type='text/javascript'>
-
-function sendEmail() {
-try {
-
-    $host = 'localhost';
-    $dbname = 'u574399506_testlog';
-    $username = 'u574399506_testlog';
-    $password = 'Sandbox1PA$$';
-    
-    // Create a new PDO instance and connect to the database
-    $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8", $username, $password);
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-    // SQL query to fetch data from the 'users' table
-	$query = "SELECT tl_runners.member_name as name,DATEDIFF(CURDATE(), max(tl_events.run_date)) as days from tl_runners join tl_events on (tl_events.runner_id=tl_runners.id) where tl_runners.m_show_profile=1 group by tl_runners.member_name having DATEDIFF(CURDATE(), max(tl_events.run_date))>10 order by 2 desc";
-
-    //$query = "SELECT id, member_num FROM tl_runners";
-    // Prepare and execute the query
-    $stmt = $pdo->prepare($query);
-    $stmt->execute();
-
-    // Fetch all results as an associative array
-    $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-    // Begin building the HTML content
-    $htmlContent = '<html><body>';
-    $htmlContent .= '<h1>Users List</h1>';
-    $htmlContent .= '<table border="1" cellpadding="5" cellspacing="0">';
-    $htmlContent .= '<tr><th>Name</th><th>Days since last update</th></tr>';
-
-    // Loop through each row of the query results and add rows to the HTML table
-    foreach ($results as $row) {
-        $htmlContent .= '<tr>';
-        $htmlContent .= '<td>' . htmlspecialchars($row['name']) . '</td>';
-        $htmlContent .= '<td>' . htmlspecialchars($row['days']) . '</td>';
-        $htmlContent .= '</tr>';
-    }
-
-    // End the HTML table and page
-    $htmlContent .= '</table>';
-    $htmlContent .= '</body></html>';
-
-    // Output the HTML content (for testing purposes)
-    echo $htmlContent;
-
-    $msg = wordwrap($htmlContent,70);
-
-    $to = "idosh74@gmail.com";
-    $subject = "HTML Report from SQL Data";
-    $headers = "MIME-Version: 1.0" . "\r\n";
-    $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
-    $headers .= "From: capitalrunners8@gmail.com" . "\r\n";
-    
-    // Use the PHP mail() function to send the email
-    //if (mail($to, $subject, $htmlContent, $headers)) {
-    if (mail($to, $subject, $msg, $headers)) {
-        echo "Email sent successfully!";
-    } else {
-        echo "Failed to send email.";
-    }
-
-} catch (PDOException $e) {
-    // Handle connection errors
-    echo "Database connection failed: " . $e->getMessage();
-}
-}
-</script>
 
 <?php
 
@@ -171,6 +103,76 @@ echo "test";
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Call PHP Function on Button Click</title>
 </head>
+
+<script type='text/javascript'>
+
+function sendEmail() {
+try {
+
+    $host = 'localhost';
+    $dbname = 'u574399506_testlog';
+    $username = 'u574399506_testlog';
+    $password = 'Sandbox1PA$$';
+    
+    // Create a new PDO instance and connect to the database
+    $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8", $username, $password);
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+    // SQL query to fetch data from the 'users' table
+	$query = "SELECT tl_runners.member_name as name,DATEDIFF(CURDATE(), max(tl_events.run_date)) as days from tl_runners join tl_events on (tl_events.runner_id=tl_runners.id) where tl_runners.m_show_profile=1 group by tl_runners.member_name having DATEDIFF(CURDATE(), max(tl_events.run_date))>10 order by 2 desc";
+
+    //$query = "SELECT id, member_num FROM tl_runners";
+    // Prepare and execute the query
+    $stmt = $pdo->prepare($query);
+    $stmt->execute();
+
+    // Fetch all results as an associative array
+    $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+    // Begin building the HTML content
+    $htmlContent = '<html><body>';
+    $htmlContent .= '<h1>Users List</h1>';
+    $htmlContent .= '<table border="1" cellpadding="5" cellspacing="0">';
+    $htmlContent .= '<tr><th>Name</th><th>Days since last update</th></tr>';
+
+    // Loop through each row of the query results and add rows to the HTML table
+    foreach ($results as $row) {
+        $htmlContent .= '<tr>';
+        $htmlContent .= '<td>' . htmlspecialchars($row['name']) . '</td>';
+        $htmlContent .= '<td>' . htmlspecialchars($row['days']) . '</td>';
+        $htmlContent .= '</tr>';
+    }
+
+    // End the HTML table and page
+    $htmlContent .= '</table>';
+    $htmlContent .= '</body></html>';
+
+    // Output the HTML content (for testing purposes)
+    echo $htmlContent;
+
+    $msg = wordwrap($htmlContent,70);
+
+    $to = "idosh74@gmail.com";
+    $subject = "HTML Report from SQL Data";
+    $headers = "MIME-Version: 1.0" . "\r\n";
+    $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+    $headers .= "From: capitalrunners8@gmail.com" . "\r\n";
+    
+    // Use the PHP mail() function to send the email
+    //if (mail($to, $subject, $htmlContent, $headers)) {
+    if (mail($to, $subject, $msg, $headers)) {
+        echo "Email sent successfully!";
+    } else {
+        echo "Failed to send email.";
+    }
+
+} catch (PDOException $e) {
+    // Handle connection errors
+    echo "Database connection failed: " . $e->getMessage();
+}
+}
+</script>
+
 <body>
 
 <input type="button" onclick="sendEmail()" value="הוסף משתמש" style="margin-top:20px;">					
