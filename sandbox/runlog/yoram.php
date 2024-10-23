@@ -30,7 +30,7 @@ function generateMessage() {
 
 
 
-
+function sendEmail() {
 try {
 
     $host = 'localhost';
@@ -93,6 +93,7 @@ try {
 } catch (PDOException $e) {
     // Handle connection errors
     echo "Database connection failed: " . $e->getMessage();
+}
 }
 
 
@@ -179,7 +180,7 @@ echo "test";
     // Check if the form is submitted
     if (isset($_POST['triggerFunction'])) {
         // Call the PHP function and display the result
-        echo "<p>" . generateMessage() . "</p>";
+        echo "<p>" . sendEmail() . "</p>";
     }
     ?>
 
