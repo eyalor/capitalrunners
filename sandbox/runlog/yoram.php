@@ -171,11 +171,17 @@ try {
     echo "Database connection failed: " . $e->getMessage();
 }
 }
+
+function aaa() {
+            alert("Email function called!");
+        }
 </script>
 
 <body>
 
-<input type="button" onclick="sendEmail()" value="הוסף משתמש" style="margin-top:20px;">					
+<input type="button" onclick="sendEmail()" value="הוסף משתמש" style="margin-top:20px;">	
+<input type="button" value="aaaa" onclick="aaa()" />
+
 
 
 </body>
