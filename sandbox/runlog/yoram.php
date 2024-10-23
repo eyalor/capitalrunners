@@ -28,7 +28,8 @@ function generateMessage() {
     return "Hello, this message is generated from a PHP function!";
 }
 
-
+?>
+<script type='text/javascript'>
 
 function sendEmail() {
 try {
@@ -95,8 +96,9 @@ try {
     echo "Database connection failed: " . $e->getMessage();
 }
 }
+</script>
 
-
+<?php
 
 
 $json = file_get_contents('php://input');
