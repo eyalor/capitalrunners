@@ -161,5 +161,28 @@ echo $output;
 echo "test";
 ?>
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Call PHP Function on Button Click</title>
+</head>
+<body>
 
+    <!-- Form with a button to trigger the PHP function -->
+    <form method="POST">
+        <button type="submit" name="triggerFunction">Click Me!</button>
+    </form>
+
+    <?php
+    // Check if the form is submitted
+    if (isset($_POST['triggerFunction'])) {
+        // Call the PHP function and display the result
+        echo "<p>" . generateMessage() . "</p>";
+    }
+    ?>
+
+</body>
+</html>
 
