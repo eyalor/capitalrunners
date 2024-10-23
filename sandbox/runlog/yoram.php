@@ -171,18 +171,8 @@ echo "test";
 </head>
 <body>
 
-    <!-- Form with a button to trigger the PHP function -->
-    <form method="POST">
-        <button type="submit" name="triggerFunction">Click Me!</button>
-    </form>
+<input type="button" onclick="sendEmail()" value="הוסף משתמש" style="margin-top:20px;">					
 
-    <?php
-    // Check if the form is submitted
-    if (isset($_POST['triggerFunction'])) {
-        // Call the PHP function and display the result
-        echo "<p>" . sendEmail() . "</p>";
-    }
-    ?>
 
 </body>
 </html>
