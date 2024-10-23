@@ -159,6 +159,7 @@ $output = curl_exec($curl);
 curl_close($curl);
 echo $output;
 echo "test";
+?>
 
 
 
