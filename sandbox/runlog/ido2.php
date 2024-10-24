@@ -27,7 +27,7 @@ function myPhpFunction() {
         function callPhpFunction() {
             // Create an AJAX request
             var xhr = new XMLHttpRequest();
-            xhr.open("POST", "index.php", true); // Send POST request to the same PHP file
+            xhr.open("POST", "ido2.php", true); // Send POST request to the same PHP file
             xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 
             xhr.onreadystatechange = function () {
