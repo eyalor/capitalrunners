@@ -1578,4 +1578,11 @@ var Time = {
 
         return year + '-' + month + '-' + day + ' 00:00:00';
     }
+
+    
 };
+
+
+function aaa() {
+    alert("Email function called!");
+}
