@@ -258,6 +258,8 @@ $(document).ready(function() {
 					if ($admin) {
 					?>
                     <input type="button" onclick="openCreateUserDialog()" value="הוסף משתמש" style="margin-top:20px;">					
+                    <input type="button" onclick="openCreateUserDialog()" value="דוח עדכון אחרון" style="margin-top:20px;">					
+
 		<?php } ?>
         
         <div id="data" style="margin-top:20px;">
