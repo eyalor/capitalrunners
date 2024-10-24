@@ -21,6 +21,8 @@ $coach = $memberAuthentication->isCoach();
 <script src="./js/json_sans_eval.js"></script>
 <script src="./js/functions.js?v=<?php echo JS_VERSION;?>" type="text/javascript"></script>
 <script src="./js/jquery.ui.datepicker-he.js" type="text/javascript"></script>
+<script src="js/functions.js"></script>
+
 
 <script type='text/javascript'>
 
