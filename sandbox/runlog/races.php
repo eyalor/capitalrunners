@@ -116,7 +116,12 @@ function openRaceDialog(raceName, raceDate, raceType, raceTypeId, raceNotes, rac
     $('#datepicker').val(raceDate);
 	populateRaceTypesSelect(raceTypeId);
     $('#race_type_id').val(raceTypeId);
-    $('#is_race_count').prop('checked', false);
+    if (raceCount == 1){
+		$('#is_race_count').prop('checked', true);
+	}
+	else {
+		$('#is_race_count').prop('checked', false);
+	}
 	$('#descriptionContainer').empty().append('<textarea id="description" maxlength="255"></textarea>');
 	$('#description').val(raceNotes);
     $('#race_id').val(raceId);
@@ -254,6 +259,8 @@ function populateRaceTypesSelect(raceTypeId) {
 
 function getRace() {
     var raceDate = Time.hebDateToSqlDate($('#datepicker').val());
+    var count = $('#is_race_count').is(':checked') ? 1 : 0;
+
     if (raceDate == null || raceDate == '') {
         raceDate = Time.hebDateToSqlDate(Time.jsDateToHebDate(new Date()));
     }
@@ -263,7 +270,8 @@ function getRace() {
         race_type : $('#race_type').val(),
 		race_type_id : $('#race_type_id').val(),
 		race_notes : $('#description').val(),
-        race_id : $('#race_id').val()
+        race_id : $('#race_id').val(),
+        is_race_count : count
     };
 
 	return race;
