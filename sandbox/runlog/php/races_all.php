@@ -23,7 +23,7 @@ try {
 }
 
 function getRacesRecords($conn,$runner_id) {
-    $sql = "SELECT tl_races.id as id, tl_races.race_date as race_date, tl_races.race_name as race_name, tl_race_type.type as race_type, tl_race_type.id as type_id, IFNULL(race_notes, '') as race_notes FROM  tl_races,tl_race_type where tl_races.type_id=tl_race_type.id order by tl_races.race_date DESC";
+    $sql = "SELECT tl_races.id as id, tl_races.race_date as race_date, tl_races.race_name as race_name, tl_race_type.type as race_type, tl_race_type.id as type_id, IFNULL(race_notes, '') as race_notes,tl_races.is_race_count as is_race_count FROM  tl_races,tl_race_type where tl_races.type_id=tl_race_type.id order by tl_races.race_date DESC";
     $stmt = $conn->query($sql);
     $result = $stmt->fetchAll(PDO :: FETCH_ASSOC);
     
