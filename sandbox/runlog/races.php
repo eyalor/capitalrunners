@@ -498,7 +498,7 @@ $(document).ready(function() {
                 
 
                 <div style="margin-top:5px;">
-                    <span class="is_race_count">נחשב:</span>
+                    <span class="label">נחשב:</span>
                     <input type="checkbox" id="is_race_count">
                 </div>
 
