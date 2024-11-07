@@ -499,6 +499,11 @@ $(document).ready(function() {
                     <span class="label" style="width:89px; float:right;">פרטים:</span>
                     <div id="descriptionContainer" style="float:right;"></div>
                 </div>
+
+                <div style="margin-top:5px;">
+                    <span class="is_race_count">נחשב:</span>
+                    <input type="checkbox" id="is_race_count">
+                </div>
 				
 				<input type="hidden" id="race_type_id" name="race_type_id">
                 <input type="hidden" id="race_id" name="race_id">
