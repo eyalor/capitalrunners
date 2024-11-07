@@ -94,10 +94,10 @@ function openCreateRaceDialog() {
 function openUpdateRaceDialog(raceId)
 {
     var race = races[raceId];
-    openRaceDialog(race.race_name, race.race_date, race.race_type, race.type_id, race.race_notes, race.id, race.is_race_count);
+    openRaceDialog(race.race_name, race.race_date, race.race_type, race.type_id, race.race_notes, race.is_race_count,race.id);
 }
 
-function openRaceDialog(raceName, raceDate, raceType, raceTypeId, raceNotes, raceId, raceCount)
+function openRaceDialog(raceName, raceDate, raceType, raceTypeId, raceNotes, raceCount, raceId)
 {
     if (isNaN(parseInt(raceId)))
     {
