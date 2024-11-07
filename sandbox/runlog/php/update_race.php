@@ -16,14 +16,15 @@ $race = getRace();
 
 try {
 	$conn = getConnection();
-	$sql = 'UPDATE tl_races SET race_name=:race_name,race_date=:race_date,type_id=:type,race_notes=:race_notes WHERE id=:id';
+	$sql = 'UPDATE tl_races SET race_name=:race_name,race_date=:race_date,type_id=:type,race_notes=:race_notes,is_race_count=:is_race_count WHERE id=:id';
 	$sth = $conn->prepare($sql);
 	$ok = $sth->execute(array (
 		':id' => $race->race_id,
 		':race_name' => $race->race_name,
 		':race_date' => $race->race_date,
 		':type' => $race->race_type,
-		':race_notes' => $race->race_notes
+		':race_notes' => $race->race_notes,
+		':is_race_count' => $race->is_race_count
 	));
 	if (!$ok) {
 		die(getErrorStatusWithDummyData("Failed to update race."));

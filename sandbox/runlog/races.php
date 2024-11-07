@@ -88,16 +88,16 @@ function populateRacesRecords() {
 }
 
 function openCreateRaceDialog() {
-    openRaceDialog('', '', '', '', '', '' );
+    openRaceDialog('', '', '', '', '','','');
 }
 
 function openUpdateRaceDialog(raceId)
 {
     var race = races[raceId];
-    openRaceDialog(race.race_name, race.race_date, race.race_type, race.type_id, race.race_notes, race.id);
+    openRaceDialog(race.race_name, race.race_date, race.race_type, race.type_id, race.race_notes, race.id, race.is_race_count);
 }
 
-function openRaceDialog(raceName, raceDate, raceType, raceTypeId, raceNotes, raceId)
+function openRaceDialog(raceName, raceDate, raceType, raceTypeId, raceNotes, raceId, raceCount)
 {
     if (isNaN(parseInt(raceId)))
     {
@@ -116,6 +116,7 @@ function openRaceDialog(raceName, raceDate, raceType, raceTypeId, raceNotes, rac
     $('#datepicker').val(raceDate);
 	populateRaceTypesSelect(raceTypeId);
     $('#race_type_id').val(raceTypeId);
+    $('#is_race_count').prop('checked', false);
 	$('#descriptionContainer').empty().append('<textarea id="description" maxlength="255"></textarea>');
 	$('#description').val(raceNotes);
     $('#race_id').val(raceId);
@@ -495,7 +496,6 @@ $(document).ready(function() {
                     <select id="race_type"></select>
                 </div>
 
-                
 
                 <div style="margin-top:5px;">
                     <span class="label">נחשב:</span>

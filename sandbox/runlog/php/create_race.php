@@ -20,13 +20,14 @@ $race = getRace();
 
 try {
 	$conn = getConnection();
-	$sql = 'INSERT INTO tl_races (race_name,type_id,race_date,race_notes) VALUES (:race_name,:type_id,:race_date,:race_notes)';
+	$sql = 'INSERT INTO tl_races (race_name,type_id,race_date,race_notes,is_race_count) VALUES (:race_name,:type_id,:race_date,:race_notes,:is_race_count)';
 	$sth = $conn->prepare($sql);
 	$ok = $sth->execute(array (
 		':race_name' => $race->race_name,
 		':type_id' => $race->race_type,
 		':race_date' => $race->race_date,
-		':race_notes' => $race->race_notes
+		':race_notes' => $race->race_notes,
+		':is_race_count' => $race->is_race_count
 	));
 	if (!$ok) {
 		die(getErrorStatusWithDummyData("Failed to Create a race."));
