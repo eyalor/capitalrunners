@@ -339,10 +339,10 @@ var Calendar = {
         {
             html += " - מאמץ: <span>"+ rpe+"</span>  ";
         }
-        // if (weight != 0 && weight != null)
-        // {
-        //     html += " - משקל: <span>"+ weight+" קג'</span>  ";
-        // }
+        if (weight != 0 && weight != null)
+        {
+             html += " - משקל: <span>"+ weight+" קג'</span>  ";
+         }
         
         html += "</div>";
         
