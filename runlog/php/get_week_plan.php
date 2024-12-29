@@ -24,8 +24,9 @@ FROM tl_events
 JOIN tl_runners ON tl_events.runner_id = tl_runners.id 
 JOIN tl_run_types ON tl_events.run_type_id = tl_run_types.id 
 WHERE tl_events.runner_id =18600162 
-and year(tl_events.run_date) = year(CURRENT_DATE()) 
-and week(tl_events.run_date) = week(CURRENT_DATE()) 
+-- and year(tl_events.run_date) = year(CURRENT_DATE()) 
+-- and week(tl_events.run_date) = week(CURRENT_DATE()) 
+and YEARWEEK(tl_events.run_date, 0) = YEARWEEK(CURDATE(), 0)
 ORDER BY tl_events.run_date ASC";
 
     $stmt = $conn->query($sql);
