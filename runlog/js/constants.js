@@ -66,6 +66,7 @@ EVENT_TYPES_ATTRIBUTES[EventTypes.OTHER_SPORT]         = new EventTypeAttributes
 EVENT_TYPES_ATTRIBUTES[EventTypes.REST_DAY]            = new EventTypeAttributes("#ffffff","#e0e0e0","יום מנוחה");
 EVENT_TYPES_ATTRIBUTES[EventTypes.EVENT_CANCELED]      = new EventTypeAttributes("#ebebeb","#e0e0e0","אימון שבוטל");
 EVENT_TYPES_ATTRIBUTES[EventTypes.TRAIL_RUN]           = new EventTypeAttributes("#d0d3d4","#e0e0e0","ריצת שטח");
+EVENT_TYPES_ATTRIBUTES[EventTypes.POWER]               = new EventTypeAttributes("#ffffff","#e0e0e0","אימון כח");
 
 var  RPEAttributes = function(label) {
     var _label = label;

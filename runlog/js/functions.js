@@ -371,7 +371,7 @@ var EventFormatter = {
     getTotalDistance:function (warmupDistance, runDistance, cooldownDistance, runTypeId) {
 
         var runDistance = parseFloat(runDistance);
-        if (runDistance == NaN || runDistance == 0 || runTypeId == EventTypes.OTHER_SPORT || runTypeId == EventTypes.REST_DAY || runTypeId == EventTypes.EVENT_CANCELED) {
+        if (runDistance == NaN || runDistance == 0 || runTypeId == EventTypes.OTHER_SPORT || runTypeId == EventTypes.REST_DAY || runTypeId == EventTypes.EVENT_CANCELED || runTypeId == EventTypes.POWER) {
             return null;
         }
         else {
@@ -381,7 +381,7 @@ var EventFormatter = {
 
     getRunDistanceAndPace:function (warmupDistance, runDistance, cooldownDistance, runTime, runTypeId) {
 
-        if (runTypeId == EventTypes.OTHER_SPORT || runTypeId == EventTypes.REST_DAY || runTypeId == EventTypes.EVENT_CANCELED) {
+        if (runTypeId == EventTypes.OTHER_SPORT || runTypeId == EventTypes.REST_DAY || runTypeId == EventTypes.EVENT_CANCELED || runTypeId == EventTypes.POWER) {
             // no meaning for run pace in these cases
             return null;
         }
@@ -642,7 +642,7 @@ var EventDialog = {
             return null;
         }
         var runType = $('#run_types').val();
-        if (runType == EventTypes.OTHER_SPORT || runType == EventTypes.REST_DAY || runType == EventTypes.EVENT_CANCELED) {
+        if (runType == EventTypes.OTHER_SPORT || runType == EventTypes.REST_DAY || runType == EventTypes.EVENT_CANCELED || runTypeId == EventTypes.POWER) {
             eventFields.run_distance = 0;
             eventFields.run_time = 0;
             eventFields.extra_run_distance = 0;
@@ -726,7 +726,7 @@ var EventDialog = {
      */
     runTypeChanged:function () {
         var runType = $('#run_types').val();
-        if (runType == EventTypes.OTHER_SPORT || runType == EventTypes.REST_DAY || runType == EventTypes.EVENT_CANCELED) {
+        if (runType == EventTypes.OTHER_SPORT || runType == EventTypes.REST_DAY || runType == EventTypes.EVENT_CANCELED || runTypeId == EventTypes.POWER) {
             $('#user_courses').hide();
             $('#duration_distance_pace').hide();
 			$('#pulse_c').hide();
