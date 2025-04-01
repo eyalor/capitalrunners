@@ -642,7 +642,7 @@ var EventDialog = {
             return null;
         }
         var runType = $('#run_types').val();
-        if (runType == EventTypes.OTHER_SPORT || runType == EventTypes.REST_DAY || runType == EventTypes.EVENT_CANCELED || runTypeId == EventTypes.POWER) {
+        if (runType == EventTypes.OTHER_SPORT || runType == EventTypes.REST_DAY || runType == EventTypes.EVENT_CANCELED || runType == EventTypes.POWER) {
             eventFields.run_distance = 0;
             eventFields.run_time = 0;
             eventFields.extra_run_distance = 0;
@@ -726,7 +726,7 @@ var EventDialog = {
      */
     runTypeChanged:function () {
         var runType = $('#run_types').val();
-        if (runType == EventTypes.OTHER_SPORT || runType == EventTypes.REST_DAY || runType == EventTypes.EVENT_CANCELED || runTypeId == EventTypes.POWER) {
+        if (runType == EventTypes.OTHER_SPORT || runType == EventTypes.REST_DAY || runType == EventTypes.EVENT_CANCELED || runType == EventTypes.POWER) {
             $('#user_courses').hide();
             $('#duration_distance_pace').hide();
 			$('#pulse_c').hide();
