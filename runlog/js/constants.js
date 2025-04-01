@@ -50,7 +50,8 @@ var EventTypes  = {
     OTHER_SPORT : 9,
     EVENT_CANCELED : 10,
     REST_DAY : 11,
-    TRAIL_RUN : 12
+    TRAIL_RUN : 12,
+    POWER :13
 }
 
 var EVENT_TYPES_ATTRIBUTES = new Array();
