@@ -28,7 +28,7 @@ echo "<br>";
 if ($_SESSION[MEMBER_ADMIN_SESSION_KEY_NAME])
 {
     echo "True Admin Session Variable" ;
-    echo "Test" ;
+    echo "Test2" ;
 }
 echo "<br>";
 
